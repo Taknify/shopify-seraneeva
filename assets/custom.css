@@ -623,4 +623,6 @@ input.input-full, select.input-full, textarea.input-full {
   margin-bottom: 30px;
 }
 
-
+.sitewide--title-wrapper {
+  height: 50px;
+}

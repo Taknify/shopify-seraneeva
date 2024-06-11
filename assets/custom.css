@@ -622,3 +622,8 @@ a.btn.homepage-section-btn::before {
 input.input-full, select.input-full, textarea.input-full {
   margin-bottom: 30px;
 }
+
+.page--title.template-title {
+  white-space: nowrap;
+  text-align: center;
+}

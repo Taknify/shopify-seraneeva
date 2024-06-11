@@ -623,6 +623,6 @@ input.input-full, select.input-full, textarea.input-full {
   margin-bottom: 30px;
 }
 
-wrapper-spacing--v wrapper-spacing--h color-scheme--white {
-  padding-top: 30px;
+.wrapper-spacing--v.wrapper-spacing--h.color-scheme--white {
+  padding-top: 30px!important;
 }

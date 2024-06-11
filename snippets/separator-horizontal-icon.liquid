@@ -1,0 +1,17 @@
+{% comment %}©  2024-05-21 Paul N. a zero height section seperator with image that overlays the next section {% endcomment %}
+{% comment %}UNTESTED?{% endcomment %}
+<div class="section-seperator">{{  'logo-diamond_500px.png' | asset_img_url | image_tag }}</div>
+<style>
+  .section-seperator:before {
+  content: "";
+  display: block;
+  background-image: var(--seperator-logo);
+  background-position: center;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  top: -32px;
+  margin: 0 auto;
+  text-align: center;
+}
+</style>

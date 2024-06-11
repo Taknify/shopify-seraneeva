@@ -622,10 +622,3 @@ a.btn.homepage-section-btn::before {
 input.input-full, select.input-full, textarea.input-full {
   margin-bottom: 30px;
 }
-
-
-@media (min-width:768px) {
-  .main-content section:first-child + div:before {
-    display: none !important;
-  }
-} 

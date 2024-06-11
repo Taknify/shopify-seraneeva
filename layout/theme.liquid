@@ -470,7 +470,26 @@
     }
     }
 
-</style>
+    </style>
+    
+            {% unless template.name == 'collection' or template.name == 'product' %}
+    <style>
+    @media (min-width:768px) {
+      .main-content section:first-child + div:before {
+        content: "";
+        display: block;
+        background-image: var(--seperator-logo);
+        background-position: center;
+        position: relative;
+        width: 64px;
+        height: 64px;
+        top: -32px;
+        margin: 0 auto;
+        text-align: center;
+      }
+    } 
+    </style>
+    {% endunless %}
         
 </body>
 </html>

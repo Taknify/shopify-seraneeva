@@ -623,7 +623,4 @@ input.input-full, select.input-full, textarea.input-full {
   margin-bottom: 30px;
 }
 
-.page--title.template-title {
-  white-space: nowrap;
-  margin-right: 90px!important;
-}
+

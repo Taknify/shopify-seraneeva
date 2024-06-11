@@ -624,5 +624,5 @@ input.input-full, select.input-full, textarea.input-full {
 }
 
 wrapper-spacing--v wrapper-spacing--h color-scheme--white {
-  --padding-section-top: 30px;
+  padding-top: 30px;
 }

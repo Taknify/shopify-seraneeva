@@ -622,3 +622,7 @@ a.btn.homepage-section-btn::before {
 input.input-full, select.input-full, textarea.input-full {
   margin-bottom: 30px;
 }
+
+wrapper-spacing--v wrapper-spacing--h color-scheme--white {
+  --padding-section-top: 30px;
+}

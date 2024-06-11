@@ -622,7 +622,3 @@ a.btn.homepage-section-btn::before {
 input.input-full, select.input-full, textarea.input-full {
   margin-bottom: 30px;
 }
-
-.sitewide--title-wrapper {
-  height: 55px;
-}

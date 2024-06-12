@@ -25956,7 +25956,6 @@ class Header extends Section {
     this.handleStickyHeaderVars();
 
     // Close mobile menu on overlay click
-    this.element.querySelector('.close-btn').addEventListener('click', () => this.theme.toggleLeftDrawer(false));
     this.element.querySelector('#NavDrawerOverlay').addEventListener('click', () => this.theme.toggleLeftDrawer(false));
     this.loadAccessibleMenu();
     if (this.element.dataset.headerSticky === 'true' && (this.element.dataset.inspectorActive == 'false' || !this.element.dataset.inspectorActive)) {

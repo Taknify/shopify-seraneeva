@@ -352,7 +352,7 @@
         document.querySelector('.email-title + span').innerHTML = email;
         document.querySelector('.message-title ~ span').innerHTML = message;
         form_success.parentNode.style.display = "none";
-        let close_pop_up = document.querySelector('.pop-up-btn, .custom-pop-up .close-btn');
+        let close_pop_up = document.querySelectorAll('.pop-up-btn, .custom-pop-up .close-btn');
         close_pop_up.forEach((item) => {
           item.addEventListener("click", () => {
             overlay.style.display = "none";

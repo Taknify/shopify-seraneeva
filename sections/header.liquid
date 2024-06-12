@@ -887,6 +887,10 @@ Testing Cypress integration
   </nav>
   <script>
     let close_btn_menu = document.querySelector("#NavDrawer .close-btn");
+    close_btn_menu.addEventListener("click", () => {
+      let body_is_has_drawer_open = document.querySelector("body.js-drawer-open.js-drawer-open-left"); 
+      body_is_has_drawer_open.classList.remove("js-drawer-open js-drawer-open-left")
+    })
     console.log(close_btn_menu)
   </script>
 </div>

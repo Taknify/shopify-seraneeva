@@ -890,7 +890,7 @@ Testing Cypress integration
     close_btn_menu.addEventListener("click", () => {
       let body_is_has_drawer_open = document.querySelector("body.js-drawer-open.js-drawer-open-left");
       if(body_is_has_drawer_open) {
-        body_is_has_drawer_open.classList.remove("js-drawer-open js-drawer-open-left")
+        body_is_has_drawer_open.classList.remove('js-drawer-open', 'js-drawer-open-left')
       }
     })
     console.log(close_btn_menu)

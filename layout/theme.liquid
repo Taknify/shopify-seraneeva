@@ -472,7 +472,15 @@
 
     </style>
     
-   
+   <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          if (window.location.pathname.includes('/collections')) {
+              document.body.classList.add('collections-page');
+          } else if (window.location.pathname.includes('/product')) {
+              document.body.classList.add('product-page');
+          }
+      });
+ </script>
         
 </body>
 </html>

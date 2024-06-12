@@ -25924,8 +25924,6 @@ class Header extends Section {
     this.$element = jquery_default()(this.element);
     Array.prototype.forEach.call(this.element.querySelectorAll('.js-drawer-open-right-link'), el => el.addEventListener('click', this.onCartButtonClick));
     document.querySelector('.js-drawer-open-left-link').addEventListener('click', this.onMobileMenuButtonClick);
-    console.log(document.querySelector('#NavDrawer .close-btn'))
-    document.querySelector('#NavDrawer .close-btn').addEventListener('click', () => this.theme.toggleLeftDrawer(false));
     this.mobileMenu = new MobileMenu(theme, this.element.querySelector('.drawer--left'));
     document.documentElement.addEventListener(CART_UPDATE_EVENT, this.onCartUpdate);
     if (window.Shopify.designMode) {

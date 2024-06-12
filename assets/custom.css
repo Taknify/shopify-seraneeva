@@ -622,3 +622,9 @@ a.btn.homepage-section-btn::before {
 input.input-full, select.input-full, textarea.input-full {
   margin-bottom: 30px;
 }
+
+/* Remove message at bottom of contact us page */
+
+.section-contact-form--submit-wrapper [data-spam-detection-disclaimer] {
+  display: none;
+}

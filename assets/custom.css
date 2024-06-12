@@ -628,3 +628,12 @@ input.input-full, select.input-full, textarea.input-full {
 .section-contact-form--submit-wrapper [data-spam-detection-disclaimer] {
   display: none;
 }
+
+/* Remove logo from product and collection pages */
+
+@media (min-width:768px) {
+.product-page .card__heading.main-content section:first-child + div:before,
+.collections-page .card__heading.main-content section:first-child + div:before, {
+    display: none !important;
+  }
+} 

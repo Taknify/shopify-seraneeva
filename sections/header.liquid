@@ -99,7 +99,7 @@ Testing Cypress integration
 
     <li>
          {% if section.settings.show_icons %}
-           <button class="account_button" id="drawer-toggle" aria-label="Open Menu">
+           <button class="account_button drawer-toggle" id="drawer-toggle" aria-label="Open Menu">
               {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
             {% else %}
               <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
@@ -884,7 +884,7 @@ Testing Cypress integration
               </a>
               {% endif %}
 
-              <div class="account_button" id="drawer-toggle" aria-label="Open Menu">
+              <div class="account_button drawer-toggle" id="drawer-toggle" aria-label="Open Menu">
                 {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
              </div>
             

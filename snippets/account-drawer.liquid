@@ -14,18 +14,19 @@
 .account_drawer {
   position: fixed;
   top: 0;
-  right: -250px; /* Start off-screen to the right */
-  width: 340px;
+  right: 0;
+  width: 250px;
   height: 100%;
   background-color: #fff;
   box-shadow: -2px 0 5px rgba(0,0,0,0.5);
   overflow-y: auto;
-  transition: right 0.3s ease;
+  transform: translateX(100%); /* Initially hide the drawer */
+  transition: transform 0.3s ease;
   z-index: 1000;
 }
 
 .account_drawer.open {
-  right: 0; /* Slide in from the right */
+  transform: translateX(0); /* Slide in the drawer */
 }
 
 #drawer-toggle,
@@ -36,9 +37,11 @@
   cursor: pointer;
 }
 
+
 #drawer-close {
   position: absolute;
   top: 15px;
   left: 15px; /* Position close button on the left inside the drawer */
 }
+
 </style>

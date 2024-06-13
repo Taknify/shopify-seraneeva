@@ -471,7 +471,22 @@
     }
 
     </style>
-    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var drawerToggle = document.getElementById('drawer-toggle');
+  var drawerClose = document.getElementById('drawer-close');
+  var drawerMenu = document.getElementById('drawer-menu');
+
+  drawerToggle.addEventListener('click', function() {
+    drawerMenu.classList.add('open');
+  });
+
+  drawerClose.addEventListener('click', function() {
+    drawerMenu.classList.remove('open');
+  });
+});
+</script>
+        
         
 </body>
 </html>

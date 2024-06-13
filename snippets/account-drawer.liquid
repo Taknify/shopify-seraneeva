@@ -9,12 +9,12 @@
       <ul class="ul-list-drawer">
         {% if customer %}
           <li class="li-list-drawer"><a href="/account/logout">Logout</a></li>
-          <li class="li-list-drawer"><a href="/account/login">My Orders</a></li>
-          <li class="li-list-drawer"><a href="/account/login">Address Book</a></li>
-        {% else %}
-          <li class="li-list-drawer"><a href="/account/login">Login</a></li>
           <li class="li-list-drawer"><a href="/pages/my-order">My Orders</a></li>
           <li class="li-list-drawer"><a href="/account/addresses">Address Book</a></li>
+        {% else %}
+          <li class="li-list-drawer"><a href="/account/login">Login</a></li>
+          <li class="li-list-drawer"><a href="/account/login">My Orders</a></li>
+          <li class="li-list-drawer"><a href="/account/login">Address Book</a></li>
         {% endif %}
       </ul>
     </div>

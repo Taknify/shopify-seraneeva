@@ -883,15 +883,7 @@ Testing Cypress integration
                 </span>
               </a>
               {% endif %}
-
-              {% if section.settings.show_icons %}
-               <button class="account_button" id="drawer-toggle" aria-label="Open Menu">
-                  {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
-                {% else %}
-                  <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
-               </button>
-              {% endif %}
-
+              
               <a href="{{ routes.cart_url }}" aria-label="{{ 'layout.cart.title' | t }}" class="{% if settings.cart_type == 'drawer' %}js-drawer-open-right-link {% endif %}site-nav__link{% if section.settings.cart_count %} cart-count-enabled {{ section.settings.cart-style }}{% endif %} standalone-icon--wrapper" aria-controls="CartDrawer" aria-expanded="false">
                 <span class="icon-fallback-text">
                   {% render 'theme-icon' with icon: section.settings.cart-style, iconClasses: 'fa-2x' %}

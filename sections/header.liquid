@@ -72,8 +72,8 @@ Testing Cypress integration
     {% endif %}
 
     {% if shop.customer_accounts_enabled %}
-      {% if customer %}
        {% comment %}
+      {% if customer %}
         <li>
           <a href="{{ routes.account_url }}" title="{{ 'layout.customer.account' | t }}" class="account-button standalone-icon--wrapper">
             {% if section.settings.show_icons %}
@@ -94,9 +94,10 @@ Testing Cypress integration
             {% endif %}
           </a>
         </li>
+    {% endif %}
     {% endcomment %}
 
-        <li>
+    <li>
          {% if section.settings.show_icons %}
            <button class="account_button" id="drawer-toggle" aria-label="Open Menu">
               {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
@@ -107,7 +108,6 @@ Testing Cypress integration
         </li>
         
       {% endif %}
-    {% endif %}
 
     <li>
       <a 

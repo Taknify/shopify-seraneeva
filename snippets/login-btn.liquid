@@ -1,0 +1,7 @@
+ <a href="{{ routes.search_url }}" class="search-button standalone-icon--wrapper" aria-label="{{ 'layout.header.search' | t }}">
+          {% if section.settings.show_icons %}
+            {% render 'theme-icon' with icon: 'search', iconSize: 20 %}
+          {% else %}
+            <span class="header--supporting-text">{{ 'layout.header.search' | t }}</span>
+          {% endif %}
+        </a>

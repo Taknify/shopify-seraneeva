@@ -94,6 +94,15 @@ Testing Cypress integration
           </a>
         </li>
     {% endcomment %}
+
+        <li>
+         {% if section.settings.show_icons %}
+              {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
+            {% else %}
+              <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
+            {% endif %}
+        </li>
+        
       {% endif %}
     {% endif %}
 

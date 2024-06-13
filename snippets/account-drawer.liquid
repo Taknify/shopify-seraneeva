@@ -7,13 +7,13 @@
     </div>
     <div class="list_items_drawer">
       <ul class="ul-list-drawer">
-        
+        {% if customer %}
         <li class="li-list-drawer"><a href="/account/login">Account Login</a></li>
-        
+        {% else %}
         <li class="li-list-drawer"><a href="/pages/my-order">My Order</a></li>
         
         <li class="li-list-drawer"><a href="/account/addresses">Addresses</a></li>
-        
+        {% endif %}
       </ul>
     </div>
   </div>

@@ -479,15 +479,23 @@ document.addEventListener('DOMContentLoaded', function() {
   var drawerToggle = document.getElementById('drawer-toggle');
   var drawerClose = document.getElementById('drawer-close');
   var drawerMenu = document.getElementById('drawer-menu');
+  var drawerOverlay = document.getElementById('drawer-overlay');
 
-  drawerToggle.addEventListener('click', function() {
+  function openDrawer() {
     drawerMenu.classList.add('open');
-  });
+    drawerOverlay.classList.add('open');
+  }
 
-  drawerClose.addEventListener('click', function() {
+  function closeDrawer() {
     drawerMenu.classList.remove('open');
-  });
+    drawerOverlay.classList.remove('open');
+  }
+
+  drawerToggle.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  drawerOverlay.addEventListener('click', closeDrawer);
 });
+
 </script>
         
         

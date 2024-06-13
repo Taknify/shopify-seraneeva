@@ -83,6 +83,13 @@ Testing Cypress integration
           </a>
         </li>
       {% else %}
+        <a href="{{ routes.account_login_url }}" aria-label="{{ 'layout.customer.log_in' | t }}" class="log-in-button standalone-icon--wrapper">
+            {% if section.settings.show_icons %}
+              {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
+            {% else %}
+              <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
+            {% endif %}
+          </a>
         {% comment %}
         <li>
           <a href="{{ routes.account_login_url }}" aria-label="{{ 'layout.customer.log_in' | t }}" class="log-in-button standalone-icon--wrapper">

@@ -8,3 +8,45 @@
     <!-- Add more links as needed -->
   </ul>
 </div>
+
+<style>
+  /* Drawer Styles */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.drawer.open {
+  left: 0;
+}
+
+#drawer-toggle,
+#drawer-close {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+#drawer-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+}
+
+#drawer-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+</style>

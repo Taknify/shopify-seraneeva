@@ -10,22 +10,22 @@
 </div>
 
 <style>
-  /* Drawer Styles */
-.account_drawer {
+ /* Drawer Styles */
+.drawer {
   position: fixed;
   top: 0;
-  left: -250px;
+  right: -250px; /* Start off-screen to the right */
   width: 250px;
   height: 100%;
   background-color: #fff;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
   overflow-y: auto;
-  transition: left 0.3s ease;
+  transition: right 0.3s ease;
   z-index: 1000;
 }
 
-.account_drawer.open {
-  left: 0;
+.drawer.open {
+  right: 0; /* Slide in from the right */
 }
 
 #drawer-toggle,
@@ -39,7 +39,6 @@
 #drawer-close {
   position: absolute;
   top: 15px;
-  right: 15px;
+  left: 15px; /* Position close button on the left inside the drawer */
 }
-
 </style>

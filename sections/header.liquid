@@ -73,6 +73,7 @@ Testing Cypress integration
 
     {% if shop.customer_accounts_enabled %}
       {% if customer %}
+       {% comment %}
         <li>
           <a href="{{ routes.account_url }}" title="{{ 'layout.customer.account' | t }}" class="account-button standalone-icon--wrapper">
             {% if section.settings.show_icons %}
@@ -83,7 +84,7 @@ Testing Cypress integration
           </a>
         </li>
       {% else %}
-       {% comment %}
+     
         <li>
           <a href="{{ routes.account_login_url }}" aria-label="{{ 'layout.customer.log_in' | t }}" class="log-in-button standalone-icon--wrapper">
             {% if section.settings.show_icons %}

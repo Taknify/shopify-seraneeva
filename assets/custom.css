@@ -502,7 +502,7 @@ footer a span {
   text-decoration: none;
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  /* display: inline-block; */
   animation: none!important;
   background: none!important;
 }
@@ -510,7 +510,7 @@ footer a span {
 .footer-article a:after,
 .grid__item--customer-accounts .form-vertical a:before,
 .grid__item--customer-accounts .form-vertical a:after{
-    background-color: #000;
+    /* background-color: #000; */
     bottom: 0;
     content: "";
     height: 1px;

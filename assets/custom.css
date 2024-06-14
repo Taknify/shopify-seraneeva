@@ -73,7 +73,7 @@
 
 /* Logo bottom middle of image banners */
 
- @media (min-width:768px) {
+@media (min-width:768px) {
   .main-content section:first-child + div:before {
     content: "";
     display: block;
@@ -86,10 +86,7 @@
     margin: 0 auto;
     text-align: center;
   }
-   #collections .main-content section:first-child + div:before, #products .main-content section:first-child + div:before {
-     display:none !important;
-   }
-}  
+} 
 
 @media (min-width: 989px) {
    header.site-header .site-header__wrapper .site-header__wrapper__left { display: none; }
@@ -505,16 +502,15 @@ footer a span {
   text-decoration: none;
   position: relative;
   overflow: hidden;
-  /* display: inline-block; */
+  display: inline-block;
   animation: none!important;
   background: none!important;
-  border-bottom: 1px solid #000;
 }
 .footer-article a:before,
 .footer-article a:after,
 .grid__item--customer-accounts .form-vertical a:before,
 .grid__item--customer-accounts .form-vertical a:after{
-    /* background-color: #000; */
+    background-color: #000;
     bottom: 0;
     content: "";
     height: 1px;
@@ -633,8 +629,9 @@ input.input-full, select.input-full, textarea.input-full {
   display: none;
 }
 
-
-
+.overlay {
+  opacity:1 !important;
+}
 
 /* Remove logo from product and collection pages */
 

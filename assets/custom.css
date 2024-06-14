@@ -505,6 +505,7 @@ footer a span {
   /* display: inline-block; */
   animation: none!important;
   background: none!important;
+  border-bottom: 1px solid #000;
 }
 .footer-article a:before,
 .footer-article a:after,

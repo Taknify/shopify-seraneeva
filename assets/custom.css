@@ -630,6 +630,19 @@ input.input-full, select.input-full, textarea.input-full {
   display: none;
 }
 
+div#shopify-section-template--16750207205513__image_slideshow_a7Vfe6::after {
+  content: "";
+    display: block;
+    background-image: var(--seperator-logo);
+    background-position: center;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    top: -32px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 
 
 /* Remove logo from product and collection pages */

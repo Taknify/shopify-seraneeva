@@ -74,7 +74,7 @@
 /* Logo bottom middle of image banners */
 
  @media (min-width:768px) {
-  .main-content section:first-child + div:before {
+  .footer-wrapper:before {
     content: "";
     display: block;
     background-image: var(--seperator-logo);

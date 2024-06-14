@@ -629,11 +629,9 @@ input.input-full, select.input-full, textarea.input-full {
   display: none;
 }
 
+.overlay {
+  opacity:1 !important;
+}
+
 /* Remove logo from product and collection pages */
 
-@media (min-width:768px) {
-.product-page .card__heading.main-content section:first-child + div:before,
-.collections-page .card__heading.main-content section:first-child + div:before, {
-    display: none !important;
-  }
-} 

@@ -325,6 +325,9 @@
   {% endcomment %}
   {% render 'right-drawer' %}
 
+  <!-- account drawer -->
+  {% render 'account-drawer' %}
+
   <div id="DrawerOverlay" class="drawer-overlay"></div>
 
   <div id="PageContainer" data-editor-open="{{ request.design_mode }}" data-cart-action="{{ settings.add_to_cart_action }}" data-cart-type="{{ settings.cart_type }}" data-language-url="{{ localization.language.root_url }}">
@@ -372,8 +375,6 @@
     {% render 'verification-popup' %}
   {% endif %}
 
-<!-- account drawer -->
-        {% render 'account-drawer' %}
         
   {% render 'back-to-top-button' %}
 

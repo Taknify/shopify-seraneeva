@@ -86,7 +86,7 @@
     margin: 0 auto;
     text-align: center;
   }
-   #collections .main-content section:first-child + div:before {
+   #collections .main-content section:first-child + div:before, #products .main-content section:first-child + div:before {
      display:none !important;
    }
 }  

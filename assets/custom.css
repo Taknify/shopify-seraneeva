@@ -506,7 +506,7 @@ footer a span {
   animation: none!important;
   background: none!important;
 }
-.grid__item--customer-accounts .form-vertical a{
+.grid__item--customer-accounts .form-vertical .errors a{
   margin-bottom: -4.5px;
 }
 .footer-article a:before,

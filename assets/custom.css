@@ -505,6 +505,8 @@ footer a span {
   display: inline-block;
   animation: none!important;
   background: none!important;
+}
+.grid__item--customer-accounts .form-vertical a{
   margin-bottom: -4.5px;
 }
 .footer-article a:before,

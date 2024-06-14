@@ -271,7 +271,7 @@ Testing Cypress integration
                   {% if sub_link.levels > 0 %}
                     <li class="mobile-nav__item {% if sub_link.active %} mobile-nav__item--active{% endif %}">
                       <div class="mobile-nav__has-sublist">
-                        <a href="{{ sub_link.url }}" class="mobile-nav__link">{{ sub_link.title | escape }}</a>
+                        <a href="{{ sub_link.url }}" class="dddd mobile-nav__link">{{ sub_link.title | escape }}</a>
                         <div class="mobile-nav__toggle">
                           <button type="button" class="icon-fallback-text mobile-nav__toggle-open standalone-icon--wrapper touch-target icon-no-padding" name="{{ 'cart.general.see_more' | t }}">
                             {% render 'theme-icon', icon: 'chevron_down', iconSize: 16, iconAttributes: 'aria-hidden="true"' %}

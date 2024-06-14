@@ -226,7 +226,7 @@ Testing Cypress integration
       </div>
 
       <!-- begin mobile-nav -->
-      <ul class="dfdfdf mobile-nav mobile-nav--main">
+      <ul class="mobile-nav mobile-nav--main">
         {% assign menu = linklists[section.settings.main_linklist] %}
         {% for link in menu.links %}
           {% liquid 
@@ -255,7 +255,7 @@ Testing Cypress integration
           %}
           {% if link.links != blank %}
             <li class="mobile-nav__item top-level{% if link.active %} mobile-nav__item--active{% endif %}{% if is-mega-menu %} mega-menu--mobile{% endif %}" aria-haspopup="true">
-              <div class="mobile-nav__has-sublist">
+              <div class="dddd mobile-nav__has-sublist">
                 <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
                 <div class="mobile-nav__toggle">
                   <button type="button" class="icon-fallback-text mobile-nav__toggle-open standalone-icon--wrapper touch-target icon-no-padding" aria-label="{{ 'cart.general.see_more' | t }}">

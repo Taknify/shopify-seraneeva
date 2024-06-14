@@ -271,8 +271,6 @@
                             <div class="rte footer-article text-link-animated">{{ block.settings.footer_newsletter_description }}</div>
 						{% endif %}
 						{% form 'customer', id: 'newsletter-footer_form' %}
-							{{ form.errors | default_errors }}
-
 							{% if form.posted_successfully? %}
 								<p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
 							{% else %}
@@ -292,43 +290,54 @@
 
         </div>
     </div>
-    <script>
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      function setError(message, elm) {
-          if (message) {
-              elm.insertAdjacentHTML("afterend",  `<span class="error-message">${message}</span>`);
-              return false;
-          }
+  <script>
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+    function setError(message, elm) {
+      if (message) {
+        elm.insertAdjacentHTML("afterend", `<span class="error-message">${message}</span>`);
+        return false;
+      }
+      return true;
+    }
+  
+    document.addEventListener("DOMContentLoaded", (event) => {
+      let emailInput = document.getElementById('Email');
+      let form = document.querySelector("#newsletter-footer_form");
+      let btnSubmit = document.querySelector("#newsletter-footer_form #subscribe");
+  
+      function validateEmail() {
+        let emailVal = emailInput.value;
+        let isError = emailVal ? (emailPattern.test(emailVal) ? '' : 'Please enter a valid email address.') : 'Email is required.';
+        
+        let existingError = document.querySelector(".custom-error-message");
+        if (existingError) {
+          existingError.remove();
+        }
+  
+        if (isError) {
+          form.insertAdjacentHTML("afterend", `<span class="custom-error-message">${isError}</span>`);
+          return false;
+        }
         return true;
       }
-      document.addEventListener("DOMContentLoaded", (event) => {
-            let errorElm;
-            let emailInput = document.getElementById('Email');
-            let form = document.querySelector("#newsletter-footer_form");
-            emailInput.addEventListener("change", () => {
-            let emailVal = emailInput.value;
-            let isError = emailVal ? (emailPattern.test(emailVal) ? '' : 'Please enter a valid email address.') : 'Email is required.';
-            let btnSubmit = document.querySelector("#newsletter-footer_form #subscribe");
-            if(isError) {
-              btnSubmit.setAttribute("type", "button");
-            }
-            else {
-              btnSubmit.setAttribute("type", "submit");
-            }
-            btnSubmit.addEventListener("click", () => {
-               if(isError) {
-                 errorElm = document.querySelector(".custom-error-message");
-                 if(!errorElm) {
-                   form.insertAdjacentHTML("afterend",  `<span class="custom-error-message">${isError}</span>`);
-                 }
-                 else {
-                   errorElm.textContent = isError;
-                 }
-               }
-            })
-          })
+  
+      emailInput.addEventListener("input", validateEmail);
+  
+      form.addEventListener("submit", (e) => {
+        if (!validateEmail()) {
+          e.preventDefault();
+        }
       });
-    </script>
+  
+      btnSubmit.addEventListener("click", (e) => {
+        if (!validateEmail()) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
+
 </footer>
 
 {% schema %}

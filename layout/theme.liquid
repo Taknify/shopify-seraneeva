@@ -473,11 +473,12 @@
       width: 50% !important;
     }
     }
-
+     .no-scroll {
+        overflow: hidden;
+      }
     </style>
 
 
-<!-- Code by SST : Account Drawer Menu  -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var drawerToggles = document.querySelectorAll('.drawer-toggle');
@@ -488,11 +489,13 @@ document.addEventListener('DOMContentLoaded', function() {
   function openDrawer() {
     drawerMenu.classList.add('open');
     drawerOverlay.classList.add('open');
+    document.body.classList.add('no-scroll'); // Prevent scrolling
   }
 
   function closeDrawer() {
     drawerMenu.classList.remove('open');
     drawerOverlay.classList.remove('open');
+    document.body.classList.remove('no-scroll'); // Allow scrolling
   }
 
   drawerToggles.forEach(function(toggle) {

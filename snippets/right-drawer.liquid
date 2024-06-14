@@ -172,7 +172,16 @@
                         v-on:click="setQuantity(index + 1, 0); setSubtotal();"
                         v-if="!isGiftwrapProduct(item)"
                       >
-                        <span class="cart-drawer--remove-btn animated-underline">{{ 'cart.general.remove' | t }} </span>
+                        <span class="cart-drawer--remove-btn">
+  
+  
+  
+  <a href="#">
+  <span class="animated-underline">
+  {{ 'cart.general.remove' | t }} </span>
+
+</a>
+</span>
                       </button>
 
                     </div>

@@ -98,7 +98,7 @@
       }
     },
     "product-form": {
-      "type": "template--product",
+      "type": "template--product-taknify",
       "blocks": {
         "title": {
           "type": "title",

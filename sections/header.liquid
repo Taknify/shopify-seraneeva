@@ -159,7 +159,7 @@ Testing Cypress integration
     {%- comment -%}2024-05-20 Paul N add menu icon to desktop rightside header icons (mobile menu icon) {%- endcomment -%}
     {%- comment -%}note indirect onclick method used as .js-drawer-open-left-link class CANNOT be used here as theme.js expects only ONE such element match {%- endcomment -%}
     <li>
-      <div class="site-nav--mobile">
+      <div class="site-nav--mobile twetwe">
         <button onclick="document.querySelector('.js-drawer-open-left-link').click()" type="button" aria-label="{{ 'layout.navigation.menu' | t }}" class="hamburger-nav-button icon-fallback-text site-nav__link {% comment -%}js-drawer-open-left-link{%- endcomment %} standalone-icon--wrapper" aria-controls="NavDrawer" aria-expanded="false">
           {% render 'theme-icon' with icon: 'hamburger_nav', iconClasses: 'fa-2x', widthUnset: true %}
           {%- comment -%}2024-05-20 Paul N add 'Menu' text to header navigation hamburger icon {%- endcomment -%}

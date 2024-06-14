@@ -6,15 +6,38 @@
       <button id="drawer-close" aria-label="Close Menu">{% render 'cross__icon' %}</button>
     </div>
     <div class="list_items_drawer">
+      
+ 
+        
+      
       <ul class="ul-list-drawer">
         {% if customer %}
-          <li class="li-list-drawer"><a href="/account/logout">Logout</a></li>
-          <li class="li-list-drawer"><a href="/pages/my-order">My Orders</a></li>
-          <li class="li-list-drawer"><a href="/account/addresses">Address Book</a></li>
+          <li class="li-list-drawer"><a class="mobile-nav__link" href="/account/logout">
+            Logout
+                 <div class="uk_icon"> <img src="https://cdn.shopify.com/s/files/1/0647/8630/1086/files/next.png?v=1717569634" ></div>
+            
+          </a></li>
+          <li class="li-list-drawer"><a class="mobile-nav__link" href="/pages/my-order">My Orders
+                 <div class="uk_icon"> <img src="https://cdn.shopify.com/s/files/1/0647/8630/1086/files/next.png?v=1717569634" ></div>
+          
+          </a></li>
+          <li class="li-list-drawer"><a class="mobile-nav__link" href="/account/addresses">Address Book
+                 <div class="uk_icon"> <img src="https://cdn.shopify.com/s/files/1/0647/8630/1086/files/next.png?v=1717569634" ></div>
+          
+          </a></li>
         {% else %}
-          <li class="li-list-drawer"><a href="/account/login">Login</a></li>
-          <li class="li-list-drawer"><a href="/account/login">My Orders</a></li>
-          <li class="li-list-drawer"><a href="/account/login">Address Book</a></li>
+          <li class="li-list-drawer"><a class="mobile-nav__link" href="/account/login">Login
+                 <div class="uk_icon"> <img src="https://cdn.shopify.com/s/files/1/0647/8630/1086/files/next.png?v=1717569634" ></div>
+          
+          </a></li>
+          <li class="li-list-drawer"><a class="mobile-nav__link" href="/account/login">My Orders
+                 <div class="uk_icon"> <img src="https://cdn.shopify.com/s/files/1/0647/8630/1086/files/next.png?v=1717569634" ></div>
+          
+          </a></li>
+          <li class="li-list-drawer"><a class="mobile-nav__link" href="/account/login">Address Book
+                 <div class="uk_icon"> <img src="https://cdn.shopify.com/s/files/1/0647/8630/1086/files/next.png?v=1717569634" ></div>
+          
+          </a></li>
         {% endif %}
       </ul>
     </div>

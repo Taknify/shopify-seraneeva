@@ -9,6 +9,22 @@
       justify-content: center;
     }
   }
+  .grid__item--customer-accounts .errors {
+    background-color: unset !important;
+    border: none !important;
+    padding: unset !important;
+  }
+  .custom-register-error-message {
+    color: rgb(236, 113, 107);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    width: 100%;
+    display: block;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+  }
 </style>
 <div class="wrapper-spacing--v--template wrapper-spacing--h">
   <div class="grid page-main--wrapper">
@@ -19,11 +35,9 @@
         <h1 class="page--title template-title">{{ 'customer.register.title' | t }}</h1>
       </div>
 
-      <div class="form-vertical">
+      <div id="#CustomerRegisterForm" class="form-vertical">
         {% form 'create_customer' %}
-
           {{ form.errors | default_errors }}
-
           <label for="FirstName" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
           <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
 
@@ -37,7 +51,7 @@
           <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
 
           <p>
-            <button type="submit" class="btn btn--full account-section--btn">{{ 'customer.register.submit' | t }}</button>
+            <button id="create" type="submit" class="btn btn--full account-section--btn">{{ 'customer.register.submit' | t }}</button>
           </p>
           <span class="register-cancel--wrapper nav-link-animated--custom"><a class="animated-link--item" href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a></span>
 
@@ -48,6 +62,66 @@
 
   </div>
 </div>
+
+<script>
+  const emailRegex_customer_create = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    let emailField_customer_create = document.querySelector('#Email');
+    let passwordField_customer_create = document.querySelector('#CreatePassword');
+    let registerForm_customer_create = document.querySelector("form#create_customer");
+    let submitButton_customer_create = document.querySelector("button[type='submit']");
+
+    if (!emailField_customer_create || !passwordField_customer_create || !registerForm_customer_create || !submitButton_customer_create) {
+      console.error("One or more form elements not found.");
+      return;
+    }
+
+    function displayError_customer_create(message, element) {
+      let existingError = element.nextElementSibling;
+      if (existingError && existingError.classList.contains('custom-register-error-message')) {
+        existingError.remove();
+      }
+      if (message) {
+        element.insertAdjacentHTML("afterend", `<span class="custom-register-error-message">${message}</span>`);
+        return false;
+      }
+      return true;
+    }
+
+    function checkEmailValidity_customer_create() {
+      let emailValue = emailField_customer_create.value;
+      let errorMessage = emailValue ? (emailRegex_customer_create.test(emailValue) ? '' : 'Please enter a valid email address.') : 'Email is required.';
+      return displayError_customer_create(errorMessage, emailField_customer_create);
+    }
+
+    function checkPasswordValidity_customer_create() {
+      let passwordValue = passwordField_customer_create.value;
+      let errorMessage = passwordValue ? '' : 'Password is required.';
+      return displayError_customer_create(errorMessage, passwordField_customer_create);
+    }
+
+    emailField_customer_create.addEventListener("input", checkEmailValidity_customer_create);
+    passwordField_customer_create.addEventListener("input", checkPasswordValidity_customer_create);
+
+    registerForm_customer_create.addEventListener("submit", (e) => {
+      let isEmailValid = checkEmailValidity_customer_create();
+      let isPasswordValid = checkPasswordValidity_customer_create();
+      if (!isEmailValid || !isPasswordValid) {
+        e.preventDefault();
+      }
+    });
+
+    submitButton_customer_create.addEventListener("click", (e) => {
+      let isEmailValid = checkEmailValidity_customer_create();
+      let isPasswordValid = checkPasswordValidity_customer_create();
+      if (!isEmailValid || !isPasswordValid) {
+        e.preventDefault();
+      }
+    });
+  });
+</script>
+
 
 {% schema %}
 {

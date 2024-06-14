@@ -86,6 +86,9 @@
     margin: 0 auto;
     text-align: center;
   }
+   #collections .main-content section:first-child + div:before {
+     display:none !important;
+   }
 }  
 
 @media (min-width: 989px) {

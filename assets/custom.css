@@ -73,20 +73,7 @@
 
 /* Logo bottom middle of image banners */
 
-/* @media (min-width:768px) {
-  .main-content section:first-child + div:before {
-    content: "";
-    display: block;
-    background-image: var(--seperator-logo);
-    background-position: center;
-    position: relative;
-    width: 64px;
-    height: 64px;
-    top: -32px;
-    margin: 0 auto;
-    text-align: center;
-  }
-}  */
+
 
 @media (min-width: 989px) {
    header.site-header .site-header__wrapper .site-header__wrapper__left { display: none; }

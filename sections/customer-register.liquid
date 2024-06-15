@@ -31,6 +31,10 @@
    transform: translate(-3px, 3px) scale(.6428571429);
    color: black !important;
  }
+.field:has(input[type="email"]:focus) > label,
+.field:has(input[type="email"]:not(:placeholder-shown)) > label {
+  
+}
 <style>
   @media only screen and (min-width: 768px) {
   form#create_customer {

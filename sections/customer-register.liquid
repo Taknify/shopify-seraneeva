@@ -1,5 +1,35 @@
 <!-- /sections/customer-register.liquid -->
 <style>
+  .search-input-group {
+    position: relative;
+  }
+  
+  .search-input-group .hidden-label {
+    overflow: initial !important;
+    clip: unset !important;
+  }
+  
+  .search-input-group:has(input:placeholder-shown) > label
+  {
+    top: 0;
+    left: 0;
+    transform: translate(30px, 10px);
+    margin-bottom: 0;
+    transition: all 1s cubic-bezier(.5,0,0,1);
+    color: gray !important;
+  }
+  
+ .search-input-group input::placeholder {
+   color: transparent !important; 
+ }
+  
+ .search-input-group:has(input[type="search"]:focus) > label,
+ .search-input-group:has(input[type="search"]:not(:placeholder-shown)) > label
+ {
+   transform: translate(0, -5px) scale(.6428571429);
+   color: black !important;
+ }
+<style>
   @media only screen and (min-width: 768px) {
   form#create_customer {
     width: 360px !important;
@@ -38,18 +68,25 @@
       <div id="#CustomerRegisterForm" class="form-vertical">
         {% form 'create_customer' %}
           {{ form.errors | default_errors }}
-          <label for="FirstName" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
-          <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+          <div class="field">
+            <label for="FirstName" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
+            <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+          </div>
 
-          <label for="LastName" class="hidden-label">{{ 'customer.register.last_name' | t }}</label>
-          <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+          <div class="field">
+            <label for="LastName" class="hidden-label">{{ 'customer.register.last_name' | t }}</label>
+            <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+          </div>
+          
+          <div class="field">
+            <label for="Email" class="hidden-label">{{ 'customer.register.email' | t }}</label>
+            <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+          </div>
 
-          <label for="Email" class="hidden-label">{{ 'customer.register.email' | t }}</label>
-          <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
-
-          <label for="CreatePassword" class="hidden-label">{{ 'customer.register.password' | t }}</label>
-          <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
-
+          <div class="field">
+            <label for="CreatePassword" class="hidden-label">{{ 'customer.register.password' | t }}</label>
+            <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
+          </div>
           <p>
             <button id="create" type="submit" class="btn btn--full account-section--btn">{{ 'customer.register.submit' | t }}</button>
           </p>

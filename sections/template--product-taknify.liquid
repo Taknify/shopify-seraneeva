@@ -2,17 +2,22 @@
   data-wetheme-section-id="{{ section.id }}">
   <div class="product-single-wrapper width--content">
     <div class="product-swiper-wrapper">
-      {% if product.media.size > 0 %}
+      {% if product.images.size == 1 %}
+      <div class="single-img-wrapper">
+        <img src="{{ product.media[0].preview_image | image_url: width: 1445 }}"
+          alt="{% if product.media[0].alt %}{{ product.media[0].alt }}{% else %}{{ product.title }}{% endif %}"
+          class="feature-img">
+      </div>
+      {% elsif product.media.size > 1 %}
       <div class="product-swiper">
         <div class="swiper-wrapper">
           {% for media in product.media %}
           <div class="swiper-slide">
             <img class="product-img" src="{{ media.preview_image | image_url: width: 1445 }}"
               alt="{% if media.alt %}{{ media.alt }}{% else %}{{ product.title }}{% endif %}" width="{{ media.width }}"
-              height="{{ media.height }}"
-              sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
-              loading="eager">
-
+              height="{{ media.height }}" sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), 
+                             (min-width: 750px) calc((100vw - 11.5rem) / 2), 
+                             calc(100vw - 4rem)" loading="lazy">
           </div>
           {% endfor %}
         </div>
@@ -21,13 +26,8 @@
         <div class="swiper-pagination1"></div>
       </div>
       {% endif %}
-
-      <!--
-        {% if product.images.size == 0 %}
-          <img src="{{ product.featured_image }}" alt="Product Featured Image" class="feature-img">
-        {% endif %}
-      -->
     </div>
+
     <div class="product-details">
       <div class="details-wrapper">
         <h4 class="product-title">{{ product.title }}</h4>
@@ -43,8 +43,20 @@
       </div>
     </div>
   </div>
+
 </div>
 <style>
+  .single-img-wrapper {
+    width: 100%;
+    height: 95vh;
+  }
+
+  .single-img-wrapper img.feature-img {
+    width: 100%;
+    height: 95vh;
+    object-fit: cover;
+  }
+
   .swiper-button-next.override {
     color: rgb(70, 70, 70);
   }
@@ -126,7 +138,7 @@
   .product-section-new .swiper-pagination1.swiper-pagination-fraction.swiper-pagination-horizontal {
     padding: 18px;
     width: 6%;
-    translate: 10px 12px;
+    translate: 10px -24px;
     position: absolute;
     left: 0;
     bottom: 0;

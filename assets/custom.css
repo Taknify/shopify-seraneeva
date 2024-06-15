@@ -636,9 +636,7 @@ input.input-full, select.input-full, textarea.input-full {
   display: none;
 }
 
-.overlay {
-  opacity:1 !important;
-}
+
 
 /* Remove logo from product and collection pages */
 

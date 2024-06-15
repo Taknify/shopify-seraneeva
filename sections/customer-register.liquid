@@ -1,15 +1,15 @@
 <!-- /sections/customer-register.liquid -->
 <style>
-  .search-input-group {
+  .field {
     position: relative;
   }
   
-  .search-input-group .hidden-label {
+  .field .hidden-label {
     overflow: initial !important;
     clip: unset !important;
   }
   
-  .search-input-group:has(input:placeholder-shown) > label
+  .field:has(input:placeholder-shown) > label
   {
     top: 0;
     left: 0;
@@ -19,12 +19,12 @@
     color: gray !important;
   }
   
- .search-input-group input::placeholder {
+ .field input::placeholder {
    color: transparent !important; 
  }
   
- .search-input-group:has(input[type="search"]:focus) > label,
- .search-input-group:has(input[type="search"]:not(:placeholder-shown)) > label
+ .field:has(input:focus) > label,
+ .field:has(input:not(:placeholder-shown)) > label
  {
    transform: translate(0, -5px) scale(.6428571429);
    color: black !important;

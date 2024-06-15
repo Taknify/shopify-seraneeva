@@ -347,7 +347,7 @@
       let form_success = document.querySelector('.note.form-success');
       if((first_name || last_name) && email && message && pop_up_title && form_success) {
         overlay.style.display = "block";
-        overlay.style.opacity = "1" !important;
+        overlay.style.opacity = "1";
         let text_form_success = pop_up_title.innerHTML.trim();
         pop_up_title.innerHTML = text_form_success.replace("Thank you.", `Thank you, ${first_name} ${last_name}.<br/>`);
         document.querySelector('.email-title + span').innerHTML = email;

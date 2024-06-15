@@ -1,1 +1,63 @@
-{"type":"footer","name":"Footer","sections":{"footer-main":{"type":"footer-main","blocks":{"5c637888-418b-4cc8-baea-a83083df2e8c":{"type":"menu","settings":{"menu_title":"CLIENT SERVICES","footer_linklist":"client-services"}},"menu_pKNeMi":{"type":"menu","settings":{"menu_title":"THE COMPANY","footer_linklist":"the-company"}},"newsletter_B9PYh4":{"type":"newsletter","settings":{"newsletter_title":"SIGN UP FOR SERANEEVA UPDATES","footer_newsletter_description":"<p>By entering your email address below, you consent to receiving our newsletter. More details are provided in our <a href=\"\/pages\/privacy-policy\" title=\"Privacy Policy\">Privacy Policy<\/a>.<\/p>"}}},"block_order":["5c637888-418b-4cc8-baea-a83083df2e8c","menu_pKNeMi","newsletter_B9PYh4"],"settings":{"alignment":"left","color_scheme":"dark"}},"footer-bottom":{"type":"footer-bottom","settings":{"show_methods_of_payment":false,"center_content_on_desktop":false,"footer_text":"","show_currency_selector":true,"show_locale_selector":false,"color_scheme":"dark"}}},"order":["footer-main","footer-bottom"]}
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer-main": {
+      "type": "footer-main",
+      "blocks": {
+        "5c637888-418b-4cc8-baea-a83083df2e8c": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "CLIENT SERVICES",
+            "footer_linklist": "client-services"
+          }
+        },
+        "menu_pKNeMi": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "THE COMPANY",
+            "footer_linklist": "the-company"
+          }
+        },
+        "newsletter_B9PYh4": {
+          "type": "newsletter",
+          "settings": {
+            "newsletter_title": "SIGN UP FOR SERANEEVA UPDATES",
+            "footer_newsletter_description": "<p>By entering your email address below, you consent to receiving our newsletter. More details are provided in our <a href=\"\/pages\/privacy-policy\" title=\"Privacy Policy\">Privacy Policy<\/a>.<\/p>"
+          }
+        },
+        "social_mHFnEt": {
+          "type": "social",
+          "settings": {
+            "social_title": "Get connected"
+          }
+        }
+      },
+      "block_order": [
+        "5c637888-418b-4cc8-baea-a83083df2e8c",
+        "menu_pKNeMi",
+        "newsletter_B9PYh4",
+        "social_mHFnEt"
+      ],
+      "settings": {
+        "alignment": "left",
+        "color_scheme": "dark"
+      }
+    },
+    "footer-bottom": {
+      "type": "footer-bottom",
+      "settings": {
+        "show_methods_of_payment": false,
+        "center_content_on_desktop": false,
+        "footer_text": "",
+        "show_currency_selector": true,
+        "show_locale_selector": false,
+        "color_scheme": "dark"
+      }
+    }
+  },
+  "order": [
+    "footer-main",
+    "footer-bottom"
+  ]
+}

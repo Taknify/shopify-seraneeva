@@ -180,7 +180,7 @@ footer a span {
 /* Change characteristics of headings in the footer */
 
 .h3.footer-header {
-    
+    color: rgb(255, 255, 255);
     font-size: 12px;
     line-height: 1rem;
     margin: 0 0 1.5rem;
@@ -358,7 +358,7 @@ footer a span {
 /* Change cart drawer size */
 
 .drawer.drawer--right.drawer--cart {
-    width: 500px; 
+    width: 600px; 
     height: auto; 
 }
 

@@ -27,7 +27,7 @@
                 {% if alignment == 'left' %}
                     <div class="bottom--footer---copyright copyright--desktop">
                         <ul class="bottom--footer---links">
-                             <li class="nav-link-animated">&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}</li><!--
+                             <li class="nav-link-animated">&copy; {{ 'now' | date: "%Y" }} {{ shop.name | upcase }}</li><!--
                              --><li class="nav-link-animated--custom">{{ powered_by_link | replace: '<a', '<a class="animated-link--item"' }}</li>
                         </ul>
                     </div>

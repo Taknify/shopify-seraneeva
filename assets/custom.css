@@ -641,3 +641,7 @@ li.nav-link-animated {
     font-family: "Cooper BT", serif;
     opacity: .6 !important;
 }
+
+.button.btn {
+  margin-top: 10px;
+}

@@ -24,6 +24,9 @@
         <div class="swiper-button-prev override"></div>
         <div class="swiper-button-next override"></div>
         <div class="swiper-pagination1"></div>
+        <div class="swiper-btn-contact">
+          <a href="/pages/contact-us">Contact Us</a>
+        </div>
       </div>
       {% endif %}
     </div>
@@ -42,10 +45,20 @@
 
       </div>
     </div>
+
   </div>
 
 </div>
 <style>
+  .swiper-btn-contact {
+    position: absolute;
+    right: 26px;
+    bottom: 60px;
+    z-index: 999;
+    text-decoration: underline;
+    font-size: 12px;
+  }
+
   .single-img-wrapper {
     width: 100%;
     height: 95vh;
@@ -81,16 +94,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fafbfcad;
+    transition: background 1s;
     padding: 35px;
-    width: 22rem;
-    padding: 56px 35px 35px 35px;
+    width: 24rem;
+    padding: 56px 10px 35px 10px;
     height: 15rem;
 
   }
 
   .product-section-new .product-details:hover {
-    transition: all 0.5s;
-    background: #fafbfccf;
+    transition: background 1s;
+    background: #fafbfcf5;
   }
 
   .product-section-new .details-wrapper {
@@ -105,10 +119,12 @@
     background-color: black;
     color: white;
     width: 20rem;
+    transition: scale 1s;
+    scale: 1;
   }
 
   .add-to-cart:hover {
-    transition: all 0.2s;
+    transition: scale 1s;
     scale: 0.97;
   }
 
@@ -122,6 +138,7 @@
     font-weight: 600;
     font-size: 16px;
     text-align: center;
+    padding: 20px 0;
   }
 
   img.product-img {
@@ -136,17 +153,16 @@
   }
 
   .product-section-new .swiper-pagination1.swiper-pagination-fraction.swiper-pagination-horizontal {
-    padding: 18px 18px 30px 18px;
+    padding: 18px;
     width: 6%;
-    translate: 10px -24px;
+    translate: 10px -42px;
     position: absolute;
     left: 0;
     bottom: 0;
     z-index: 999;
     text-align: left;
+    font-size: 12px;
     color: black;
-    font-size: 14px;
-    letter-spacing: -1.2px;
   }
 
   @media screen and (max-width:768px) {

@@ -638,5 +638,6 @@ input.input-full, select.input-full, textarea.input-full {
 
 li.nav-link-animated {
     color: #fff;
+    font-family: "Cooper BT", serif;
     opacity: .6 !important;
 }

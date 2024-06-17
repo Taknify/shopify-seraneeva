@@ -636,7 +636,7 @@ input.input-full, select.input-full, textarea.input-full {
   display: none;
 }
 
-li.nav-link-animated {
+/* li.nav-link-animated {
     color: #fff;
     opacity: .5 !important;
-}
+} */

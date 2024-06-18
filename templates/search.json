@@ -9,50 +9,9 @@
         "show_swatch_filter_labels": false,
         "enable_sorting": false
       }
-    },
-    "rich_text_44bfHT": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_VM7iq4": {
-          "type": "heading",
-          "settings": {
-            "heading": "You May Also Like",
-            "heading--text-size": 36
-          }
-        }
-      },
-      "block_order": [
-        "heading_VM7iq4"
-      ],
-      "settings": {
-        "section_width": "narrow",
-        "text_alignment_desktop": "center",
-        "text_alignment_mobile": "center",
-        "section_padding_top": 150,
-        "section_padding_bottom": 45,
-        "colors": "white"
-      }
-    },
-    "featured_collection_fk7Uww": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "",
-        "description": "",
-        "collection": "",
-        "show_view_all": false,
-        "section_padding_top": 60,
-        "section_padding_bottom": 60,
-        "layout_style": "slider",
-        "products_to_show": 8,
-        "grid-desktop": 4,
-        "grid-mobile": "2",
-        "colors": "white"
-      }
     }
   },
   "order": [
-    "main",
-    "rich_text_44bfHT",
-    "featured_collection_fk7Uww"
+    "main"
   ]
 }

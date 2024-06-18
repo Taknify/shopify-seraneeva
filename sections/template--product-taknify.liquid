@@ -41,7 +41,7 @@
           <span>{{ product.price | money }}</span>
         </p>
         <p class="avl-text">AVAILABLE</p>
-        <p class="com-text">Enjoy Complimentary Delivery.</p>
+        <p class="com-text">Enjoy complimentary delivery.</p>
         <div class="add-to-cart">
           {% render 'payment-buttons' with product: product, block: block, product_form_id: product_form_id, section_id:
           section.id, show_buy_now: block.settings.show_smart_checkout, gift_card_form_enabled:
@@ -57,13 +57,18 @@
 <style>
   .avl-text {
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    font-style: normal;
+    font-size: 12px;
   }
 
   .com-text {
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-top: -12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: -16px;
+    font-style: normal;
+    font-size: 12px;
+    color: #313131;
   }
 
   .button-container {
@@ -164,7 +169,7 @@
     transition: background 2s;
     width: 23rem;
     padding: 22px 10px 0px 10px;
-    height: 18rem;
+    height: 16rem;
 
   }
 
@@ -191,7 +196,7 @@
 
   .add-to-cart:hover {
     transition: scale 1s;
-    scale: 0.98;
+    scale: 0.95;
   }
 
   .product-section-new .product-title {

@@ -643,3 +643,10 @@ li.nav-link-animated {
     font-family: "Cooper BT", serif;
     opacity: .6 !important;
 }
+
+/* Remove white border around newsletter sign up on search page */
+
+#newsletter-footer_form .footer-email-input {
+    border: 0;
+    border-bottom: 2px solid var(--color-scheme-border-color);
+}

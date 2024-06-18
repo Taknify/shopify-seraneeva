@@ -28,8 +28,8 @@
         "section_width": "narrow",
         "text_alignment_desktop": "center",
         "text_alignment_mobile": "center",
-        "section_padding_top": 60,
-        "section_padding_bottom": 60,
+        "section_padding_top": 150,
+        "section_padding_bottom": 45,
         "colors": "white"
       }
     },

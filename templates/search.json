@@ -5,9 +5,9 @@
       "type": "template--search",
       "settings": {
         "desktop_position": "sidebar",
-        "enable_filtering": true,
-        "show_swatch_filter_labels": true,
-        "enable_sorting": true
+        "enable_filtering": false,
+        "show_swatch_filter_labels": false,
+        "enable_sorting": false
       }
     }
   },

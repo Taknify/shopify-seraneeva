@@ -25,7 +25,10 @@
         <div class="swiper-button-next override"></div>
         <div class="swiper-pagination1"></div>
         <div class="swiper-btn-contact">
-          <a href="/pages/contact">Contact Us</a>
+          <div class="button-container">
+            <a class="animated-button" href="/pages/contact">Contact Us</a>
+            <div class="line"></div>
+          </div>
         </div>
       </div>
       {% endif %}
@@ -37,6 +40,8 @@
         <p class="product-price">
           <span>{{ product.price | money }}</span>
         </p>
+        <p class="avl-text">AVAILABLE</p>
+        <p class="com-text">Enjoy Complimentary Delivery.</p>
         <div class="add-to-cart">
           {% render 'payment-buttons' with product: product, block: block, product_form_id: product_form_id, section_id:
           section.id, show_buy_now: block.settings.show_smart_checkout, gift_card_form_enabled:
@@ -50,33 +55,75 @@
 
 </div>
 <style>
+  .avl-text {
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+
+  .com-text {
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: -12px;
+  }
+
+  .button-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .animated-button {
+    color: black;
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+    outline: none;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .line {
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    transition: none;
+  }
+
+  .button-container:hover .line {
+    animation: shrinkGrow 0.7s forwards;
+  }
+
+  @keyframes shrinkGrow {
+    0% {
+      width: 100%;
+      left: 0;
+    }
+
+    50% {
+      width: 0;
+      left: 100%;
+    }
+
+    75% {
+      width: 0%;
+      left: 0;
+    }
+
+    100% {
+      width: 100%;
+      left: 0;
+    }
+  }
+
   .swiper-btn-contact {
     position: absolute;
     right: 26px;
     bottom: 60px;
     z-index: 999;
     font-size: 12px;
-  }
-
-  .swiper-btn-contact a {
-    position: relative;
-    font-weight: bold;
-  }
-
-  .swiper-btn-contact a::after {
-    content: "";
-    position: absolute;
-    width: 0px;
-    height: 1px;
-    background: black;
-    bottom: 0px;
-    right: 0;
-    z-index: 999;
-    transition: width 0.5s ease;
-  }
-
-  .swiper-btn-contact a:hover::after {
-    width: 62px;
   }
 
   .single-img-wrapper {
@@ -117,7 +164,7 @@
     transition: background 2s;
     width: 23rem;
     padding: 22px 10px 0px 10px;
-    height: 15rem;
+    height: 18rem;
 
   }
 
@@ -130,7 +177,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 4px;
+    gap: 2px;
     align-items: center;
   }
 
@@ -144,7 +191,7 @@
 
   .add-to-cart:hover {
     transition: scale 1s;
-    scale: 0.97;
+    scale: 0.98;
   }
 
   .product-section-new .product-title {
@@ -159,7 +206,7 @@
     font-weight: 600;
     font-size: 16px;
     text-align: center;
-    padding: 8px 0px 60px 0px;
+    padding: 8px 0px 24px 0px;
   }
 
   img.product-img {
@@ -184,6 +231,7 @@
     text-align: left;
     font-size: 12px;
     color: black;
+    font-weight: 600;
   }
 
   @media screen and (max-width:768px) {
@@ -236,7 +284,7 @@
       color: black;
     }
 
-    .swiper-btn-contact{
+    .swiper-btn-contact {
       display: none;
     }
   }

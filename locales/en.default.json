@@ -33,7 +33,7 @@
     },
     "search": {
       "no_results_html": "No results found for \"{{ terms }}\".",
-      "results_for_html": "Your search for \"{{ terms }}\" revealed the following:",
+      "results_for_html": "Search results for \"{{ terms }}\":",
       "title": "Search",
       "placeholder": "Search",
       "submit": "Search",

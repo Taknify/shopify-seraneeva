@@ -647,5 +647,5 @@ li.nav-link-animated {
 /* Change font of "Email" in newsletter */
 
 .input-group-field.footer-email-input {
-  font-family: "Cooper BT", serif !important;
+  font-family: "Cooper BT", serif;
 }

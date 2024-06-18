@@ -33,7 +33,7 @@
 
     <div class="product-details">
       <div class="details-wrapper">
-        <h4 class="product-title">{{ product.title }}</h4>
+        <h1 class="product-title">{{ product.title }}</h1>
         <p class="product-price">
           <span>{{ product.price | money }}</span>
         </p>
@@ -60,6 +60,7 @@
 
   .swiper-btn-contact a {
     position: relative;
+    font-weight: bold;
   }
 
   .swiper-btn-contact a::after {
@@ -109,14 +110,13 @@
   .product-section-new .product-details {
     position: absolute;
     z-index: 999;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fafbfcad;
     transition: background 2s;
-    padding: 35px;
-    width: 24rem;
-    padding: 56px 10px 35px 10px;
+    width: 23rem;
+    padding: 22px 10px 0px 10px;
     height: 15rem;
 
   }
@@ -137,7 +137,7 @@
   .add-to-cart {
     background-color: black;
     color: white;
-    width: 22rem;
+    width: 21rem;
     transition: scale 1s;
     scale: 1;
   }
@@ -151,13 +151,15 @@
     font-size: 16px;
     font-weight: 500;
     text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 10px;
   }
 
   .product-section-new .product-price {
     font-weight: 600;
     font-size: 16px;
     text-align: center;
-    padding: 8px 0px 36px 0px
+    padding: 8px 0px 60px 0px;
   }
 
   img.product-img {
@@ -218,6 +220,10 @@
       padding: 35px 35px;
     }
 
+    .product-section-new .product-price {
+      padding: 8px 0px 30px 0px;
+    }
+
     .product-section-new .swiper-pagination1.swiper-pagination-fraction.swiper-pagination-horizontal {
       padding: 18px;
       width: 100%;
@@ -228,6 +234,10 @@
       z-index: 999;
       text-align: center;
       color: black;
+    }
+
+    .swiper-btn-contact{
+      display: none;
     }
   }
 </style>

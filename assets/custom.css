@@ -636,6 +636,8 @@ input.input-full, select.input-full, textarea.input-full {
   display: none;
 }
 
+/* Change charateristics of company name in footer */
+
 li.nav-link-animated {
     color: #fff;
     font-family: "Cooper BT", serif;

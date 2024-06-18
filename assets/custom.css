@@ -655,6 +655,6 @@ form#newsletter-footer_form .footer-email-input {
     font-size: 14px;
 }
 
-.input-group:has(input[type="email"]:not(:placeholder-shown)) > label {
+.input-group:has(input:focus) > label, .input-group:has(input[type="email"]:not(:placeholder-shown)) > label {
     font-family: 'Cooper BT';
 }

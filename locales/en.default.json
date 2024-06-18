@@ -32,7 +32,7 @@
       "newsletter_email": "Customer email"
     },
     "search": {
-      "no_results_html": "Your search for \"{{ terms }}\" did not yield any results.",
+      "no_results_html": "No results found for \"{{ terms }}\".",
       "results_for_html": "Your search for \"{{ terms }}\" revealed the following:",
       "title": "Search",
       "placeholder": "Search",

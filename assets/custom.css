@@ -649,3 +649,7 @@ li.nav-link-animated {
 .input-group-field.footer-email-input {
   font-family: "Cooper BT", serif;
 }
+
+form#newsletter-footer_form .footer-email-input {
+    font-family: "Cooper BT", serif;
+}

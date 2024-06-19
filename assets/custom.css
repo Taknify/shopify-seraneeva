@@ -645,7 +645,8 @@ li.nav-link-animated {
 }
 
 /* Change font of "Email" in newsletter */
-
+/*
 .input-group:has(input:focus) > label, .input-group:has(input[type="email"]:not(:placeholder-shown)) > label {
     font-family: 'Cooper BT';
 }
+*/

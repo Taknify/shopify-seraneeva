@@ -9,13 +9,18 @@
 {% when 4 %}
 	{% assign footer_item_width = 'large--one-quarter medium--one-half small--one-whole' %}
 {% endcase %}
-
+% assign full_url = request.host | append: request.path %}
+{%- if full_url contains 'search' -%}
+  <style>
+     form#newsletter-footer_form input[type="email"] {
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+    }
+  </style>
+{%- endif -%}
 <style>
-  form#newsletter-footer_form input[type="email"] {
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-}
+ 
   .input-group {
     position: relative;
   }

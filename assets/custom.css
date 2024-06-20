@@ -643,3 +643,8 @@ li.nav-link-animated {
     font-family: "Cooper BT", serif;
     opacity: .6 !important;
 }
+
+.rte.featured-row__subtext textarea {
+  font-weight: 505;
+  color: white;
+}

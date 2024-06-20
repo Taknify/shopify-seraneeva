@@ -51,27 +51,6 @@
         "image_overlay_opacity": 0
       }
     },
-    "custom_link_kHt8nT": {
-      "type": "custom_link",
-      "blocks": {
-        "text_yMKwaq": {
-          "type": "text",
-          "settings": {
-            "text": "Last Updated May 2024",
-            "link": "#shopify-section-template--16653911523465__rich_text_hjdCCy"
-          }
-        }
-      },
-      "block_order": [
-        "text_yMKwaq"
-      ],
-      "custom_css": [
-        ".uk_link {padding: 0rem; text-decoration: none; font-size: 1rem; font-weight: 600;}"
-      ],
-      "settings": {
-        "tp_title": ""
-      }
-    },
     "rich_text_UJKKC3": {
       "type": "rich-text",
       "blocks": {
@@ -514,7 +493,6 @@
   "order": [
     "main",
     "image_with_text_overlay_UDYkiG",
-    "custom_link_kHt8nT",
     "rich_text_UJKKC3",
     "rich_text_hjdCCy",
     "rich_text_rEkWHT",

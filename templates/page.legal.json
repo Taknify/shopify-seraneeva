@@ -53,18 +53,6 @@
     },
     "custom_link_8JjEQR": {
       "type": "custom_link",
-      "blocks": {
-        "text_dWn3KY": {
-          "type": "text",
-          "settings": {
-            "text": "Last Updated May 2024",
-            "link": "#shopify-section-template--16653911457929__rich_text_NAGBHe"
-          }
-        }
-      },
-      "block_order": [
-        "text_dWn3KY"
-      ],
       "custom_css": [
         ".uk_link {padding: 0rem; text-decoration: none; font-size: 1rem; font-weight: 600;}"
       ],

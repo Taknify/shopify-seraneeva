@@ -644,6 +644,8 @@ li.nav-link-animated {
     opacity: .6 !important;
 }
 
+/* Edit text on homepage */
+
 .rte.featured-row__subtext.textarea {
   font-family: "Cooper BT", serif;
   font-size: 28px !important;

@@ -644,7 +644,7 @@ li.nav-link-animated {
     opacity: .6 !important;
 }
 
-.rte.featured-row__subtext textarea {
-  
+.rte.featured-row__subtext.textarea {
+  font-weight: 505;
   color: white;
 }

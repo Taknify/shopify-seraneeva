@@ -51,15 +51,6 @@
         "image_overlay_opacity": 0
       }
     },
-    "custom_link_8JjEQR": {
-      "type": "custom_link",
-      "custom_css": [
-        ".uk_link {padding: 0rem; text-decoration: none; font-size: 0.5rem; font-weight: 600;}"
-      ],
-      "settings": {
-        "tp_title": "Terms of Service"
-      }
-    },
     "rich_text_NAGBHe": {
       "type": "rich-text",
       "blocks": {
@@ -547,7 +538,6 @@
   "order": [
     "main",
     "image_with_text_overlay_UDYkiG",
-    "custom_link_8JjEQR",
     "rich_text_NAGBHe",
     "rich_text_XeVELt",
     "rich_text_ePt9kz",

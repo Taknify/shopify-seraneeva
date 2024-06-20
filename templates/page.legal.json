@@ -54,7 +54,7 @@
     "custom_link_8JjEQR": {
       "type": "custom_link",
       "custom_css": [
-        ".uk_link {padding: 0rem; text-decoration: none; font-size: 1rem; font-weight: 600;}"
+        ".uk_link {padding: 0rem; text-decoration: none; font-size: 0.5rem; font-weight: 600;}"
       ],
       "settings": {
         "tp_title": "Terms of Service"

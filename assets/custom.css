@@ -68,7 +68,7 @@
 }
 
 .btn:focus:before, .btn:hover:before {
-   transform: translate(-50%, -50%) scale(.95, .9);
+   transform:  scale(.95, .9);
 }
 
  .account-section--btn:hover {

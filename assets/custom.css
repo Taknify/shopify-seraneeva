@@ -68,7 +68,14 @@
 }
 
 .btn:focus:before, .btn:hover:before {
-   transform:  scale(.95, .9);
+   transform: translate(-50%, -50%) scale(.95, .9);
+}
+
+.account-section--btn {
+   transform: translate(-50%, -50%);
+  transition-duration: 0.8s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.5, 0, 0, 1);
 }
 
  .account-section--btn:hover {

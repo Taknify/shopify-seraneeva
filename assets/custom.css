@@ -67,7 +67,7 @@
   transition-timing-function: cubic-bezier(0.5, 0, 0, 1);
 }
 
-.btn:focus:before, .btn:hover:before, .account-section--btn:hover {
+.btn:focus:before, .btn:hover:before, .account-section--btn:focus:hover {
    transform: translate(-50%, -50%) scale(.95, .9);
 }
 

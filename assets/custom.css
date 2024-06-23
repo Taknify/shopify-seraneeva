@@ -664,10 +664,10 @@ li.nav-link-animated {
 }
 
 form[action='/account/recover'] .btn {
-  
+  color: #e7e7e7;
 }
 
 form[action='/account/recover'] .btn:hover {
-  
+  color: #ffffff;
 }
 

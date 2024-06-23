@@ -656,11 +656,18 @@ li.nav-link-animated {
 }
 
 #create_customer .btn {
-  
+  color: #e7e7e7;
+}
+
+#create_customer .btn:hover {
+  color: #ffffff;
 }
 
 form[action='/account/recover'] .btn {
   
 }
 
+form[action='/account/recover'] .btn:hover {
+  
+}
 

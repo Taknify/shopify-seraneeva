@@ -647,6 +647,8 @@ li.nav-link-animated {
     opacity: .6 !important;
 }
 
+/* Change color of buttons on customer account pages */
+
 #customer_login .btn {
   color: #e7e7e7;
 }

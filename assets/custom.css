@@ -647,6 +647,16 @@ li.nav-link-animated {
     opacity: .6 !important;
 }
 
-/* Edit text on homepage */
+#customer_login .btn {
+  
+}
+
+#create_customer .btn {
+  
+}
+
+form[action='/account/recover'] .btn {
+  
+}
 
 

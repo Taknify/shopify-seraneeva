@@ -77,7 +77,7 @@
   <link rel="preload" as="font" href="{{ settings.type_base_font | font_url }}" type="font/woff2" crossorigin>
   {% # theme-check-enable AssetPreload %}
   {%- endunless -%}
-
+  <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}">
   <!-- Title and description ================================================== -->
   <title>
     {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{

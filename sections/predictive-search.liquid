@@ -1,0 +1,22 @@
+{%- if predictive_search.performed -%}
+<div id="predictive-search-results">
+    {%- if predictive_search.resources.products.size > 0 -%}
+
+    <h3 id="predictive-search-products">Search for “{{ predictive_search.terms }}”</h3>
+
+
+    <ul role="listbox" aria-labelledby="predictive-search-products" class="search-product-list">
+        {%- for product in predictive_search.resources.products -%}
+        <li style="height: 100%" role="option">
+            <a href="{{ product.url }}">
+                {{ product | image_url: width: 50 | image_tag }}
+                <span style="margin-left: 10px">{{ product.title }}</span>
+            </a>
+        </li>
+        {%- endfor -%}
+    </ul>
+    {%- else -%}
+    <h3 class="no_product_found">No matching products found.</h3>
+    {%- endif -%}
+</div>
+{%- endif -%}

@@ -77,6 +77,8 @@
     "show_product_rating_if_no_reviews": false,
     "show_card_color_swatches": false,
     "show_card_color_swatch_label": true,
+    "enable_quick_shop_desktop": false,
+    "enable_quick_shop_mobile": false,
     "quick_shop_button_display": "over_image",
     "quick_shop_button_style": "outline",
     "hover_navigation_desktop": "none",

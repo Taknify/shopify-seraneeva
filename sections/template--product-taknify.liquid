@@ -1,49 +1,36 @@
-<div
-  class="product-section-new"
-  data-wetheme-section-type="template--product"
-  data-wetheme-section-id="{{ section.id }}"
->
+<div class="product-section-new" data-wetheme-section-type="template--product"
+  data-wetheme-section-id="{{ section.id }}">
   <div class="product-single-wrapper width--content">
     <div class="product-swiper-wrapper">
       {% if product.images.size == 1 %}
-        <div class="single-img-wrapper">
-          <img
-            src="{{ product.media[0].preview_image | image_url: width: 1445 }}"
-            alt="{% if product.media[0].alt %}{{ product.media[0].alt }}{% else %}{{ product.title }}{% endif %}"
-            class="feature-img"
-          >
-        </div>
+      <div class="single-img-wrapper">
+        <img src="{{ product.media[0].preview_image | image_url: width: 1445 }}"
+          alt="{% if product.media[0].alt %}{{ product.media[0].alt }}{% else %}{{ product.title }}{% endif %}"
+          class="feature-img">
+      </div>
       {% elsif product.media.size > 1 %}
-        <div class="product-swiper">
-          <div class="swiper-wrapper">
-            {% for media in product.media %}
-              <div class="swiper-slide">
-                <img
-                  class="product-img"
-                  src="{{ media.preview_image | image_url: width: 1445 }}"
-                  alt="{% if media.alt %}{{ media.alt }}{% else %}{{ product.title }}{% endif %}"
-                  width="{{ media.width }}"
-                  height="{{ media.height }}"
-                  sizes="
-                    (min-width: 1200px) calc((1200px - 10rem) / 2),
-                    (min-width: 750px) calc((100vw - 11.5rem) / 2),
-                    calc(100vw - 4rem)
-                  "
-                  loading="lazy"
-                >
-              </div>
-            {% endfor %}
+      <div class="product-swiper">
+        <div class="swiper-wrapper">
+          {% for media in product.media %}
+          <div class="swiper-slide">
+            <img class="product-img" src="{{ media.preview_image | image_url: width: 1445 }}"
+              alt="{% if media.alt %}{{ media.alt }}{% else %}{{ product.title }}{% endif %}" width="{{ media.width }}"
+              height="{{ media.height }}" sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), 
+                             (min-width: 750px) calc((100vw - 11.5rem) / 2), 
+                             calc(100vw - 4rem)" loading="lazy">
           </div>
-          <div class="swiper-button-prev override"></div>
-          <div class="swiper-button-next override"></div>
-          <div class="swiper-pagination1"></div>
-          <div class="swiper-btn-contact">
-            <div class="button-container">
-              <a class="animated-button" href="/pages/contact">Contact Us</a>
-              <div class="line"></div>
-            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-prev override"></div>
+        <div class="swiper-button-next override"></div>
+        <div class="swiper-pagination1"></div>
+        <div class="swiper-btn-contact">
+          <div class="button-container">
+            <a class="animated-button" href="/pages/contact">Contact Us</a>
+            <div class="line"></div>
           </div>
         </div>
+      </div>
       {% endif %}
     </div>
 
@@ -56,15 +43,16 @@
         <p class="avl-text">AVAILABLE</p>
         <p class="com-text">Enjoy complimentary delivery.</p>
         <div class="add-to-cart">
-          {%
-            render 'payment-buttons' with product: product, block: block, product_form_id: product_form_id, section_id:
-            section.id, show_buy_now: block.settings.show_smart_checkout, gift_card_form_enabled:
-            block.settings.enable_gift_card_recipient_form
-          %}
+          {% render 'payment-buttons' with product: product, block: block, product_form_id: product_form_id, section_id:
+          section.id, show_buy_now: block.settings.show_smart_checkout, gift_card_form_enabled:
+          block.settings.enable_gift_card_recipient_form %}
         </div>
+
       </div>
     </div>
+
   </div>
+
 </div>
 <style>
   .avl-text {
@@ -2250,4 +2238,4 @@
 }
 ]
 }
-{% endschema %}
+<<<<<<< HEAD {% endschema %}======={% endschema %}>>>>>>> 05ee6075291f46960175f7f0c49591a3e3b2e070

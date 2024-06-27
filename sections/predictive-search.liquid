@@ -1,0 +1,78 @@
+{%- if predictive_search.performed -%}
+<div id="predictive-search-results">
+    {% comment %}
+    <h3 id="predictive-search-products">Search for “{{ predictive_search.terms }}”</h3>
+    {% endcomment %}
+    {%- if predictive_search.resources.products.size > 0 -%}
+    <ul role="listbox" aria-labelledby="predictive-search-products" class="search-product-list">
+        {%- for product in predictive_search.resources.products -%}
+        <li style="height: 100%;" role="option">
+            <a class="product-item" href="{{ product.url }}">
+                {% render 'theme-icon' with icon: 'search', iconSize: 20 %} <span class="product-container">
+                    <span style="margin-left: 5px">{{
+                        product.title }}</span>
+                    <span class="line1"></span>
+                </span>
+            </a>
+        </li>
+        {%- endfor -%}
+    </ul>
+    {%- else -%}
+    <h3 class="no_product_found">No matching products found.</h3>
+    {%- endif -%}
+</div>
+{%- endif -%}
+
+<style>
+    .search-product-list {
+        list-style: none;
+    }
+
+    .product-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .product-container {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .line1 {
+        position: absolute;
+        bottom: 4px;
+        left: 12px;
+        width: 72%;
+        height: 1px;
+        background-color: black;
+        transition: none;
+    }
+
+    .product-container:hover .line1 {
+        animation: shrinkGrow 0.7s forwards;
+    }
+
+    @keyframes shrinkGrow {
+        0% {
+            width: 72%;
+            left: 12px;
+        }
+
+        50% {
+            width: 0;
+            left: 72%;
+        }
+
+        75% {
+            width: 0%;
+            left: 12px;
+        }
+
+        100% {
+            width: 72%;
+            left: 12px;
+        }
+    }
+</style>

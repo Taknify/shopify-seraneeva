@@ -1,0 +1,86 @@
+<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+
+<predictive-search>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+        <div class="search-wrapper">
+            <label for="Search" class="search-label">What are you looking for?</label>
+            <input id="Search" type="search" name="q" value="{{ search.terms | escape }}" role="combobox"
+                aria-expanded="false" aria-owns="predictive-search-results" aria-controls="predictive-search-results"
+                aria-haspopup="listbox" aria-autocomplete="list">
+            <input name="options[prefix]" type="hidden" value="last">
+        </div>
+        <div id="predictive-search" tabindex="-1"></div>
+    </form>
+</predictive-search>
+<style>
+    .search-wrapper {
+        position: relative;
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .search-label {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        pointer-events: none;
+        color: #aaa;
+        transition: none;
+    }
+
+    input[type="search"] {
+        width: 100%;
+        padding: 10px 10px 10px 10px;
+        border: none;
+        border-bottom: 2px solid #ddd;
+        outline: none;
+        transition: none;
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var searchInput = document.getElementById("Search");
+        var searchLabel = document.querySelector(".search-label");
+
+        searchInput.addEventListener("focus", function () {
+            animateLabelAndBorder(true);
+        });
+
+        searchInput.addEventListener("blur", function () {
+            if (searchInput.value === "") {
+                animateLabelAndBorder(false);
+            }
+        });
+
+        if (searchInput.value !== "") {
+            animateLabelAndBorder(true);
+        }
+
+        function animateLabelAndBorder(isActive) {
+            if (isActive) {
+                searchLabel.style.transition = "all 0.3s ease";
+                searchLabel.style.top = "-2px";
+                searchLabel.style.fontSize = "12px";
+                searchLabel.style.color = "#333";
+
+                searchInput.style.transition = "border-bottom-width 0.3s ease, border-bottom-color 0.3s ease";
+                searchInput.style.borderBottomColor = "#333";
+                searchInput.style.borderBottomWidth = "2px";
+            } else {
+                searchLabel.style.transition = "all 0.3s ease";
+                searchLabel.style.top = "10%";
+                searchLabel.style.transform = "translateY(-10%)";
+                searchLabel.style.fontSize = "1rem";
+                searchLabel.style.color = "#aaa";
+
+                searchInput.style.transition = "border-bottom-width 0.3s ease, border-bottom-color 0.3s ease";
+                searchInput.style.borderBottomColor = "#ddd";
+                searchInput.style.borderBottomWidth = "2px";
+            }
+        }
+    });
+
+
+</script>

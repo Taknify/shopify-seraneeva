@@ -59,7 +59,7 @@
       "settings": {
         "show_breadcrumbs": true,
         "show_title": false,
-        "show_description": true,
+        "show_description": false,
         "content_position": "left",
         "min_height_desktop": "original",
         "show_image_desktop": false,

@@ -1,7 +1,3 @@
-{% comment %}
-Testing Cypress integration
-{% endcomment %}
-
 {% assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0 %}
 {% assign overlay_bg_color = settings.header-transparent-background %}
 {% assign opaque_color = overlay_bg_color | color_modify: 'alpha', overlay_opacity %}
@@ -61,20 +57,6 @@ section.settings.show_currency_selector %}
 
 {% capture top_links %}
 <ul class="site-header__links top-links--icon-links">
-  {% comment %}
-  {% if section.settings.enable_search %}
-  <li>
-    <a href="{{ routes.search_url }}" class="search-button standalone-icon--wrapper"
-      aria-label="{{ 'layout.header.search' | t }}">
-      {% if section.settings.show_icons %}
-      {% render 'theme-icon' with icon: 'search', iconSize: 20 %}
-      {% else %}
-      <span class="header--supporting-text">{{ 'layout.header.search' | t }}</span>
-      {% endif %}
-    </a>
-  </li>
-  {% endif %}
-  {% endcomment %}
   <li>
     <a id="search_modal_btn" class="standalone-icon--wrapper" aria-label="{{ 'layout.header.search' | t }}">
       {% if section.settings.show_icons %}
@@ -84,37 +66,7 @@ section.settings.show_currency_selector %}
       {% endif %}
     </a>
   </li>
-
-
   {% if shop.customer_accounts_enabled %}
-
-  {% comment %}
-  {% if customer %}
-  <li>
-    <a href="{{ routes.account_url }}" title="{{ 'layout.customer.account' | t }}"
-      class="account-button standalone-icon--wrapper">
-      {% if section.settings.show_icons %}
-      {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
-      {% else %}
-      <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
-      {% endif %}
-    </a>
-  </li>
-  {% else %}
-
-  <li>
-    <a href="{{ routes.account_login_url }}" aria-label="{{ 'layout.customer.log_in' | t }}"
-      class="log-in-button standalone-icon--wrapper">
-      {% if section.settings.show_icons %}
-      {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
-      {% else %}
-      <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
-      {% endif %}
-    </a>
-  </li>
-  {% endif %}
-  {% endcomment %}
-
   <li>
     <a title="{{ 'layout.customer.account' | t }}" class="account-button standalone-icon--wrapper drawer-toggle"
       id="drawer-toggle" aria-label="Open Menu">
@@ -125,21 +77,7 @@ section.settings.show_currency_selector %}
       {% endif %}
     </a>
   </li>
-
-  {% comment %}
-  <li>
-    {% if section.settings.show_icons %}
-    <button class="account_button drawer-toggle" id="drawer-toggle" aria-label="Open Menu">
-      {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
-      {% else %}
-      <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
-    </button>
-    {% endif %}
-  </li>
-  {% endcomment %}
-
   {% endif %}
-
   <li>
     <a href="{{ routes.cart_url }}" class="site-header__cart-toggle{% if settings.cart_type == " drawer" %}
       js-drawer-open-right-link{% endif %}{% if section.settings.cart_count %} cart-count-enabled {{
@@ -166,10 +104,6 @@ section.settings.show_currency_selector %}
       {% endif %}
     </a>
   </li>
-
-  {%- comment -%}2024-05-20 Paul N add menu icon to desktop rightside header icons (mobile menu icon) {%- endcomment -%}
-  {%- comment -%}note indirect onclick method used as .js-drawer-open-left-link class CANNOT be used here as theme.js
-  expects only ONE such element match {%- endcomment -%}
   <li>
     <div class="site-nav--mobile twetwe">
       <button onclick="document.querySelector('.js-drawer-open-left-link').click()" type="button"
@@ -177,9 +111,7 @@ section.settings.show_currency_selector %}
         class="hamburger-nav-button icon-fallback-text site-nav__link {% comment -%}js-drawer-open-left-link{%- endcomment %} standalone-icon--wrapper"
         aria-controls="NavDrawer" aria-expanded="false">
         {% render 'theme-icon' with icon: 'hamburger_nav', iconClasses: 'fa-2x', widthUnset: true %}
-        {%- comment -%}2024-05-20 Paul N add 'Menu' text to header navigation hamburger icon {%- endcomment -%}
-        {%- comment -%}see custom.css and translations for layout.navigation.menu {%- endcomment -%}
-        {%- comment -%}<span class="custom-text">Menu</span>{%- endcomment -%}
+
         <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
       </button>
     </div>
@@ -834,7 +766,8 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
   true, blur: false, class: 'logo_image', loading: 'eager' %}
 </a>
 {% else %}
-<a class="site-header__logo-link" href="{{ routes.root_url }}" itemprop="url">{{ shop.name }}</a>
+<a style="display: block;" class="site-header__logo-link" href="{{ routes.root_url }}" itemprop="url">{{ shop.name
+  }}</a>
 {% endif %}
 {% endcapture %}
 
@@ -894,7 +827,8 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
   {% endif %}
 </a>
 {% else %}
-<a class="site-header__logo-overlay-link" href="{{ routes.root_url }}" itemprop="url">{{ shop.name }}</a>
+<a class="site-header__logo-overlay-link" href="{{ routes.root_url }}" itemprop="url">{{ shop.name
+  }}</a>
 {% endif %}
 {% endif %}
 {% endif %}
@@ -910,7 +844,7 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
       {% endif %}
 
       {{ logo }}
-      {{ overlay_logo }}
+
 
       {% if template == 'index' %}
   </h1>
@@ -1302,8 +1236,9 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
 
   .close {
     color: #000;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
+    text-decoration: underline;
   }
 
   .close:hover,
@@ -1328,36 +1263,31 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
 
   .line {
     position: absolute;
-    bottom: 14px;
+    bottom: 16px;
     left: 12px;
-    width: 72%;
+    width: 68%;
     height: 1px;
     background-color: black;
     transition: none;
   }
 
   .button-container:hover .line {
-    animation: shrinkGrow 0.7s forwards;
+    animation: shrinkGrow 0.6s forwards;
   }
 
   @keyframes shrinkGrow {
     0% {
-      width: 72%;
+      width: 70%;
       left: 12px;
     }
 
     50% {
       width: 0;
-      left: 72%;
-    }
-
-    75% {
-      width: 0%;
-      left: 12px;
+      left: 70%;
     }
 
     100% {
-      width: 72%;
+      width: 70%;
       left: 12px;
     }
   }
@@ -1379,7 +1309,6 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
       height: 100%;
       overflow-x: hidden;
       background-color: rgb(255 255 255);
-      transition: width 0.5s;
       padding: 16px 0px;
     }
 

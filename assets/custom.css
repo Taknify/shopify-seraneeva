@@ -673,10 +673,3 @@ form[action='/account/recover'] .btn:hover {
   color: #ffffff;
 }
 
-#CustomerLoginForm .field:has(input:placeholder-shown) > label {
-    color: #666666;
-}
-#CustomerLoginForm .field input { {
-    border: 1px solid black !important;
-    color: #666666;
-}

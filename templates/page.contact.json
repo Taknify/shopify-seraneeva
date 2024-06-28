@@ -98,7 +98,7 @@
       "settings": {
         "form_width": "narrow",
         "title": "",
-        "description": "<p>To reach our client advisors, please complete the form below. We strive to respond within 48 business hours. <\/p><p>(* Mandatory field)<\/p>",
+        "description": "<p><strong>To reach our client advisors, please complete the form below. We strive to respond within 48 business hours. <\/strong><\/p><p>(* Mandatory field)<\/p>",
         "section_padding_top": 0,
         "section_padding_bottom": 60,
         "section_color_scheme": "white"

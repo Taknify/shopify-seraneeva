@@ -489,9 +489,13 @@
 
 
 
-document.addEventListener('DOMContentLoaded', (event) => {
-            document.querySelector('.drawer-toggle').addEventListener('click', () => {
-                document.querySelector('.list_items_drawer').style.display = 'block';
+     document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.drawer-toggle').forEach((toggle) => {
+                toggle.addEventListener('click', () => {
+                    document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
+                        drawer.style.display = 'block';
+                    });
+                });
             });
         });
 

@@ -25,7 +25,7 @@ li.li-list-drawer {
      box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
      transform: translate(0px, 16px);
 }
-.site-nav--mobile.active .account_button{
+.site-nav--mobile.active .list_items_drawer{
   display: block;
 }
 

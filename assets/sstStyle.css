@@ -38,6 +38,11 @@ li.li-list-drawer {
     display: inline-block !important;
     transition: font-size 0.3s ease !important;
 }
+li.li-list-drawer {
+    margin: 32px 0;
+    transform-origin: center;
+    transition: font-size 0.3s ease !important;
+}
 .li-list-drawer:hover .mobile-nav__link{
    font-size: 16px;
 }
@@ -45,9 +50,7 @@ li.li-list-drawer {
    transform-origin: center;
    transition: font-size 0.3s ease;
 }
-li.li-list-drawer {
-    margin: 32px 0;
-}
+
 .list-container-style:nth-child(1) .li-list-drawer{
  margin-top: 12px; 
 }

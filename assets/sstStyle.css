@@ -39,6 +39,7 @@ li.li-list-drawer {
     transition: font-size 0.3s ease !important;
 }
 li.li-list-drawer {
+    cursor: pointer;
     margin: 32px 0;
     transform-origin: center;
     transition: font-size 0.3s ease !important;

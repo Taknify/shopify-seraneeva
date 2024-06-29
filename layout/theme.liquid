@@ -495,10 +495,7 @@
               if (buttonToggles.length && itemsDrawer) {
                   buttonToggles.forEach(function(buttonToggle) {
                       buttonToggle.addEventListener('click', function(event) {
-                          event.preventDefault(); // Prevent default behavior for <a> tags
-                          console.log('Button clicked'); // Debug log
                           itemsDrawer.classList.toggle('active');
-                          console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
                       });
                   });
               } else {

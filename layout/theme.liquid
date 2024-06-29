@@ -514,7 +514,34 @@
   });
 </script>
 
-        
+        <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var toggleButtons = document.querySelectorAll('.account_button');
+    var listItemsDrawer = document.querySelector('.list_items_drawer');
+
+    // Add click event listener to each toggle button
+    for (var i = 0; i < toggleButtons.length; i++) {
+      toggleButtons[i].addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent the click from propagating to the document
+        listItemsDrawer.classList.toggle('active');
+      });
+    }
+
+    // Hide the drawer when clicking outside of it
+    document.addEventListener('click', function(event) {
+      var isClickInside = listItemsDrawer.contains(event.target);
+      for (var i = 0; i < toggleButtons.length; i++) {
+        if (toggleButtons[i].contains(event.target)) {
+          isClickInside = true;
+          break;
+        }
+      }
+      if (!isClickInside) {
+        listItemsDrawer.classList.remove('active');
+      }
+    });
+  });
+</script>
         
 
 <!-- <script>

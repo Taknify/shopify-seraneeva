@@ -28,7 +28,10 @@ li.li-list-drawer {
 .site-nav--mobile.active .list_items_drawer{
   display: block;
 }
-
+.account_button svg{
+    width: 21.5px;
+    height: 21.5px;
+}
 @media(max-width:992px){
   .drawer-toggle{
   padding: 6px;

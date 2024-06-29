@@ -32,17 +32,14 @@ li.li-list-drawer {
   color: #fff;
     text-decoration: none;
     padding: 10px;
-    font-family: var(--navigation-font-stack); /* Font family setting */
-    /* transition: transform 0.25s ease; /* Smooth transition for transform */ */
-    /* transform: scale(1); /* Initial scale */ */
+    font-family: var(--navigation-font-stack); 
     transform-origin: center; /* Transform origin at the center */
     display: inline-block !important;
-   transition: font-size 0.3s ease;
+    transition: font-size 0.3s ease;
 }
 
 .mobile-nav__link:hover {
    font-size: 13.5px;
-    /* transform: scale(1.5); /* Scale up to 150% on hover */ */
 }
 
 

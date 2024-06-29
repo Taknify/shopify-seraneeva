@@ -37,6 +37,7 @@ li.li-list-drawer {
   /* Scale down to 90% */
    transform: scale(1.2);
    font-size: 13.5px;
+  transform-origin: 50% 50%;
    /* transition: transform 0.3s ease; */
 }
 

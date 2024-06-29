@@ -906,9 +906,10 @@ Testing Cypress integration
               </a>
               {% endif %}
 
-              <div class="sfdfsdf account_button drawer-toggle" id="drawer-toggle">
+              <div class="account_button drawer-toggle" id="drawer-toggle">
                 {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
              </div>
+              {% render 'account-drawer' %}
             
               
               <a href="{{ routes.cart_url }}" aria-label="{{ 'layout.cart.title' | t }}" class="{% if settings.cart_type == 'drawer' %}js-drawer-open-right-link {% endif %}site-nav__link{% if section.settings.cart_count %} cart-count-enabled {{ section.settings.cart-style }}{% endif %} standalone-icon--wrapper" aria-controls="CartDrawer" aria-expanded="false">

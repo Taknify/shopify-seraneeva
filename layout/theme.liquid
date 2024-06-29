@@ -487,8 +487,7 @@
 
 <script>
 
-
-  document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
     // Function to show all list_items_drawer elements
     function showDrawers() {
         document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
@@ -503,11 +502,22 @@
         });
     }
 
+    // Function to toggle list_items_drawer elements
+    function toggleDrawers() {
+        document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
+            if (drawer.style.display === 'block') {
+                drawer.style.display = 'none';
+            } else {
+                drawer.style.display = 'block';
+            }
+        });
+    }
+
     // Add click event listener to all drawer-toggle elements
     document.querySelectorAll('.drawer-toggle').forEach((toggle) => {
         toggle.addEventListener('click', (event) => {
             event.stopPropagation(); // Prevent click from propagating to document
-            showDrawers();
+            toggleDrawers();
         });
     });
 

@@ -26,5 +26,5 @@ li.li-list-drawer {
      transform: translate(0px, 16px);
 }
 @media(max-width:992px){
-  
+  padding: 6px;
 }

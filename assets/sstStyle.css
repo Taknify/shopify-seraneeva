@@ -36,7 +36,7 @@ li.li-list-drawer {
     transition: transform 0.25s ease; /* Smooth transition for transform */
     transform: scale(1); /* Initial scale */
     transform-origin: center; /* Transform origin at the center */
-    display: inline-block;
+    display: inline-block !important;
 }
 .mobile-nav__link:hover {
   transform: scale(1.5);

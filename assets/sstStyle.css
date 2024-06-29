@@ -44,7 +44,15 @@ li.li-list-drawer {
 .li-list-drawer:hover .mobile-nav__link{
    font-size: 13.5px;
 }
+.site-header__links.top-links--icon-links li {
+    transition: transform 0.3s ease; /* Smooth transition for transform */
+    transform-origin: center; /* Transform origin at the center */
+    display: inline-block; /* Ensures inline block display */
+}
 
+.site-header__links.top-links--icon-links li:hover {
+    transform: scale(1.5); /* Scale up to 150% on hover */
+}
 
 @media(max-width:992px){
   .drawer-toggle{

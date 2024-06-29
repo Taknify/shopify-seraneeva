@@ -490,7 +490,7 @@
         
           
           document.addEventListener('DOMContentLoaded', function(){
-            const buttonTogg = document.getElementById('drawer-toggle');
+            const buttonTogg = document.querySelector('.drawer-toggle');
             const items_drawer = document.querySelector('.list_items_drawer');
              buttonTogg.addEventListener('click', function(){
                 items_drawer.classList.toggle("active");

@@ -38,9 +38,9 @@ li.li-list-drawer {
     display: inline-block !important;
     transition: font-size 0.3s ease;
 }
-.li-list-drawer:hover .mobile-nav__link{
+/* .li-list-drawer:hover .mobile-nav__link{
    font-size: 16px;
-}
+} */
 .site-header__links li{
    transform-origin: center;
    transition: font-size 0.3s ease;
@@ -51,7 +51,7 @@ li.li-list-drawer {
 .list-container-style:nth-child(1) .li-list-drawer{
  margin-top: 12px; 
 }
-/* .mobile-nav__item.top-level{
+.mobile-nav__item.top-level{
   transition: font-size 0.3s ease !important;
     transform-origin: center;
 }
@@ -59,7 +59,7 @@ li.li-list-drawer {
 .mobile-nav__item:hover .mobile-nav__link{
   font-size: 16px;
 }
- */
+
 
 
 

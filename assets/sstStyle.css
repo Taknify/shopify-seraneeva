@@ -28,6 +28,9 @@ li.li-list-drawer {
 .site-nav--mobile.active .list_items_drawer{
   display: block;
 }
+.mobile-nav__link{
+  transition: transform 0.3s ease, font-size 0.3s ease;
+}
 .mobile-nav__link:hover {
     transform: scale(0.9); /* Scale down to 90% */
     font-size: 0.9em; /* Decrease font size to 90% */

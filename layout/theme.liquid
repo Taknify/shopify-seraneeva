@@ -487,25 +487,25 @@
 <!-- toggle functionality -->
        
         <script>
-         // scripts.js
-            document.addEventListener('DOMContentLoaded', function() {
-                const buttonToggles = document.querySelectorAll('.drawer-toggle');
-                const itemsDrawer = document.querySelector('.list_items_drawer');
+         // // scripts.js
+         //    document.addEventListener('DOMContentLoaded', function() {
+         //        const buttonToggles = document.querySelectorAll('.drawer-toggle');
+         //        const itemsDrawer = document.querySelector('.list_items_drawer');
             
-                // Ensure elements are selected correctly
-                if (buttonToggles.length && itemsDrawer) {
-                    for (let i = 0; i < buttonToggles.length; i++) {
-                        buttonToggles[i].addEventListener('click', function(event) {
-                            event.preventDefault(); // Prevent default behavior for <a> tags
-                            console.log('Button clicked'); // Debug log
-                            itemsDrawer.classList.toggle('active');
-                            console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
-                        });
-                    }
-                } else {
-                    console.error('Button or drawer not found');
-                }
-            });
+         //        // Ensure elements are selected correctly
+         //        if (buttonToggles.length && itemsDrawer) {
+         //            for (let i = 0; i < buttonToggles.length; i++) {
+         //                buttonToggles[i].addEventListener('click', function(event) {
+         //                    event.preventDefault(); // Prevent default behavior for <a> tags
+         //                    console.log('Button clicked'); // Debug log
+         //                    itemsDrawer.classList.toggle('active');
+         //                    console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
+         //                });
+         //            }
+         //        } else {
+         //            console.error('Button or drawer not found');
+         //        }
+         //    });
 
           
           // document.addEventListener('DOMContentLoaded', function(){
@@ -517,7 +517,7 @@
           // })
         </script>
         
-{% comment %}
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var drawerToggles = document.querySelectorAll('.drawer-toggle');
@@ -545,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function() {
   drawerOverlay.addEventListener('click', closeDrawer);
 });
 </script>
-{% endcomment %}    
+ 
     
 </body>
 </html>

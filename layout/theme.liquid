@@ -506,6 +506,26 @@
     });
   });
 </script>
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var drawerToggleButtons = document.querySelectorAll('.account_button');
+    var listItemsDrawer = document.querySelector('.list_items_drawer');
+
+    drawerToggleButtons.forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent the click from propagating to the document
+        listItemsDrawer.classList.toggle('active');
+      });
+    });
+
+    document.addEventListener('click', function(event) {
+      // Check if the click is outside the drawer and toggle buttons
+      if (!listItemsDrawer.contains(event.target) && !Array.from(drawerToggleButtons).some(button => button.contains(event.target))) {
+        listItemsDrawer.classList.remove('active');
+      }
+    });
+  });
+</script>
        
         <!-- <script>
          // scripts.js

@@ -487,25 +487,25 @@
 <!-- toggle functionality -->
        
         <script>
-document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
     const buttonToggles = document.querySelectorAll('.drawer-toggle');
     const itemsDrawer = document.querySelector('.list_items_drawer');
-  
+
     // Ensure elements are selected correctly
     if (buttonToggles.length && itemsDrawer) {
-        for (let i = 0; i < buttonToggles.length; i++) {
-            buttonToggles[i].addEventListener('click', function(event) {
+        // Toggle drawer active class on button click
+        buttonToggles.forEach(function(button) {
+            button.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default behavior for <a> tags
                 console.log('Button clicked'); // Debug log
                 itemsDrawer.classList.toggle('active');
                 console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
             });
-        }
+        });
 
         // Click outside to close drawer
         document.addEventListener('click', function(event) {
-            const isClickedOutside = !itemsDrawer.contains(event.target);
-            if (isClickedOutside) {
+            if (!itemsDrawer.contains(event.target) && !event.target.classList.contains('drawer-toggle')) {
                 itemsDrawer.classList.remove('active');
                 console.log('Clicked outside, drawer closed');
             }
@@ -514,6 +514,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Button or drawer not found');
     }
 });
+
 
         </script>
         

@@ -42,4 +42,7 @@ li.li-list-drawer {
     padding: 20px;
     top: 100%;
 }
+  li.li-list-drawer {
+    padding: 12px;
+}
 }

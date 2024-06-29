@@ -507,6 +507,23 @@
                 }
             });
 
+          document.addEventListener('DOMContentLoaded', function() {
+            const accountButtons = document.querySelectorAll('.account_button');
+        
+            if (accountButtons.length) {
+                accountButtons.forEach(function(button) {
+                    button.addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent default behavior for <button> tags
+                        const parent = button.parentElement;
+                        parent.classList.toggle('active');
+                        console.log('Parent class toggled, current classes:', parent.className); // Debug log
+                    });
+                });
+            } else {
+                console.error('Account button not found');
+            }
+        });
+
           
           // document.addEventListener('DOMContentLoaded', function(){
           //   const buttonTogg = document.querySelectorAll('.drawer-toggle, .mobile-btn');

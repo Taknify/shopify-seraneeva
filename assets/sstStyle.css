@@ -48,7 +48,7 @@ li.li-list-drawer {
 .site-header__links.top-links--icon-links .standalone-icon--wrapper {
     transition: font-size 0.3s ease;
     transform-origin: center; /* Transform origin at the center */
-    display: inline-block; /* Ensures inline block display */
+    /* display: inline-block; /* Ensures inline block display */ */
 }
 
 .site-header__links.top-links--icon-links .standalone-icon--wrapper:hover svg {

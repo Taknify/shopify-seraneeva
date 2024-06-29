@@ -29,4 +29,13 @@ li.li-list-drawer {
   .drawer-toggle{
   padding: 6px;
 }
+  ul.ul-list-drawer {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    margin: 0;
+    background-color: #fff;
+    padding: 20px;
+    top: 100%;
+}
 }

@@ -487,7 +487,7 @@
 <!-- toggle functionality -->
         <script>
           document.addEventListener('DOMContentLoaded', function(){
-            const buttonTogg = document.querySelector('drawer-toggle');
+            const buttonTogg = document.getElementById('drawer-toggle');
             const items_drawer = document.querySelector('.list_items_drawer');
              buttonTogg.addEventListenter('click', function(){
                 items_drawer.classList.toggle("active");

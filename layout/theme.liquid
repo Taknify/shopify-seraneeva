@@ -485,15 +485,17 @@
     </style>
 
 <!-- toggle functionality -->
+       
         <script>
-              document.addEventListener("DOMContentLoaded", function() {
-                const toggleButton = document.getElementById("drawer-toggle");
-                const listItemsDrawer = document.querySelector(".list_items_drawer");
-            
-                toggleButton.addEventListener("click", function() {
-                    listItemsDrawer.classList.toggle("active");
-                });
-            });
+        
+          
+          document.addEventListener('DOMContentLoaded', function(){
+            const buttonTogg = document.getElementById('drawer-toggle');
+            const items_drawer = document.querySelector('.list_items_drawer');
+             buttonTogg.addEventListener('click', function(){
+                items_drawer.classList.toggle("active");
+             })
+          })
         </script>
         
 {% comment %}

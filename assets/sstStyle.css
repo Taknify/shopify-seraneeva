@@ -35,9 +35,10 @@ li.li-list-drawer {
   transform-origin: center;
 }
 .mobile-nav__link:hover {
-   font-size: 13.5px;
+  transform: scale(1.5);
+   /* font-size: 13.5px;
    transform: scale(1.5);
-   transition: transform 0.3s ease;
+   transition: transform 0.3s ease; */
 }
 
 @media(max-width:992px){

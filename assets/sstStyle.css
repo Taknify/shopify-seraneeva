@@ -29,6 +29,7 @@ li.li-list-drawer {
   display: block;
 }
 .mobile-nav__link{
+  font-family: var(--navigation-font-stack);
   transition: transform 0.3s ease, font-size 0.3s ease;
 }
 .mobile-nav__link:hover {

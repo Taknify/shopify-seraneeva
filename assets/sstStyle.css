@@ -19,7 +19,7 @@ li.li-list-drawer {
     right: 0;
     margin: 0;
     background-color: #fff;
-    padding: 20px;
+    padding: 20px 10px 10px 30px;
 }
 .list-container-style{
      box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;

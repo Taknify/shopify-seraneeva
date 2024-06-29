@@ -486,16 +486,34 @@
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var toggleButtons = document.querySelectorAll('.drawer-toggle');
-    var listItemsDrawer = document.querySelector('.list_items_drawer');
+
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelector('.drawer-toggle').addEventListener('click', () => {
+                document.querySelector('.list_items_drawer').style.display = 'block';
+            });
+        });
+
+
+
+
+
+
+
+
+
+  
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   var toggleButtons = document.querySelectorAll('.drawer-toggle');
+  //   var listItemsDrawer = document.querySelector('.list_items_drawer');
 
     // // Add click event listener to each toggle button
 
-      toggleButtons[i].addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevent the click from propagating to the document
-        listItemsDrawer.classList.toggle('active');
-      });
+      // toggleButtons[i].addEventListener('click', function(event) {
+      //   event.stopPropagation(); // Prevent the click from propagating to the document
+      //   listItemsDrawer.classList.toggle('active');
+      // });
 
     
     // for (var i = 0; i < toggleButtons.length; i++) {
@@ -518,7 +536,7 @@
     //     listItemsDrawer.classList.remove('active');
     //   }
     // });
-  });
+  // });
 </script>
 
         

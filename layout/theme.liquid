@@ -484,9 +484,7 @@
       }
     </style>
 
-<!-- toggle functionality -->
-
-<script>
+        <script>
   document.addEventListener('DOMContentLoaded', function() {
     var drawerToggleButtons = document.querySelectorAll('.drawer-toggle');
     var listItemsDrawer = document.querySelector('.list_items_drawer');
@@ -506,68 +504,6 @@
     });
   });
 </script>
- <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Select all elements with the class .drawer-toggle and .account_button
-    var toggleButtons = document.querySelectorAll('.drawer-toggle, .account-button');
-    var listItemsDrawer = document.querySelector('.list_items_drawer');
 
-    toggleButtons.forEach(function(button) {
-      button.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevent the click from propagating to the document
-        listItemsDrawer.classList.toggle('active');
-      });
-    });
-
-    document.addEventListener('click', function(event) {
-      // Check if the click is outside the drawer and toggle buttons
-      if (!listItemsDrawer.contains(event.target) && !Array.from(toggleButtons).some(button => button.contains(event.target))) {
-        listItemsDrawer.classList.remove('active');
-      }
-    });
-  });
-</script>
-       
-        <!-- <script>
-         // scripts.js
-            document.addEventListener('DOMContentLoaded', function() {
-                const buttonToggles = document.querySelectorAll('.drawer-toggle');
-                const itemsDrawer = document.querySelector('.list_items_drawer');
-            
-                // Ensure elements are selected correctly
-                if (buttonToggles.length && itemsDrawer) {
-                    for (let i = 0; i < buttonToggles.length; i++) {
-                        buttonToggles[i].addEventListener('click', function(event) {
-                            event.preventDefault(); // Prevent default behavior for <a> tags
-                            console.log('Button clicked'); // Debug log
-                            itemsDrawer.classList.toggle('active');
-                            console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
-                        });
-                    }
-                } else {
-                    console.error('Button or drawer not found');
-                }
-            });
-
-          document.addEventListener('DOMContentLoaded', function() {
-            const accountButtons = document.querySelectorAll('.account_button');
-        
-            if (accountButtons.length) {
-                accountButtons.forEach(function(button) {
-                    button.addEventListener('click', function(event) {
-                        event.preventDefault(); // Prevent default behavior for <button> tags
-                        const parent = button.parentElement;
-                        parent.classList.toggle('active');
-                        console.log('Parent class toggled, current classes:', parent.className); // Debug log
-                    });
-                });
-            } else {
-                console.error('Account button not found');
-            }
-        });
-
-        </script> -->
-
-    
 </body>
 </html>

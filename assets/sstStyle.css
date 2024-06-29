@@ -33,9 +33,10 @@ li.li-list-drawer {
     font-size: 18px;
     text-decoration: none;
     /* padding: 10px; */
+    cursor: pointer;
     font-family: var(--navigation-font-stack); 
     transform-origin: center; /* Transform origin at the center */
-    display: inline-block !important;
+    display: block !important;
     transition: font-size 0.3s ease !important;
 }
 li.li-list-drawer {

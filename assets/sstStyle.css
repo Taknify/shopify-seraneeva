@@ -29,17 +29,17 @@ li.li-list-drawer {
   display: block;
 }
 .mobile-nav__link{
-  font-family: var(--navigation-font-stack);
- transition: transform 0.25s 0s; 
-  transform: scale(1); 
-  transform-origin: center;
-  position: relative;
+  color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-family: var(--navigation-font-stack); /* Font family setting */
+    transition: transform 0.25s ease; /* Smooth transition for transform */
+    transform: scale(1); /* Initial scale */
+    transform-origin: center; /* Transform origin at the center */
+    display: inline-block;
 }
 .mobile-nav__link:hover {
   transform: scale(1.5);
-   /* font-size: 13.5px;
-   transform: scale(1.5);
-   transition: transform 0.3s ease; */
 }
 
 @media(max-width:992px){

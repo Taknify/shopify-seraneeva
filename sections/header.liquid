@@ -98,7 +98,7 @@ Testing Cypress integration
     {% endif %}
     {% endcomment %}
 
-      <li>
+      <li class="li-acount-btn">
           <a title="{{ 'layout.customer.account' | t }}" class="account-button standalone-icon--wrapper drawer-toggle" id="drawer-toggle"  aria-label="Open Menu">
             {% if section.settings.show_icons %}
               {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
@@ -106,6 +106,10 @@ Testing Cypress integration
               <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
             {% endif %}
           </a>
+        
+          <!-- Code By SST : Rendering Account Drawer -->
+          {% render 'account-drawer' %}
+        
         </li>
       
 {% comment %}

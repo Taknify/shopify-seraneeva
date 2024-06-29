@@ -32,7 +32,7 @@ li.li-list-drawer {
     color: #000;
     font-size: 18px;
     text-decoration: none;
-    padding: 10px;
+    /* padding: 10px; */
     font-family: var(--navigation-font-stack); 
     transform-origin: center; /* Transform origin at the center */
     display: inline-block !important;

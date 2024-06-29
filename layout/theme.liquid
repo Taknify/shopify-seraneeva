@@ -40,6 +40,7 @@
   {{ 'photoswipe.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'theme.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'custom.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'sstStyle.css' | asset_url | stylesheet_tag: preload: true }}
 
   {% if settings.animations_enabled %}
     {{ 'animate.min.css' | asset_url | stylesheet_tag: preload: true }}

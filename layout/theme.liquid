@@ -485,6 +485,17 @@
     </style>
 
 <!-- toggle functionality -->
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              var drawerToggle = document.getElementById('drawer-toggle');
+              var listItemsDrawer = document.querySelector('.list_items_drawer');
+          
+              drawerToggle.addEventListener('click', function() {
+                listItemsDrawer.classList.toggle('active');
+              });
+            });
+          </script>
        
         <!-- <script>
          // scripts.js

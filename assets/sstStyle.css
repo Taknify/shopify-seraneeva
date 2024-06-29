@@ -44,8 +44,8 @@ li.li-list-drawer {
 .li-list-drawer:hover .mobile-nav__link{
    font-size: 13.5px;
 }
-.list-container-style:nth-child(1){
- margin-to: 12px; 
+.list-container-style >{
+ margin-top: 12px; 
 }
 
 .mobile-nav__link {

@@ -5,7 +5,7 @@ li.li-list-drawer {
     display: block !important;
 }
  .list_items_drawer{
-    /* display:none; */
+    display:none;
   }
   ul.ul-list-drawer {
     position: absolute;

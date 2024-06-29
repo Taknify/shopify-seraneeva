@@ -36,6 +36,7 @@ li.li-list-drawer {
 }
 .mobile-nav__link:hover {
    font-size: 13.5px;
+   transform: scale(1.5);
    transition: transform 0.3s ease;
 }
 

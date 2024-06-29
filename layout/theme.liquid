@@ -484,13 +484,12 @@
       }
     </style>
 
- <script>
+<script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Select all elements with the class .drawer-toggle and .account_button
-    var toggleButtons = document.querySelectorAll('.drawer-toggle, .account-button');
+    var drawerToggleButtons = document.querySelectorAll('.drawer-toggle');
     var listItemsDrawer = document.querySelector('.list_items_drawer');
 
-    toggleButtons.forEach(function(button) {
+    drawerToggleButtons.forEach(function(button) {
       button.addEventListener('click', function(event) {
         event.stopPropagation(); // Prevent the click from propagating to the document
         listItemsDrawer.classList.toggle('active');
@@ -499,7 +498,7 @@
 
     document.addEventListener('click', function(event) {
       // Check if the click is outside the drawer and toggle buttons
-      if (!listItemsDrawer.contains(event.target) && !Array.from(toggleButtons).some(button => button.contains(event.target))) {
+      if (!listItemsDrawer.contains(event.target) && !Array.from(drawerToggleButtons).some(button => button.contains(event.target))) {
         listItemsDrawer.classList.remove('active');
       }
     });

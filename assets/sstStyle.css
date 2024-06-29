@@ -25,6 +25,10 @@ li.li-list-drawer {
      box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
      transform: translate(0px, 16px);
 }
+.site-nav--mobile.active .account_button{
+  display: block;
+}
+
 @media(max-width:992px){
   .drawer-toggle{
   padding: 6px;

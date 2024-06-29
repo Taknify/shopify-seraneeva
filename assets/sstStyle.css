@@ -46,9 +46,7 @@ li.li-list-drawer {
 }
 
 
-.mobile-nav__item:hover .mobile-nav__link {
-    transform: scale(0.8); /* Scale down to 80% of its original size on hover */
-}
+
 a.mobile-nav__link{
   font-size: 18px;
 }
@@ -62,6 +60,9 @@ li.li-list-drawer {
 .mobile-nav__link {
     transition: font-size 0.3s ease;
     transform-origin: center; /* Transform origin at the center */
+}
+.mobile-nav__item:hover .mobile-nav__link {
+    transform: scale(0.8); /* Scale down to 80% of its original size on hover */
 }
 /* .animiate-hover{
    transition: font-size 0.3s ease;

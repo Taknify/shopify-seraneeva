@@ -42,11 +42,8 @@ li.li-list-drawer {
    transition: font-size 0.3s ease;
 }
 .li-list-drawer:hover .mobile-nav__link{
-   font-size: 13.5px;
+   font-size: 16px;
 }
-
-
-
 a.mobile-nav__link{
   font-size: 18px;
 }

@@ -30,6 +30,7 @@ li.li-list-drawer {
 }
 .mobile-nav__link{
     color: #000;
+    font-size: 18px;
     text-decoration: none;
     padding: 10px;
     font-family: var(--navigation-font-stack); 
@@ -37,17 +38,16 @@ li.li-list-drawer {
     display: inline-block !important;
     transition: font-size 0.3s ease;
 }
-a.mobile-nav__link{
-  font-size: 18px;
+.li-list-drawer:hover .mobile-nav__link{
+   font-size: 17px;
 }
+
 
 .site-header__links li{
    transform-origin: center;
    transition: font-size 0.3s ease;
 }
-.li-list-drawer:hover .mobile-nav__link{
-   font-size: 17px;
-}
+
 
 li.li-list-drawer {
     margin: 32px 0;

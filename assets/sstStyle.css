@@ -33,8 +33,8 @@ li.li-list-drawer {
   transition: transform 0.3s ease, font-size 0.3s ease;
 }
 .mobile-nav__link:hover {
-    transform: scale(0.9); /* Scale down to 90% */
-    /* font-size: 0.9em; /* Decrease font size to 90% */ */
+  /* Scale down to 90% */
+    transform: scale(0.9); 
 }
 
 @media(max-width:992px){

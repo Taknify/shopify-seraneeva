@@ -35,7 +35,7 @@ li.li-list-drawer {
 .mobile-nav__link:hover {
   /* Scale down to 90% */
     /* transform: scale(0.9);  */
-   font-size: 15px;
+   font-size: 12px;
    transition: transform 0.3s ease;
 }
 

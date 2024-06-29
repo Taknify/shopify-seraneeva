@@ -34,12 +34,13 @@ li.li-list-drawer {
     padding: 10px;
     font-family: var(--navigation-font-stack); /* Font family setting */
     transition: transform 0.25s ease; /* Smooth transition for transform */
-    transform: scale(1); /* Initial scale */
+    /* transform: scale(1); /* Initial scale */ */
     transform-origin: center; /* Transform origin at the center */
     display: inline-block !important;
 }
 .mobile-nav__link:hover {
-  transform: scale(1.5);
+  /* transform: scale(1.5); */
+   font-size: 13.5px;
 }
 
 @media(max-width:992px){

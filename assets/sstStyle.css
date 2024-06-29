@@ -30,7 +30,7 @@ li.li-list-drawer {
 }
 .mobile-nav__link{
   font-family: var(--navigation-font-stack);
-  transition: transform 0.25s 0s; 
+ transition: transform 0.25s 0s; 
   transform: scale(1); 
   transform-origin: center;
 }

@@ -487,35 +487,51 @@
 <!-- toggle functionality -->
        
         <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const buttonToggles = document.querySelectorAll('.drawer-toggle');
-    const itemsDrawer = document.querySelector('.list_items_drawer');
-
-    // Ensure elements are selected correctly
-    if (buttonToggles.length && itemsDrawer) {
-        // Toggle drawer active class on button click
-        buttonToggles.forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default behavior for <a> tags
-                console.log('Button clicked'); // Debug log
-                itemsDrawer.classList.toggle('active');
-                console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
+         // scripts.js
+            document.addEventListener('DOMContentLoaded', function() {
+                const buttonToggles = document.querySelectorAll('.drawer-toggle');
+                const itemsDrawer = document.querySelector('.list_items_drawer');
+            
+                // Ensure elements are selected correctly
+                if (buttonToggles.length && itemsDrawer) {
+                    for (let i = 0; i < buttonToggles.length; i++) {
+                        buttonToggles[i].addEventListener('click', function(event) {
+                            event.preventDefault(); // Prevent default behavior for <a> tags
+                            console.log('Button clicked'); // Debug log
+                            itemsDrawer.classList.toggle('active');
+                            console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
+                        });
+                    }
+                } else {
+                    console.error('Button or drawer not found');
+                }
             });
-        });
 
-        // Click outside to close drawer
-        document.addEventListener('click', function(event) {
-            if (!itemsDrawer.contains(event.target) && !event.target.classList.contains('drawer-toggle')) {
-                itemsDrawer.classList.remove('active');
-                console.log('Clicked outside, drawer closed');
+          document.addEventListener('DOMContentLoaded', function() {
+            const accountButtons = document.querySelectorAll('.account_button');
+        
+            if (accountButtons.length) {
+                accountButtons.forEach(function(button) {
+                    button.addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent default behavior for <button> tags
+                        const parent = button.parentElement;
+                        parent.classList.toggle('active');
+                        console.log('Parent class toggled, current classes:', parent.className); // Debug log
+                    });
+                });
+            } else {
+                console.error('Account button not found');
             }
         });
-    } else {
-        console.error('Button or drawer not found');
-    }
-});
 
-
+          
+          // document.addEventListener('DOMContentLoaded', function(){
+          //   const buttonTogg = document.querySelectorAll('.drawer-toggle, .mobile-btn');
+          //   const items_drawer = document.querySelector('.list_items_drawer');
+          //    buttonTogg.addEventListener('click', function(){
+          //       items_drawer.classList.toggle("active");
+          //    })
+          // })
         </script>
         
 {% comment %}

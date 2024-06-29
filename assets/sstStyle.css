@@ -43,11 +43,12 @@ li.li-list-drawer {
 } */
 
 .mobile-nav__link:hover {
-    transform: scale(1.5); /* Scale up to 150% on hover */
+   font-size: 13.5px;
+    /* transform: scale(1.5); /* Scale up to 150% on hover */ */
 }
 
 .mobile-nav__link:not(:hover) {
-    transform: scale(1); /* Scale back to 100% when not hovered */
+    /* transform: scale(1); /* Scale back to 100% when not hovered */ */
 }
 
 @media(max-width:992px){

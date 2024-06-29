@@ -18,3 +18,10 @@ li.li-list-drawer {
     background-color: #fff;
     padding: 20px;
 }
+.list-container-style{
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 24px;
+    border-radius: 4px;
+    margin: 0px 1rem;
+    z-index: 10;
+    transform: translate(0px, 16px);
+}

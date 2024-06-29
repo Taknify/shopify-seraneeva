@@ -30,8 +30,7 @@ li.li-list-drawer {
 }
 .mobile-nav__link{
   font-family: var(--navigation-font-stack);
-  transition: transform 0.3s ease, font-size 0.3s ease;
-   /* transition: font-size 0.3s ease-in-out */
+  transition: transform 0.25s 0s; 
 }
 .mobile-nav__link:hover {
    font-size: 13.5px;

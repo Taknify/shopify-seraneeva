@@ -64,6 +64,12 @@ li.li-list-drawer {
 .mobile-nav__item:hover .mobile-nav__link {
     transform: scale(0.8); /* Scale down to 80% of its original size on hover */
 }
+a.mobile-nav__link{
+  font-size: 18px;
+}
+li.li-list-drawer {
+    margin: 32px 0;
+}
 
 /* .animiate-hover{
    transition: font-size 0.3s ease;

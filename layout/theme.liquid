@@ -487,13 +487,32 @@
 <!-- toggle functionality -->
        
         <script>
-          document.addEventListener('DOMContentLoaded', function(){
-            const buttonTogg = document.querySelectorAll('.drawer-toggle');
-            const items_drawer = document.querySelector('.list_items_drawer');
-             buttonTogg.addEventListener('click', function(){
-                items_drawer.classList.toggle("active");
-             })
-          })
+          document.addEventListener('DOMContentLoaded', function() {
+              const buttonToggles = document.querySelectorAll('.drawer-toggle');
+              const itemsDrawer = document.querySelector('.list_items_drawer');
+          
+              // Ensure elements are selected correctly
+              if (buttonToggles.length && itemsDrawer) {
+                  buttonToggles.forEach(function(buttonToggle) {
+                      buttonToggle.addEventListener('click', function(event) {
+                          event.preventDefault(); // Prevent default behavior for <a> tags
+                          console.log('Button clicked'); // Debug log
+                          itemsDrawer.classList.toggle('active');
+                          console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
+                      });
+                  });
+              } else {
+                  console.error('Button or drawer not found');
+              }
+          });
+          
+          // document.addEventListener('DOMContentLoaded', function(){
+          //   const buttonTogg = document.querySelectorAll('.drawer-toggle, .mobile-btn');
+          //   const items_drawer = document.querySelector('.list_items_drawer');
+          //    buttonTogg.addEventListener('click', function(){
+          //       items_drawer.classList.toggle("active");
+          //    })
+          // })
         </script>
         
 {% comment %}

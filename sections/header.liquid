@@ -164,7 +164,7 @@ Testing Cypress integration
     {%- comment -%}note indirect onclick method used as .js-drawer-open-left-link class CANNOT be used here as theme.js expects only ONE such element match {%- endcomment -%}
     <li>
       <div class="site-nav--mobile">
-        <button onclick="document.querySelector('.js-drawer-open-left-link').click()" type="button" aria-label="{{ 'layout.navigation.menu' | t }}" class="animiate-hover hamburger-nav-button icon-fallback-text site-nav__link {% comment -%}js-drawer-open-left-link{%- endcomment %} standalone-icon--wrapper" aria-controls="NavDrawer" aria-expanded="false">
+        <button onclick="document.querySelector('.js-drawer-open-left-link').click()" type="button" aria-label="{{ 'layout.navigation.menu' | t }}" class="hamburger-nav-button icon-fallback-text site-nav__link {% comment -%}js-drawer-open-left-link{%- endcomment %} standalone-icon--wrapper" aria-controls="NavDrawer" aria-expanded="false">
           {% render 'theme-icon' with icon: 'hamburger_nav', iconClasses: 'fa-2x', widthUnset: true %}
           {%- comment -%}2024-05-20 Paul N add 'Menu' text to header navigation hamburger icon {%- endcomment -%}
           {%- comment -%}see custom.css and translations for layout.navigation.menu {%- endcomment -%}
@@ -883,7 +883,7 @@ Testing Cypress integration
 
           <div class="grid__item three-twelfths">
             <div class="site-nav--mobile">
-              <button type="button" aria-label="{{ 'layout.navigation.menu' | t }}" class="hamburger-nav-button icon-fallback-text site-nav__link js-drawer-open-left-link standalone-icon--wrapper" aria-controls="NavDrawer" aria-expanded="false">
+              <button type="button" aria-label="{{ 'layout.navigation.menu' | t }}" class="animiate-hover hamburger-nav-button icon-fallback-text site-nav__link js-drawer-open-left-link standalone-icon--wrapper" aria-controls="NavDrawer" aria-expanded="false">
                 {% render 'theme-icon' with icon: 'hamburger_nav', iconClasses: 'fa-2x', widthUnset: true %}
                 <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
               </button>

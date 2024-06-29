@@ -61,7 +61,7 @@ li.li-list-drawer {
     transform-origin: center; /* Transform origin at the center */
 }
 
-.site-header__links.top-links--icon-links .standalone-icon--wrapper:hover svg {
+.mobile-nav__item:hover .mobile-nav__link {
     transform: scale(0.8); /* Scale down to 80% of its original size on hover */
 }
 

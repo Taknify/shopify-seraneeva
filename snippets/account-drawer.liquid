@@ -1,8 +1,4 @@
 <div class="list_items_drawer">
-      
- 
-        
-      
       <ul class="ul-list-drawer">
         {% if customer %}
           <li class="li-list-drawer"><a class="mobile-nav__link" href="/account/logout">
@@ -35,7 +31,11 @@
       </ul>
     </div>
 
-
+<style>
+  .list_items_drawer{
+    display:none;
+  }
+</style>
 {% comment %}
 <!-- Overlay -->
 <div id="drawer-overlay" class="overlay"></div>

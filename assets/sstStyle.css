@@ -7,6 +7,9 @@ li.li-list-drawer {
  .list_items_drawer{
     display:none;
   }
+.list_items_drawer.active{
+    display:none;
+  }
   ul.ul-list-drawer {
     position: absolute;
     left: 0;

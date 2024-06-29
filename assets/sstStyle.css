@@ -37,6 +37,10 @@ li.li-list-drawer {
     display: inline-block !important;
     transition: font-size 0.3s ease;
 }
+a.mobile-nav__link{
+  font-size: 18px;
+}
+
 .site-header__links li{
    transform-origin: center;
    transition: font-size 0.3s ease;
@@ -45,10 +49,6 @@ li.li-list-drawer {
    font-size: 17px;
 }
 
-
-a.mobile-nav__link{
-  font-size: 18px;
-}
 li.li-list-drawer {
     margin: 32px 0;
 }

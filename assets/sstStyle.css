@@ -37,6 +37,10 @@ li.li-list-drawer {
     display: inline-block !important;
     transition: font-size 0.3s ease;
 }
+.site-header__links{
+   transform-origin: center;
+   transition: font-size 0.3s ease;
+}
 
 .li-list-drawer:hover .mobile-nav__link{
    font-size: 13.5px;

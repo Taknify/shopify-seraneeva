@@ -487,51 +487,35 @@
 <!-- toggle functionality -->
        
         <script>
-         // scripts.js
-            document.addEventListener('DOMContentLoaded', function() {
-                const buttonToggles = document.querySelectorAll('.drawer-toggle');
-                const itemsDrawer = document.querySelector('.list_items_drawer');
-            
-                // Ensure elements are selected correctly
-                if (buttonToggles.length && itemsDrawer) {
-                    for (let i = 0; i < buttonToggles.length; i++) {
-                        buttonToggles[i].addEventListener('click', function(event) {
-                            event.preventDefault(); // Prevent default behavior for <a> tags
-                            console.log('Button clicked'); // Debug log
-                            itemsDrawer.classList.toggle('active');
-                            console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
-                        });
-                    }
-                } else {
-                    console.error('Button or drawer not found');
-                }
+         document.addEventListener('DOMContentLoaded', function() {
+    const buttonToggles = document.querySelectorAll('.drawer-toggle');
+    const itemsDrawer = document.querySelector('.list_items_drawer');
+  
+    // Ensure elements are selected correctly
+    if (buttonToggles.length && itemsDrawer) {
+        for (let i = 0; i < buttonToggles.length; i++) {
+            buttonToggles[i].addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default behavior for <a> tags
+                console.log('Button clicked'); // Debug log
+                itemsDrawer.classList.toggle('active');
+                console.log('Drawer class toggled, current classes:', itemsDrawer.className); // Debug log
             });
+        }
 
-          document.addEventListener('DOMContentLoaded', function() {
-            const accountButtons = document.querySelectorAll('.account_button');
-        
-            if (accountButtons.length) {
-                accountButtons.forEach(function(button) {
-                    button.addEventListener('click', function(event) {
-                        event.preventDefault(); // Prevent default behavior for <button> tags
-                        const parent = button.parentElement;
-                        parent.classList.toggle('active');
-                        console.log('Parent class toggled, current classes:', parent.className); // Debug log
-                    });
-                });
-            } else {
-                console.error('Account button not found');
+        // Click outside to close drawer
+        document.addEventListener('click', function(event) {
+            const isClickedOutside = !itemsDrawer.contains(event.target);
+            if (isClickedOutside) {
+                itemsDrawer.classList.remove('active');
+                console.log('Clicked outside, drawer closed');
             }
         });
+    } else {
+        console.error('Button or drawer not found');
+    }
+});
 
-          
-          // document.addEventListener('DOMContentLoaded', function(){
-          //   const buttonTogg = document.querySelectorAll('.drawer-toggle, .mobile-btn');
-          //   const items_drawer = document.querySelector('.list_items_drawer');
-          //    buttonTogg.addEventListener('click', function(){
-          //       items_drawer.classList.toggle("active");
-          //    })
-          // })
+
         </script>
         
 {% comment %}

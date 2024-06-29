@@ -57,10 +57,16 @@ li.li-list-drawer {
 .list-container-style:nth-child(1) .li-list-drawer{
  margin-top: 12px; 
 }
-.mobile-nav__link {
+
+.mobile-nav__item top-level{
+  transition: font-size 0.3s ease !important;
+    transform-origin: center;
+}
+/* .mobile-nav__link {
     transition: font-size 0.3s ease !important;
     transform-origin: center; 
 }
+ */
 .mobile-nav__link:hover  {
     transform: scale(0.8);
 }

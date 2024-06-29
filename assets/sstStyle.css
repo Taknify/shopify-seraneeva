@@ -55,6 +55,16 @@ li.li-list-drawer {
     transform: scale(0.8); /* Scale down to 80% of its original size on hover */
 }
 
+
+.mobile-nav__link {
+    transition: font-size 0.3s ease;
+    transform-origin: center; /* Transform origin at the center */
+}
+
+.site-header__links.top-links--icon-links .standalone-icon--wrapper:hover svg {
+    transform: scale(0.8); /* Scale down to 80% of its original size on hover */
+}
+
 /* .animiate-hover{
    transition: font-size 0.3s ease;
     transform-origin: center;

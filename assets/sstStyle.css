@@ -41,22 +41,16 @@ li.li-list-drawer {
 .li-list-drawer:hover .mobile-nav__link{
    font-size: 16px;
 }
-
-
 .site-header__links li{
    transform-origin: center;
    transition: font-size 0.3s ease;
 }
-
-
 li.li-list-drawer {
     margin: 32px 0;
 }
-
 .list-container-style:nth-child(1) .li-list-drawer{
  margin-top: 12px; 
 }
-
 .mobile-nav__item.top-level{
   transition: font-size 0.3s ease !important;
     transform-origin: center;

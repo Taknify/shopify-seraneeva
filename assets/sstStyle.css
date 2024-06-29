@@ -35,12 +35,12 @@ li.li-list-drawer {
 }
   ul.ul-list-drawer {
     position: absolute;
-    left: 40px;
+    left: 26px;
     right: 40px;
     margin: 0;
     background-color: #fff;
     padding: 20px;
-    top: 100%;
+    top: 70%;
 }
   li.li-list-drawer {
     padding: 12px;

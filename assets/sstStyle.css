@@ -19,6 +19,6 @@ li.li-list-drawer {
     padding: 20px;
 }
 .list-container-style{
-     box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 24px;
+     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
      transform: translate(0px, 16px);
 }

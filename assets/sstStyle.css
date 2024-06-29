@@ -58,20 +58,13 @@ li.li-list-drawer {
  margin-top: 12px; 
 }
 .mobile-nav__link {
-    transition: font-size 0.3s ease;
-    transform-origin: center; /* Transform origin at the center */
+    transition: font-size 0.3s ease !important;
+    transform-origin: center; 
 }
 .mobile-nav__link:hover  {
-    transform: scale(0.8); /* Scale down to 80% of its original size on hover */
+    transform: scale(0.8);
 }
-/* .animiate-hover{
-   transition: font-size 0.3s ease;
-    transform-origin: center;
-}
-.animiate-hover:hover svg{
-   transform: scale(0.8);
-}
- */
+
 @media(max-width:992px){
   .drawer-toggle{
     padding: 6px;

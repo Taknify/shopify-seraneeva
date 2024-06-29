@@ -33,6 +33,7 @@ li.li-list-drawer {
  transition: transform 0.25s 0s; 
   transform: scale(1); 
   transform-origin: center;
+  position: relative;
 }
 .mobile-nav__link:hover {
   transform: scale(1.5);

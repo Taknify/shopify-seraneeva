@@ -1,0 +1,103 @@
+<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+
+<predictive-search>
+
+    <div class="search-wrapper">
+        <form action="{{ routes.search_url }}" method="get" role="search" id="newsletter-footer_form"
+            accept-charset="UTF-8" class="search-form">
+            <div class="input-group">
+                <label for="Email" class="hidden-label">Search</label>
+                <input type="search" value="{{ search.terms | escape }}" placeholder="Email" name="q" id="Email"
+                    class="input-group-field footer-email-input" aria-label="Email" role="combobox"
+                    aria-expanded="false" aria-owns="predictive-search-results"
+                    aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list">
+                <i id="arrow-sign" class="fas fa-long-arrow-alt-right"></i>
+
+            </div>
+            <div id="predictive-search" tabindex="-1">
+            </div>
+        </form>
+    </div>
+</predictive-search>
+<style>
+    #arrow-sign {
+        position: absolute;
+        top: 20px;
+        right: 0px;
+        font-size: 16px;
+    }
+
+    .search-wrapper {
+        position: relative;
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .search-wrapper .input-group-field {
+        color: rgb(7, 7, 7);
+        opacity: 0.7;
+        font-size: 16px;
+        top: 12px;
+        line-height: 15px;
+        padding-bottom: 8px;
+        padding-left: 0px;
+        padding-right: 16px;
+        padding-top: 16px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .search-wrapper #newsletter-footer_form .footer-email-input {
+        border-bottom: 2px solid black;
+        text-transform: uppercase;
+    }
+
+    .search-wrapper .input-group:after {
+        position: absolute;
+        bottom: 1px;
+        border-bottom: 1px solid rgb(0, 0, 0);
+        content: "";
+        display: block;
+        margin: 0 auto;
+        transition: width .8s cubic-bezier(.5, 0, 0, 1);
+        width: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .search-wrapper .input-group:has(input:placeholder-shown)>label {
+        top: 0;
+        left: 0;
+        transform: translateY(10px);
+        margin-bottom: 0;
+        transition: all .8s cubic-bezier(.5, 0, 0, 1);
+        color: gray !important;
+    }
+
+    .search-wrapper .hidden-label {
+        overflow: initial !important;
+        clip: unset !important;
+        font-family: Cooper BT, serif;
+        font-size: 14.4px;
+        opacity: .94;
+    }
+
+    .search-wrapper .custom-error-message {
+        display: none;
+    }
+
+    .search-wrapper .hidden-label {
+        position: absolute;
+        height: 0;
+        width: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+
+    .search-wrapper .input-group:has(input:focus)>label,
+    .search-wrapper .input-group:has(input[type="search"]:not(:placeholder-shown))>label {
+        transform: translateY(1px) scale(.6428571429);
+        color: rgb(7, 7, 7) !important;
+    }
+</style>

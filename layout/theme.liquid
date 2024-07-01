@@ -1,31 +1,32 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
+
 <head>
 
   <!-- Code for Adding "MENU" to the header -->
- {% comment %}
+  {% comment %}
   <style>
-  @media (min-width: 991.98px){
-    .site-nav--mobile {
-      position: relative;
-  }
-  
-	  .site-nav--mobile:before {
-      position: absolute;
-      content: "MENU";
-      top: 50%;
-      transform: translateY(-46.5%);
-      font-size: 12px;
-  }
-  }
+    @media (min-width: 991.98px) {
+      .site-nav--mobile {
+        position: relative;
+      }
+
+      .site-nav--mobile:before {
+        position: absolute;
+        content: "MENU";
+        top: 50%;
+        transform: translateY(-46.5%);
+        font-size: 12px;
+      }
+    }
   </style>
- {% endcomment %}
-    
+  {% endcomment %}
+
   <!-- iOS Home Screen Status Bar Color -->
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
   <!-- Browser Theme Color -->
   <meta name="theme-color" content="#FFFFFF">
-  
+
   <!-- Basic page needs ================================================== -->
   <meta charset="utf-8">
   {%- comment -%}DemoStoreRequirements{%- endcomment -%}
@@ -33,7 +34,7 @@
 
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
   {%- unless settings.type_header_font.system? -%}
-    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
   {%- endunless -%}
 
   {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag: preload: true }}
@@ -43,94 +44,103 @@
   {{ 'sstStyle.css' | asset_url | stylesheet_tag: preload: true }}
 
   {% if settings.animations_enabled %}
-    {{ 'animate.min.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'animate.min.css' | asset_url | stylesheet_tag: preload: true }}
   {% endif %}
 
   {% if settings.popup--enable %}
-    {{ 'fancybox.min.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'fancybox.min.css' | asset_url | stylesheet_tag: preload: true }}
   {% endif %}
 
   {% if settings.favicon != blank %}
-    <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 180, height: 180, crop: 'center' }}" type="image/png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ settings.favicon | image_url: width: 180, height: 180, crop: 'center' }}">
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ settings.favicon | image_url: width: 180, height: 180, crop: 'center' }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ settings.favicon | image_url: width: 32, height: 32, crop: 'center' }}">
-    <link rel="icon" type="image/png" sizes="194x194" href="{{ settings.favicon | image_url: width: 194, height: 194, crop: 'center' }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ settings.favicon | image_url: width: 192, height: 192, crop: 'center' }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ settings.favicon | image_url: width: 16, height: 16, crop: 'center' }}">
+  <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 180, height: 180, crop: 'center' }}"
+    type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="{{ settings.favicon | image_url: width: 180, height: 180, crop: 'center' }}">
+  <link rel="apple-touch-icon-precomposed" sizes="180x180"
+    href="{{ settings.favicon | image_url: width: 180, height: 180, crop: 'center' }}">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="{{ settings.favicon | image_url: width: 32, height: 32, crop: 'center' }}">
+  <link rel="icon" type="image/png" sizes="194x194"
+    href="{{ settings.favicon | image_url: width: 194, height: 194, crop: 'center' }}">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="{{ settings.favicon | image_url: width: 192, height: 192, crop: 'center' }}">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="{{ settings.favicon | image_url: width: 16, height: 16, crop: 'center' }}">
   {% endif %}
 
   {%- unless settings.type_header_font.system? -%}
-    {% # theme-check-disable AssetPreload %}
-    <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
-    {% # theme-check-enable AssetPreload %}
+  {% # theme-check-disable AssetPreload %}
+  <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+  {% # theme-check-enable AssetPreload %}
   {%- endunless -%}
   {%- unless settings.type_base_font.system? -%}
-    {% # theme-check-disable AssetPreload %}
-    <link rel="preload" as="font" href="{{ settings.type_base_font | font_url }}" type="font/woff2" crossorigin>
-    {% # theme-check-enable AssetPreload %}
+  {% # theme-check-disable AssetPreload %}
+  <link rel="preload" as="font" href="{{ settings.type_base_font | font_url }}" type="font/woff2" crossorigin>
+  {% # theme-check-enable AssetPreload %}
   {%- endunless -%}
- 
+  <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}">
   <!-- Title and description ================================================== -->
   <title>
-    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{
+    'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t:
+    page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
   </title>
 
   {% if page_description %}
-    <meta name="description" content="{{ page_description | escape }}">
+  <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
 
   <!-- Helpers ================================================== -->
   {% render 'social-meta-tags' %}
-  <link rel="canonical" href="{{ canonical_url }}"/>
+  <link rel="canonical" href="{{ canonical_url }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="{{ settings.color_primary }}">
 
   <!-- CSS ================================================== -->
   {% render 'css-variables' %}
   {% style %}
-    *,
-    *::before,
-    *::after {
-      box-sizing: inherit;
-    }
+  *,
+  *::before,
+  *::after {
+  box-sizing: inherit;
+  }
 
-    html {
-      box-sizing: border-box;
-      background-color: var(--body-color);
-      height: 100%;
-      margin: 0;
-    }
+  html {
+  box-sizing: border-box;
+  background-color: var(--body-color);
+  height: 100%;
+  margin: 0;
+  }
 
-    body {
-      background-color: var(--body-color);
-      min-height: 100%;
-      margin: 0;
-      display: grid;
-      grid-template-rows: auto auto 1fr auto;
-      grid-template-columns: 100%;
-      overflow-x: hidden;
-    }
+  body {
+  background-color: var(--body-color);
+  min-height: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 100%;
+  overflow-x: hidden;
+  }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
+  .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  }
 
-    .sr-only-focusable:active, .sr-only-focusable:focus {
-      position: static;
-      width: auto;
-      height: auto;
-      margin: 0;
-      overflow: visible;
-      clip: auto;
-    }
+  .sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  }
   {% endstyle %}
 
   <!-- Header hook for plugins ================================================== -->
@@ -139,137 +149,143 @@
   <script defer src="{{ 'eventBus.js' | asset_url }}"></script>
 
   <script type="text/javascript">
-		window.wetheme = {
-			name: 'Flow',
-			webcomponentRegistry: {
+    window.wetheme = {
+      name: 'Flow',
+      webcomponentRegistry: {
         registry: {},
-				checkScriptLoaded: function(key) {
-					return window.wetheme.webcomponentRegistry.registry[key] ? true : false
-				},
-        register: function(registration) {
-            if(!window.wetheme.webcomponentRegistry.checkScriptLoaded(registration.key)) {
-              window.wetheme.webcomponentRegistry.registry[registration.key] = registration
-            }
+        checkScriptLoaded: function (key) {
+          return window.wetheme.webcomponentRegistry.registry[key] ? true : false
+        },
+        register: function (registration) {
+          if (!window.wetheme.webcomponentRegistry.checkScriptLoaded(registration.key)) {
+            window.wetheme.webcomponentRegistry.registry[registration.key] = registration
+          }
         }
       }
     };
-	</script>
+  </script>
 
   {% if template contains 'customers' %}
-    {% # theme-check-disable ParserBlockingScriptTag %}
-    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-    {% # theme-check-enable ParserBlockingScriptTag %}
+  {% # theme-check-disable ParserBlockingScriptTag %}
+  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% # theme-check-enable ParserBlockingScriptTag %}
   {% endif %}
 
   {% if template.name == 'article' %}
-    <script src="{{ 'textSlideshow.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'textSlideshow.js' | asset_url }}" defer="defer"></script>
   {% endif %}
 
   {% if template.name == 'index' %}
-    <style>
-       a.btn:before {
-        content: '';
-        background: rgb(0 0 0 / 16%) !important;
-        -webkit-backdrop-filter: blur(15px) !important;
-        backdrop-filter: blur(15px);
-         box-shadow: inset 0 0 0 1px #fff;
-      }
-    </style>
+  <style>
+    a.btn:before {
+      content: '';
+      background: rgb(0 0 0 / 16%) !important;
+      -webkit-backdrop-filter: blur(15px) !important;
+      backdrop-filter: blur(15px);
+      box-shadow: inset 0 0 0 1px #fff;
+    }
+  </style>
   {% endif %}
 
   <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 
   {% assign full_url = request.host | append: request.path %}
-  {%- if full_url contains 'about-seraneeva' or full_url contains 'legal' or full_url contains 'returns' or full_url contains 'privacy' -%}
-    <style>
-      .width--narrow {
-    	max-width: 570px !important;
-      }
-    </style>
+  {%- if full_url contains 'about-seraneeva' or full_url contains 'legal' or full_url contains 'returns' or full_url
+  contains 'privacy' -%}
+  <style>
+    .width--narrow {
+      max-width: 570px !important;
+    }
+  </style>
   {%- endif -%}
- <style>
-   #ContactForm input,  #ContactForm textarea{
+  <style>
+    #ContactForm input,
+    #ContactForm textarea {
       outline: none !important;
-   }
-   #newsletter-footer_form .input-group {
-    width: 90% !important;
-   }
- </style>
+    }
 
-  
+    #newsletter-footer_form .input-group {
+      width: 90% !important;
+    }
+  </style>
 
-    <style>
 
-    .site-header .site-header__wrapper .site-header__wrapper__right > ul > li >a {
-    padding: 0 !important;
-    min-width: fit-content;
-    margin: 0 9.23px;
-    } 
 
-    @media screen and (min-width: 767px){
-       .site-header .site-header__wrapper .site-header__wrapper__right > ul > li:nth-child(4){
-            width: 21.5px !important;
+  <style>
+    .site-header .site-header__wrapper .site-header__wrapper__right>ul>li>a {
+      padding: 0 !important;
+      min-width: fit-content;
+      margin: 0 9.23px;
+    }
+
+    @media screen and (min-width: 767px) {
+      .site-header .site-header__wrapper .site-header__wrapper__right>ul>li:nth-child(4) {
+        width: 21.5px !important;
         display: flex !important;
         justify-content: center !important;
-    }
-       .site-header .site-header__wrapper .site-header__wrapper__right > ul > li:nth-child(4) .site-nav--mobile{
-            width: 21.5px !important;
-       
-    }
-    .site-header .site-header__wrapper .site-header__wrapper__right > ul > li:nth-child(4) .site-nav--mobile button{
+      }
+
+      .site-header .site-header__wrapper .site-header__wrapper__right>ul>li:nth-child(4) .site-nav--mobile {
+        width: 21.5px !important;
+
+      }
+
+      .site-header .site-header__wrapper .site-header__wrapper__right>ul>li:nth-child(4) .site-nav--mobile button {
         padding-left: 0px !important;
         padding-right: 0px !important;
         width: 21.5px !important;
         min-width: 21.5px !important;
         margin-left: 9.31px !important;
-    
+
         margin-right: 9.31px !important;
-       
+
+      }
+
+      .site-header .site-header__wrapper .site-header__wrapper__right>ul>li:nth-child(4) .site-nav--mobile svg {
+        cursor: pointer !important;
+
+      }
     }
-    
-    .site-header .site-header__wrapper .site-header__wrapper__right > ul > li:nth-child(4) .site-nav--mobile svg{
-                cursor: pointer !important;
-       
-    }
-    }
-    
-    </style>
-  
-<style>
- #faq_select {
-    padding: 8px 65px 8px 20px;
-    outline: none;
-     appearance: none !important; 
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg"><polyline points="20 45 70 95 120 45" stroke="black" stroke-width="20" fill="none" stroke-linecap="round"/></svg>') no-repeat right 10px center;
-    background-size: 10px;
- }    
-</style>
+  </style>
 
   <style>
-  :focus-visible {
+    #faq_select {
+      padding: 8px 65px 8px 20px;
+      outline: none;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg"><polyline points="20 45 70 95 120 45" stroke="black" stroke-width="20" fill="none" stroke-linecap="round"/></svg>') no-repeat right 10px center;
+      background-size: 10px;
+    }
+  </style>
+
+  <style>
+    :focus-visible {
       outline: none !important;
-  }
+    }
   </style>
   <style>
     span.cart-item-count-bubble {
-        width: 8px;
-        color: black !important;
-        top: 50%;
-        left: 50%;
-        font-size: 9px;
-        height: 8px;
-        background-color: transparent !important;
-        transform: translate(-55%, -30%) !important;
-     }
+      width: 8px;
+      color: black !important;
+      top: 50%;
+      left: 50%;
+      font-size: 9px;
+      height: 8px;
+      background-color: transparent !important;
+      transform: translate(-55%, -30%) !important;
+    }
   </style>
- 
+
   <style>
     .product-details-wrapper .btn:before {
       background-color: transparent !important;
     }
-    #customer_login .btn, #create_customer .btn, form[action='/account/recover'] .btn {
+
+    #customer_login .btn,
+    #create_customer .btn,
+    form[action='/account/recover'] .btn {
       background-color: black !important;
     }
 
@@ -277,34 +293,33 @@
       padding-top: 15px !important;
     }
 
-    .template-title--wrapper
-    {
+    .template-title--wrapper {
       margin-bottom: 0 !important;
     }
+
     .page--title {
       margin-bottom: 25px !important;
     }
+  </style>
 
-  </style>
-  
   <style>
-  #CustomerLoginForm input:focus {
-   border: 1px solid var(--border-color) !important;
-  }
+    #CustomerLoginForm input:focus {
+      border: 1px solid var(--border-color) !important;
+    }
   </style>
-  
+
   <style>
-  #create_customer input:focus {
-   border: 1px solid var(--border-color) !important;
-  }
+    #create_customer input:focus {
+      border: 1px solid var(--border-color) !important;
+    }
   </style>
-  
+
   <style>
-  #RecoverPasswordForm input:focus {
-   border: 1px solid var(--border-color) !important;
-  }
+    #RecoverPasswordForm input:focus {
+      border: 1px solid var(--border-color) !important;
+    }
   </style>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css"
     integrity="sha512-AyOHI/tIMgoG+32apAs3OdqFowPSDqiz5vLcD2wdhBJ4J/xF1PI6UITcyhS5HCmsiioapRaONqYBvimxzFfnoA=="
@@ -312,16 +327,17 @@
 </head>
 
 {% comment %} Add the page template as a class for easy page or template specific styling. {% endcomment %}
-  
-<body id="{{ page_title | handle }}" class="{% if template == 'page.contact' %}contact-page {% endif %}{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% unless settings.animations_enabled %} animations-disabled{% endunless %}{% if settings.page_fade_enabled %} page-fade{% endif %}{% if settings.product-grid != 'natural' %} images-aspect-ratio{% endif %} ">
+
+<body id="{{ page_title | handle }}"
+  class="{% if template == 'page.contact' %}contact-page {% endif %}{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% unless settings.animations_enabled %} animations-disabled{% endunless %}{% if settings.page_fade_enabled %} page-fade{% endif %}{% if settings.product-grid != 'natural' %} images-aspect-ratio{% endif %} ">
 
   <noscript>{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}</noscript>
   <noscript>{{ 'photoswipe.min.css' | asset_url | stylesheet_tag }}</noscript>
   {% if settings.animations_enabled %}
-  	<noscript>{{ 'animate.min.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'animate.min.css' | asset_url | stylesheet_tag }}</noscript>
   {% endif %}
   {% if settings.popup--enable %}
-  	<noscript>{{ 'fancybox.min.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'fancybox.min.css' | asset_url | stylesheet_tag }}</noscript>
   {% endif %}
   <noscript>{{ 'custom.css' | asset_url | stylesheet_tag }}</noscript>
 
@@ -333,7 +349,9 @@
 
   <div id="DrawerOverlay" class="drawer-overlay"></div>
 
-  <div id="PageContainer" data-editor-open="{{ request.design_mode }}" data-cart-action="{{ settings.add_to_cart_action }}" data-cart-type="{{ settings.cart_type }}" data-language-url="{{ localization.language.root_url }}">
+  <div id="PageContainer" data-editor-open="{{ request.design_mode }}"
+    data-cart-action="{{ settings.add_to_cart_action }}" data-cart-type="{{ settings.cart_type }}"
+    data-language-url="{{ localization.language.root_url }}">
     <div class="no-js disclaimer">
       <p>This store requires javascript to be enabled for some features to work correctly.</p>
     </div>
@@ -341,57 +359,58 @@
     {% sections 'header-group' %}
 
     {% if settings.enable_breadcrumbs %}
-      {% unless template == 'index' or template == 'cart' or template == 'search' or template == 'blog' %}
-        {% unless template.name == 'collection' or template == 'list-collections' or template contains 'contact' or template.name == 'product' %}
-          <div id="breadcrumbs" class="wrapper-padded">
-            {% render 'breadcrumb' %}
-          </div>
-        {% endunless %}
-      {% endunless %}
+    {% unless template == 'index' or template == 'cart' or template == 'search' or template == 'blog' %}
+    {% unless template.name == 'collection' or template == 'list-collections' or template contains 'contact' or
+    template.name == 'product' %}
+    <div id="breadcrumbs" class="wrapper-padded">
+      {% render 'breadcrumb' %}
+    </div>
+    {% endunless %}
+    {% endunless %}
     {% endif %}
 
     {% if template == 'index' %}
-      <div class="homepage-wrapper">
-    {% elsif template == 'cart' or template contains 'customers/' %}
+    <div class="homepage-wrapper">
+      {% elsif template == 'cart' or template contains 'customers/' %}
       <div class="main-content page-main--wrapper">
-    {% else %}
-      <div class="wrapper main-content page-main--wrapper">
-    {% endif %}
+        {% else %}
+        <div class="wrapper main-content page-main--wrapper">
+          {% endif %}
 
-        {{ content_for_layout }}
+          {{ content_for_layout }}
+        </div>
       </div>
-  </div>
 
-  <div class="footer-wrapper">
-    {% sections 'footer-group' %}
-  </div>
+      <div class="footer-wrapper">
+        {% sections 'footer-group' %}
+      </div>
 
-  <script defer type="module" src="{{ 'theme.min.js' | asset_url }}"></script>
-  <script defer src="{{ 'SafeLoadScripts.js' | asset_url }}"></script>
-  <script defer nomodule src="{{ 'theme.legacy.min.js' | asset_url }}"></script> 
+      <script defer type="module" src="{{ 'theme.min.js' | asset_url }}"></script>
+      <script defer src="{{ 'SafeLoadScripts.js' | asset_url }}"></script>
+      <script defer nomodule src="{{ 'theme.legacy.min.js' | asset_url }}"></script>
 
-  {% if settings.popup--enable %}
-    {% render 'popup' %}
-  {% endif %}
+      {% if settings.popup--enable %}
+      {% render 'popup' %}
+      {% endif %}
 
-  {% if settings.enable_verification_popup %}
-    {% render 'verification-popup' %}
-  {% endif %}
+      {% if settings.enable_verification_popup %}
+      {% render 'verification-popup' %}
+      {% endif %}
 
-        
-  {% render 'back-to-top-button' %}
 
-  <script>
-    window.routes = {
-      cart_add_url: '{{ routes.cart_add_url }}',
-      cart_change_url: '{{ routes.cart_change_url }}',
-      cart_update_url: '{{ routes.cart_update_url }}',
-      cart_url: '{{ routes.cart_url }}',
-      predictive_search_url: '{{ routes.predictive_search_url }}',
-    }
-  </script>
+      {% render 'back-to-top-button' %}
 
-  <script type="application/json" id="wetheme-global">
+      <script>
+        window.routes = {
+          cart_add_url: '{{ routes.cart_add_url }}',
+          cart_change_url: '{{ routes.cart_change_url }}',
+          cart_update_url: '{{ routes.cart_update_url }}',
+          cart_url: '{{ routes.cart_url }}',
+          predictive_search_url: '{{ routes.predictive_search_url }}',
+        }
+      </script>
+
+      <script type="application/json" id="wetheme-global">
     {
       {% comment %}Translations that will be used in javascript section handling{% endcomment %}
     
@@ -427,111 +446,114 @@
       "giftwrapProduct": {{ settings.giftwrap_product_selector | json }}
     }
   </script>
-  {% if request.design_mode %}<script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>{% endif %}
+      {% if request.design_mode %}
+      <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>{% endif %}
 
       {% comment %} Make sections on contact form have a rectangle surrounding them {% endcomment %}
-        
+
       <style>
-      #ContactForm input{
+        #ContactForm input {
           border: 1px solid var(--border-color);
           padding: 10px;
-      }
+        }
       </style>
 
-      {% comment %} Change size of company name in footer {% endcomment %}  
-        
+      {% comment %} Change size of company name in footer {% endcomment %}
+
       <style>
-      li.nav-link-animated {
-      font-size: 10px !important;  
-      opacity: .7;
-      display: block;
+        li.nav-link-animated {
+          font-size: 10px !important;
+          opacity: .7;
+          display: block;
         }
-        </style>
-        
+      </style>
+
       {%- if full_url contains 'contact-us' -%}
       <script>
         let input_contact_list = document.querySelectorAll('.input-wrapper input, .input-wrapper textarea');
         let label_title = '';
-        if(input_contact_list.length > 0) {
+        if (input_contact_list.length > 0) {
           input_contact_list.forEach((item) => {
-             label_title = item.getAttribute('placeholder');
-             id = item.getAttribute('id');
-             item.setAttribute('placeholder', '')
-             item.insertAdjacentHTML("beforebegin", `<label style="margin-bottom: 5px" for='${id}'>${label_title}</label>`);
+            label_title = item.getAttribute('placeholder');
+            id = item.getAttribute('id');
+            item.setAttribute('placeholder', '')
+            item.insertAdjacentHTML("beforebegin", `<label style="margin-bottom: 5px" for='${id}'>${label_title}</label>`);
           })
         }
       </script>
       {% endif %}
-      
-        {% comment %} Reconfigure footer layout {% endcomment %}  
 
-     <style>
-      @media screen and (min-width: 768px){
-        .footer-main .grid__item:nth-child(3) {
-      width: 25% !important;
-    }
-    
-    .footer-main .grid__item:nth-child(4) {
-      width: 25% !important;
-    }
-    
-    .footer-main .grid__item:nth-child(5) {
-      width: 50% !important;
-    }
-    }
-     .no-scroll {
-        overflow: hidden;
-      }
-    </style>
+      {% comment %} Reconfigure footer layout {% endcomment %}
 
+      <style>
+        @media screen and (min-width: 768px) {
+          .footer-main .grid__item:nth-child(3) {
+            width: 25% !important;
+          }
 
-<script>
+          .footer-main .grid__item:nth-child(4) {
+            width: 25% !important;
+          }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Function to show all list_items_drawer elements
-    function showDrawers() {
-        document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
-            drawer.style.display = 'block';
-        });
-    }
-
-    // Function to hide all list_items_drawer elements
-    function hideDrawers() {
-        document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
-            drawer.style.display = 'none';
-        });
-    }
-
-    // Function to toggle list_items_drawer elements
-    function toggleDrawers() {
-        document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
-            if (drawer.style.display === 'block') {
-                drawer.style.display = 'none';
-            } else {
-                drawer.style.display = 'block';
-            }
-        });
-    }
-
-    // Add click event listener to all drawer-toggle elements
-    document.querySelectorAll('.drawer-toggle').forEach((toggle) => {
-        toggle.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent click from propagating to document
-            toggleDrawers();
-        });
-    });
-
-    // Add click event listener to the document to hide drawers when clicking outside
-    document.addEventListener('click', (event) => {
-        const isDrawerClick = event.target.closest('.list_items_drawer') || event.target.closest('.drawer-toggle');
-        if (!isDrawerClick) {
-            hideDrawers();
+          .footer-main .grid__item:nth-child(5) {
+            width: 50% !important;
+          }
         }
-    });
-});
+
+        .no-scroll {
+          overflow: hidden;
+        }
+      </style>
 
 
-</script>
+      <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+          // Function to show all list_items_drawer elements
+          function showDrawers() {
+            document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
+              drawer.style.display = 'block';
+            });
+          }
+
+          // Function to hide all list_items_drawer elements
+          function hideDrawers() {
+            document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
+              drawer.style.display = 'none';
+            });
+          }
+
+          // Function to toggle list_items_drawer elements
+          function toggleDrawers() {
+            document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
+              if (drawer.style.display === 'block') {
+                drawer.style.display = 'none';
+              } else {
+                drawer.style.display = 'block';
+              }
+            });
+          }
+
+          // Add click event listener to all drawer-toggle elements
+          document.querySelectorAll('.drawer-toggle').forEach((toggle) => {
+            toggle.addEventListener('click', (event) => {
+              event.stopPropagation(); // Prevent click from propagating to document
+              toggleDrawers();
+            });
+          });
+
+          // Add click event listener to the document to hide drawers when clicking outside
+          document.addEventListener('click', (event) => {
+            const isDrawerClick = event.target.closest('.list_items_drawer') || event.target.closest('.drawer-toggle');
+            if (!isDrawerClick) {
+              hideDrawers();
+            }
+          });
+        });
+
+
+      </script>
 
 </body>
+
 </html>

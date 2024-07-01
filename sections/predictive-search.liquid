@@ -1,0 +1,41 @@
+{%- if predictive_search.performed -%}
+<div id="predictive-search-results">
+    {% comment %}
+    <h3 id="predictive-search-products">Search for “{{ predictive_search.terms }}”</h3>
+    {% endcomment %}
+    {%- if predictive_search.resources.products.size > 0 -%}
+    <ul role="listbox" aria-labelledby="predictive-search-products" class="search-product-list">
+        {%- for product in predictive_search.resources.products -%}
+        <li style="height: 100%;" role="option">
+            <a class="product-item" href="{{ product.url }}">
+                {% render 'theme-icon' with icon: 'search', iconSize: 20 %} <span class="product-container">
+                    <span style="margin-left: 5px;text-decoration: underline;">{{
+                        product.title }}</span>
+                </span>
+            </a>
+        </li>
+        {%- endfor -%}
+    </ul>
+    {%- else -%}
+    <h3 class="no_product_found">No matching products found.</h3>
+    {%- endif -%}
+</div>
+{%- endif -%}
+
+<style>
+    .search-product-list {
+        list-style: none;
+    }
+
+    .product-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .product-container {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+</style>

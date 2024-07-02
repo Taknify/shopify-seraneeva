@@ -8,9 +8,9 @@
             <div class="input-group">
                 <label for="Email" class="hidden-label">Search</label>
                 <input type="search" value="{{ search.terms | escape }}" placeholder="Email" name="q" id="Email"
-                    class="input-group-field footer-email-input" aria-label="Email" role="combobox"
-                    aria-expanded="false" aria-owns="predictive-search-results"
-                    aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list">
+                    class="input-group-field" aria-label="Email" role="combobox" aria-expanded="false"
+                    aria-owns="predictive-search-results" aria-controls="predictive-search-results"
+                    aria-haspopup="listbox" aria-autocomplete="list">
                 <div id="arrow-sign">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18.589" height="7.744" viewBox="0 0 18.589 7.744">
                         <script xmlns="" id="eppiocemhmnlbhjplcgkofciiegomcon" />
@@ -73,8 +73,6 @@
         margin: 0 auto;
         transition: width .8s cubic-bezier(.5, 0, 0, 1);
         width: 0;
-        left: 50%;
-        transform: translateX(-50%);
     }
 
     .search-wrapper .input-group:has(input:placeholder-shown)>label {

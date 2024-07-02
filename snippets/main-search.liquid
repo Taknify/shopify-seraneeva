@@ -3,19 +3,17 @@
 <predictive-search>
 
     <div class="search-wrapper">
-        <form action="{{ routes.search_url }}" method="get" role="search" id="newsletter-footer_form"
+        <form action="https://seraneeva.com/search" method="get" role="search" id="newsletter-footer_form"
             accept-charset="UTF-8" class="search-form">
             <div class="input-group">
                 <label for="Email" class="hidden-label">Search</label>
-                <input type="search" value="{{ search.terms | escape }}" placeholder="Email" name="q" id="Email"
-                    class="input-group-field footer-email-input" aria-label="Email" role="combobox"
+                <input type="search" placeholder="Search" name="q" id="Email"
+                    class="input-group-field footer-email-input" aria-label="Search" role="combobox"
                     aria-expanded="false" aria-owns="predictive-search-results"
                     aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list">
                 <div id="arrow-sign">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18.589" height="7.744" viewBox="0 0 18.589 7.744">
-                        <script xmlns="" id="eppiocemhmnlbhjplcgkofciiegomcon" />
-                        <script xmlns="" />
-                        <script xmlns="" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18.589" height="7.744" viewBox="0 0 18.589 7.744"
+                        id="search-icon">
                         <g id="Group_23729" data-name="Group 23729" transform="translate(-1239.5 -3584.066)">
                             <line id="Line_1234" data-name="Line 1234" x2="17.881"
                                 transform="translate(1239.5 3587.943)" fill="none" stroke="#000" stroke-width="1" />
@@ -23,14 +21,19 @@
                                 transform="translate(14921.315 22864.84)" fill="none" stroke="#000" stroke-width="1" />
                         </g>
                     </svg>
-
                 </div>
-            </div>
-            <div id="predictive-search" tabindex="-1">
             </div>
         </form>
     </div>
 </predictive-search>
+
+<script>
+    document.getElementById('search-icon').addEventListener('click', function () {
+        var searchInput = document.getElementById('Email').value;
+        var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
+        window.location.href = searchUrl;
+    });
+</script>
 <style>
     #arrow-sign {
         position: absolute;

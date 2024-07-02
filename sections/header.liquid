@@ -62,8 +62,8 @@ section.settings.show_currency_selector %}
       {% if section.settings.show_icons %}
       {% comment %} {% render 'theme-icon' with icon: 'search', iconSize: 20 %} {% endcomment %}
       <div class="search_box_wrapper">
-        <div class="search_text_wrapper">
-          <p style="cursor: pointer;" id="search-button">SEARCH</p>
+        <div id="search-button" class="search_text_wrapper">
+          {% render 'theme-icon' with icon: 'search', iconSize: 20 %}
         </div>
 
       </div>
@@ -73,14 +73,9 @@ section.settings.show_currency_selector %}
     </a>
   </li>
   {% style %}
-
-  .search_box_wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  padding: 8px 2px 2px 2px;
+  .search_text_wrapper {
+  cursor: pointer;
   }
-
   #pre-search-modal {
   display: none;
   width: 100%;

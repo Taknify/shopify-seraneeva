@@ -5,8 +5,8 @@
         <form action="/search" method="get" role="search" id="newsletter-footer_form" accept-charset="UTF-8"
             class="search-form">
             <div class="input-group">
-                <p id="pholder">ENTER KEYWORD</p>
-                <input type="text" placeholder="ENTER KEYWORD" name="q" id="search" class="input-search-field">
+                <p class="pholder">ENTER KEYWORD</p>
+                <input type="text" placeholder="ENTER KEYWORD" name="q" class="input-search-field search">
                 <div id="arrow-sign">
                     <button type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18.589" height="7.744" viewBox="0 0 18.589 7.744"
@@ -27,14 +27,14 @@
 </predictive-search>
 
 <script>
-    document.getElementById('search-icon').addEventListener('click', function () {
-        var searchInput = document.getElementById('search').value;
+    document.querySelector('#search-icon').addEventListener('click', function () {
+        var searchInput = document.querySelector('.search').value;
         var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
         window.location.href = searchUrl;
     });
 
-    document.getElementById('search').addEventListener('input', function () {
-        var placeholder = document.getElementById('pholder');
+    document.querySelector('.search').addEventListener('input', function () {
+        var placeholder = document.querySelector('.pholder');
         if (this.value.length > 0) {
             placeholder.style.display = 'none';
         } else {
@@ -42,20 +42,29 @@
         }
     });
 
-    document.getElementById('search').addEventListener('focus', function () {
-        document.getElementById('pholder').style.display = 'none';
+    document.querySelector('.search').addEventListener('focus', function () {
+        document.querySelector('.pholder').style.display = 'none';
     });
 
-    document.getElementById('search').addEventListener('blur', function () {
+    document.querySelector('.search').addEventListener('click', function () {
+        document.querySelector('.pholder').style.display = 'none';
+    });
+
+    document.querySelector('.search').addEventListener('touchstart', function () {
+        console.log("clicked")
+        document.querySelector('.pholder').style.display = 'none';
+    });
+
+    document.querySelector('.search').addEventListener('blur', function () {
         if (this.value.length === 0) {
-            document.getElementById('pholder').style.display = 'block';
+            document.querySelector('.pholder').style.display = 'block';
         }
     });
 
-    document.getElementById('search').addEventListener('keypress', function (event) {
+    document.querySelector('.search').addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             event.preventDefault();
-            var searchInput = document.getElementById('search').value;
+            var searchInput = document.querySelector('.search').value;
             var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
             window.location.href = searchUrl;
         }
@@ -75,13 +84,12 @@
         border: none;
     }
 
-    #pholder {
+    .pholder {
         position: absolute;
         top: 20px;
         font-size: 12px;
         color: grey;
         pointer-events: none;
-        /* Prevents user interaction with the placeholder text */
     }
 
     .search-wrapper {
@@ -113,7 +121,7 @@
         display: none;
     }
 
-    .search-wrapper #search::placeholder {
+    .search-wrapper .search::placeholder {
         color: black;
         opacity: 1;
     }

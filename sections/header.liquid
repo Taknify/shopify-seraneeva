@@ -1011,17 +1011,81 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
     </div>
   </div>
   <div id="pre-search-modal-mob">
-    {% render 'main-search' %}
+    <div class="search-wrapper-mob">
+      <form action="/search" method="get" role="search" accept-charset="UTF-8" class="search-form-mob">
+        <div class="input-group-mob">
+          <input type="text" placeholder="ENTER KEYWORD" name="q" class="input-search-field-mob">
+          <div id="arrow-sign-mob">
+            <button type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18.589" height="7.744" viewBox="0 0 18.589 7.744"
+                id="search-icon">
+                <g id="Group_23729" data-name="Group 23729" transform="translate(-1239.5 -3584.066)">
+                  <line id="Line_1234" data-name="Line 1234" x2="17.881" transform="translate(1239.5 3587.943)"
+                    fill="none" stroke="#000" stroke-width="1" />
+                  <path id="Path_24" data-name="Path 24" d="M-13667.453-19280.42l3.52,3.52-3.52,3.518"
+                    transform="translate(14921.315 22864.84)" fill="none" stroke="#000" stroke-width="1" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
   {%style%}
   #pre-search-modal-mob {
-  display: none;
   padding-bottom: 10px;
   margin: 0 0 0 18px;
+  display:none;
   }
+
+  .input-search-field-mob {
+  width: 95%;
+  }
+
+  .input-group-mob {
+  position: relative;
+  display: flex;
+  width: 100%;
+  }
+
+  #arrow-sign-mob {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 16px;
+  }
+
+  #arrow-sign-mob button {
+  background: none;
+  border: none;
+  }
+
+  @media screen and (min-width: 768px) {
+  #pre-search-modal-mob {
+  display: none;
+  }
+  }
+
   {%endstyle%}
 </nav>
+<script>
+  document.querySelector('.input-search-field-mob').addEventListener('focus', function () {
+    this.placeholder = '';
+  });
 
+  document.querySelector('.input-search-field-mob').addEventListener('blur', function () {
+    if (this.value === '') {
+      this.placeholder = 'ENTER KEYWORD';
+    }
+  });
+
+  document.querySelector('#search-icon-mob').addEventListener('click', function () {
+    var searchInput = document.querySelector('.input-search-field-mob').value;
+    var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
+    window.location.href = searchUrl;
+  });
+</script>
 
 <script>
   let close_btn_menu = document.querySelector("#NavDrawer .close-btn");

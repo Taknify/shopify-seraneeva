@@ -1,26 +1,25 @@
 <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
 
 <predictive-search>
-
     <div class="search-wrapper">
         <form action="/search" method="get" role="search" id="newsletter-footer_form" accept-charset="UTF-8"
             class="search-form">
             <div class="input-group">
-                <label for="Email" class="hidden-label">Search</label>
-                <input type="search" placeholder="Search" name="q" id="Email"
-                    class="input-group-field footer-email-input" aria-label="Search" role="combobox"
-                    aria-expanded="false" aria-owns="predictive-search-results"
-                    aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list">
+                <p id="pholder">ENTER KEYWORD</p>
+                <input type="text" placeholder="ENTER KEYWORD" name="q" id="search" class="input-search-field">
                 <div id="arrow-sign">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18.589" height="7.744" viewBox="0 0 18.589 7.744"
-                        id="search-icon">
-                        <g id="Group_23729" data-name="Group 23729" transform="translate(-1239.5 -3584.066)">
-                            <line id="Line_1234" data-name="Line 1234" x2="17.881"
-                                transform="translate(1239.5 3587.943)" fill="none" stroke="#000" stroke-width="1" />
-                            <path id="Path_24" data-name="Path 24" d="M-13667.453-19280.42l3.52,3.52-3.52,3.518"
-                                transform="translate(14921.315 22864.84)" fill="none" stroke="#000" stroke-width="1" />
-                        </g>
-                    </svg>
+                    <button type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18.589" height="7.744" viewBox="0 0 18.589 7.744"
+                            id="search-icon">
+                            <g id="Group_23729" data-name="Group 23729" transform="translate(-1239.5 -3584.066)">
+                                <line id="Line_1234" data-name="Line 1234" x2="17.881"
+                                    transform="translate(1239.5 3587.943)" fill="none" stroke="#000" stroke-width="1" />
+                                <path id="Path_24" data-name="Path 24" d="M-13667.453-19280.42l3.52,3.52-3.52,3.518"
+                                    transform="translate(14921.315 22864.84)" fill="none" stroke="#000"
+                                    stroke-width="1" />
+                            </g>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </form>
@@ -29,11 +28,40 @@
 
 <script>
     document.getElementById('search-icon').addEventListener('click', function () {
-        var searchInput = document.getElementById('Email').value;
+        var searchInput = document.getElementById('search').value;
         var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
         window.location.href = searchUrl;
     });
+
+    document.getElementById('search').addEventListener('input', function () {
+        var placeholder = document.getElementById('pholder');
+        if (this.value.length > 0) {
+            placeholder.style.display = 'none';
+        } else {
+            placeholder.style.display = 'block';
+        }
+    });
+
+    document.getElementById('search').addEventListener('focus', function () {
+        document.getElementById('pholder').style.display = 'none';
+    });
+
+    document.getElementById('search').addEventListener('blur', function () {
+        if (this.value.length === 0) {
+            document.getElementById('pholder').style.display = 'block';
+        }
+    });
+
+    document.getElementById('search').addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            var searchInput = document.getElementById('search').value;
+            var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
+            window.location.href = searchUrl;
+        }
+    });
 </script>
+
 <style>
     #arrow-sign {
         position: absolute;
@@ -42,13 +70,27 @@
         font-size: 16px;
     }
 
+    #arrow-sign button {
+        background: none;
+        border: none;
+    }
+
+    #pholder {
+        position: absolute;
+        top: 20px;
+        font-size: 12px;
+        color: grey;
+        pointer-events: none;
+        /* Prevents user interaction with the placeholder text */
+    }
+
     .search-wrapper {
         position: relative;
         width: 100%;
         padding: 0 16px;
     }
 
-    .search-wrapper .input-group-field {
+    .search-wrapper .input-search-field {
         color: rgb(7, 7, 7);
         opacity: 0.7;
         font-size: 16px;
@@ -62,55 +104,17 @@
         width: 100%;
     }
 
-    .search-wrapper #newsletter-footer_form .footer-email-input {
+    .search-wrapper #newsletter-footer_form .input-search-field {
         border-bottom: 1px solid black;
         text-transform: uppercase;
-    }
-
-    .search-wrapper .input-group:after {
-        position: absolute;
-        bottom: 1px;
-        border-bottom: 1px solid rgb(0, 0, 0);
-        content: "";
-        display: block;
-        margin: 0 auto;
-        transition: width .8s cubic-bezier(.5, 0, 0, 1);
-        width: 0;
-    }
-
-    .search-wrapper .input-group:has(input:placeholder-shown)>label {
-        top: 0;
-        left: 0;
-        transform: translateY(10px);
-        margin-bottom: 0;
-        transition: all .8s cubic-bezier(.5, 0, 0, 1);
-        color: gray !important;
-    }
-
-    .search-wrapper .hidden-label {
-        overflow: initial !important;
-        clip: unset !important;
-        font-family: Cooper BT, serif;
-        font-size: 14.4px;
-        opacity: .94;
     }
 
     .search-wrapper .custom-error-message {
         display: none;
     }
 
-    .search-wrapper .hidden-label {
-        position: absolute;
-        height: 0;
-        width: 0;
-        margin-bottom: 0;
-        overflow: hidden;
-        clip: rect(1px, 1px, 1px, 1px);
-    }
-
-    .search-wrapper .input-group:has(input:focus)>label,
-    .search-wrapper .input-group:has(input[type="search"]:not(:placeholder-shown))>label {
-        transform: translateY(1px) scale(.6428571429);
-        color: rgb(7, 7, 7) !important;
+    .search-wrapper #search::placeholder {
+        color: black;
+        opacity: 1;
     }
 </style>

@@ -23,9 +23,9 @@
       </div>
       {% else %}
       <div>
-        <p style="text-align: right;font-size:14px">{{ search.results.size }} RESULTS FOR "{{ search.terms | upcase }}"
+        <p style="text-align: center;font-size:14px">{{ search.results.size }} RESULTS FOR "{{ search.terms | upcase }}".
         </p>
-        <p class="no-result-text">UR SEARCH FOR "{{ search.terms | upcase }}" DID NOT MATCH ANY RESULTS</p>
+        <p class="no-result-text">YOUR SEARCH FOR "{{ search.terms | upcase }}" DID NOT MATCH ANY RESULTS.</p>
       </div>
       {% endif %}
     </div>
@@ -47,7 +47,7 @@
 
   .no-result-text {
     font-size: 14px;
-
+    text-align: center;
   }
 
   .sp-title {

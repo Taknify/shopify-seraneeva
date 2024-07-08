@@ -6,7 +6,6 @@
             class="search-form">
             <div class="input-group">
                 <p class="pholder">ENTER KEYWORD</p>
-
                 <input style="border:none" type="text" placeholder="ENTER KEYWORD" name="q"
                     class="input-search-field search">
                 <div id="arrow-sign">
@@ -29,13 +28,7 @@
 </predictive-search>
 
 <script>
-    window.addEventListener('load', function () {
-        document.querySelector('.search').focus();
-    });
 
-    document.querySelector('.search').addEventListener('focus', function () {
-        document.querySelector('.pholder').style.display = 'none';
-    });
 
     document.querySelector('#search-icon').addEventListener('click', function () {
         var searchInput = document.querySelector('.search').value;
@@ -49,6 +42,29 @@
             var searchInput = document.querySelector('.search').value;
             var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
             window.location.href = searchUrl;
+        }
+    });
+    document.querySelector('.search').addEventListener('input', function () {
+        var searchInput = document.querySelector('.search').value;
+        if (searchInput.length > 0) {
+            document.querySelector('.pholder').style.display = 'none';
+        } else {
+            document.querySelector('.pholder').style.display = 'block';
+        }
+    });
+
+    document.querySelector('.search').addEventListener('focus', function () {
+        var searchInput = document.querySelector('.search').value;
+        if (searchInput.length > 0) {
+            document.querySelector('.pholder').style.display = 'none';
+        }
+    });
+
+    document.querySelector('.search').addEventListener('focus', function () {
+        var searchInput = document.querySelector('.search').value;
+        console.log(searchInput)
+        if (searchInput.length > 0) {
+            document.querySelector('.pholder').style.display = 'none';
         }
     });
 </script>
@@ -68,10 +84,11 @@
 
     .pholder {
         position: absolute;
-        top: 20px;
+        top: 14px;
         font-size: 12px;
-        color: grey;
-        left: 0px;
+        font-family: HelveticaNeueLTPro-Cn, arial, sans-serif;
+        color: #000;
+        left: 2px;
         pointer-events: none;
     }
 
@@ -97,6 +114,8 @@
         color: rgb(7, 7, 7);
         opacity: 0.7;
         font-size: 12px;
+        font-family: HelveticaNeueLTPro-Cn, arial, sans-serif;
+        color: #000;
         top: 12px;
         line-height: 15px;
         padding-bottom: 8px;

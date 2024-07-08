@@ -29,38 +29,18 @@
 </predictive-search>
 
 <script>
-    document.querySelector('#search-icon').addEventListener('click', function () {
-        var searchInput = document.querySelector('.search').value;
-        var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
-        window.location.href = searchUrl;
-    });
-
-    document.querySelector('.search').addEventListener('input', function () {
-        var placeholder = document.querySelector('.pholder');
-        if (this.value.length > 0) {
-            placeholder.style.display = 'none';
-        } else {
-            placeholder.style.display = 'block';
-        }
+    window.addEventListener('load', function () {
+        document.querySelector('.search').focus();
     });
 
     document.querySelector('.search').addEventListener('focus', function () {
         document.querySelector('.pholder').style.display = 'none';
     });
 
-    document.querySelector('.search').addEventListener('click', function () {
-        document.querySelector('.pholder').style.display = 'none';
-    });
-
-    document.querySelector('.search').addEventListener('touchstart', function () {
-        console.log("clicked")
-        document.querySelector('.pholder').style.display = 'none';
-    });
-
-    document.querySelector('.search').addEventListener('blur', function () {
-        if (this.value.length === 0) {
-            document.querySelector('.pholder').style.display = 'block';
-        }
+    document.querySelector('#search-icon').addEventListener('click', function () {
+        var searchInput = document.querySelector('.search').value;
+        var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
+        window.location.href = searchUrl;
     });
 
     document.querySelector('.search').addEventListener('keypress', function (event) {
@@ -116,7 +96,7 @@
     .search-wrapper .input-search-field {
         color: rgb(7, 7, 7);
         opacity: 0.7;
-        font-size: 16px;
+        font-size: 12px;
         top: 12px;
         line-height: 15px;
         padding-bottom: 8px;

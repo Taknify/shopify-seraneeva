@@ -1,0 +1,112 @@
+ul.site-header__links.top-links--icon-links {
+  position: relative;
+}
+.drawer-toggle {
+  cursor: pointer;
+}
+li.li-list-drawer {
+  display: block !important;
+}
+
+.list_items_drawer.active {
+  display: block;
+}
+ul.ul-list-drawer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 2px 0 0 0;
+  background-color: #fff;
+  padding: 2rem 1rem;
+  /* padding: 20px 10px 10px 30px; */
+  border-radius: 4px;
+}
+
+.ul-list-drawer.list-container-style li:not(:last-child) {
+  margin-bottom: 2rem !important;
+}
+
+/* Search Button Margin in header*/
+
+a.search-button.standalone-icon--wrapper {
+  margin-left: 0 !important;
+}
+
+.site-header__links.top-links--icon-links {
+  padding-left: 0 !important;
+}
+
+.list-container-style {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
+  transform: translate(0px, 16px);
+}
+.site-nav--mobile.active .list_items_drawer {
+  display: block;
+}
+.mobile-nav__link {
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+  /* padding: 10px; */
+  cursor: pointer;
+  font-family: var(--navigation-font-stack);
+  transform-origin: center; /* Transform origin at the center */
+  display: block !important;
+  transition: font-size 0.3s ease !important;
+}
+li.li-list-drawer {
+  cursor: pointer;
+  /* margin: 32px 0; */
+  transform-origin: center;
+  transition: font-size 0.3s ease !important;
+}
+.li-list-drawer:hover .mobile-nav__link {
+  /* font-size: 16px; */
+  color: #757575 !important;
+}
+.site-header__links li {
+  transform-origin: center;
+  transition: font-size 0.3s ease;
+}
+
+/* .list-container-style:nth-child(1) .li-list-drawer {
+  margin-top: 0;
+  margin-bottom: 0;
+} */
+.mobile-nav__item.top-level {
+  transition: font-size 0.3s ease !important;
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.mobile-nav__item:hover .mobile-nav__link {
+  /* font-size: 16px; */
+  color: #757575 !important;
+}
+
+@media (max-width: 992px) {
+  .drawer-toggle {
+    padding: 6px;
+  }
+  ul.ul-list-drawer {
+    position: absolute;
+    left: 26px;
+    right: 40px;
+    margin: 0;
+    background-color: #fff;
+    padding: 2rem 1rem;
+    top: 70%;
+  }
+  /* li.li-list-drawer {
+    padding: 12px;
+  } */
+  .account_button svg {
+    width: 21.5px;
+    height: 21.5px;
+  }
+}
+
+/* CAPITALIZE */
+a.mobile-nav__link {
+    text-transform: uppercase !important;
+}

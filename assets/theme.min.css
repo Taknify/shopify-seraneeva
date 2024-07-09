@@ -6913,8 +6913,8 @@ td .item-price {
 }
 .ajaxcart__subtotal_header p {
     font-weight: 500;
-    font-size: 11px;
-    margin: 30px 0 0 0;
+    font-size: 14px;
+    margin: 12px 0 0 0;
 }
 .ajaxcart__subtotal {
     font-weight: 500;
@@ -25076,7 +25076,7 @@ a.mobile-nav__link {
     align-items: center;
     gap: 3px;
 }
-/* .uk_icon {
+.uk_icon {
     width: 15px;
     height: 15px;
     opacity: 0;
@@ -25090,13 +25090,13 @@ a.mobile-nav__link {
     height: 100%;
     object-fit: cover;
     
-} */
+}
 
-/* .mobile-nav__link:is(:hover,:focus) .uk_icon {
+.mobile-nav__link:is(:hover,:focus) .uk_icon {
     opacity: 1;
     transform: translate(0.25rem);
     margin-bottom: 0.2px;
-} */
+}
 
 .drawer#NavDrawer a:focus:not(.mobile-menu--close-btn), .drawer#NavDrawer a:hover:not(.mobile-menu--close-btn) {
     color: BLACK;
@@ -25115,4 +25115,8 @@ a.mobile-nav__link {
 .uk_link {
     padding: 0.2rem;
     text-decoration:underline;
+}
+/* Remove underline from Shopify footer menu items */
+.site-footer a {
+  text-decoration: none;
 }

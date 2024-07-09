@@ -214,12 +214,12 @@
             {%- endcapture -%}
 
             <div class="cart__shipping rte text-link-animated"><em>{{ taxes_shipping_checkout }}</em></div>
-
-            <div class="btn-wrapper-default">
-              <input type="submit" name="update" class="btn btn--secondary update-cart cart--button-update btn--secondary" aria-label="{{ 'cart.general.update' | t }}" value="{{ 'cart.general.update' | t }}">
-              <button type="submit" name="checkout" aria-label="{{ 'cart.general.checkout' | t }}" class="btn cart--button-checkout">{{ 'cart.general.checkout' | t }}</button>
+            <div class="cart-btn">
+                <a href="{{ routes.all_products_collection_url }}" class="btn ">{{ 'general.continue_shopping' | t }}</a>
+                <a href="/checkout" class="btn-checkout btn">
+                    Check Out
+                </a>
             </div>
-
             {% if additional_checkout_buttons and settings.enable-additional-checkout-buttons %}
             <div class="additional-checkout-buttons additional-checkout-buttons--vertical">
                 {{ content_for_additional_checkout_buttons }}
@@ -233,12 +233,14 @@
       <div class="template-title--wrapper">
         <h1 class="page--title template-title">{{ 'cart.general.title' | t }}</h1>
       </div>
-      <div class="cart--empty-cart">
+        <div class="cart--empty-cart">
         <p>{{ 'cart.general.empty' | t }}</p>
-        <a href="{{ routes.all_products_collection_url }}" class="btn">{{ 'general.continue_shopping' | t }}</a>
+        <a href="{{ routes.all_products_collection_url }}" class="btn continue-shop">{{ 'general.continue_shopping' | t }}</a>
       </div>
 
     {% endif %}
+
+      
   </div>
 </div>
 

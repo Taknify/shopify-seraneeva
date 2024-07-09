@@ -1,371 +1,223 @@
-{{ 'section-contact-form.min.css' | asset_url | stylesheet_tag: preload: true }}
-<noscript>{{ 'section-contact-form.min.css' | asset_url | stylesheet_tag }}</noscript>
-<style>
-  {%- comment -%}2024-05-29 Paul N add scroll tops for sticky header for adding class to form on submission using javascript for invalid CSS styles {%- endcomment -%}
-  {%- comment -%}25px is to add some height for the first inputs label height{%- endcomment -%}
-  @media (max-width: 767px) {
-    html {
-      scroll-padding-top: calc(25px + var(--sticky-header-mobile-height) );
-      /*scroll-margin-top: calc(25px + var(--sticky-header-mobile-height) );*/
-    }
-    :target {
-      scroll-padding-top: calc(25px + var(--sticky-header-mobile-height) );
-      /*scroll-margin-top: calc(25px + var(--sticky-header-mobile-height) );*/
-      scroll-snap-margin-top:: calc(25px + var(--sticky-header-mobile-height) ); /* iOS 11 and older? */
-    }
-  }
-  @media (min-width: 768px) {
-    html {
-      scroll-padding-top: calc(25px + var(--sticky-header-desktop-height) );
-      /*scroll-margin-top: calc(25px + var(--sticky-header-desktop-height) );*/
-    }
-    :target {
-      scroll-padding-top: calc(25px + var(--sticky-header-desktop-height) );
-      /*scroll-margin-top: calc(25px + var(--sticky-header-desktop-height) );*/
-      scroll-snap-margin-top:: calc(25px + var(--sticky-header-desktop-height) ); /* iOS 11 and older? */
-    }
-  }
- .overlay {
-    position: fixed;
-    background-color: #00000059;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100vw;
-    height: 100vh;
-  }
-  p.pop-up-title {
-    font-size: 20px;
-  }
-
-  .custom-pop-up {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(50vw / 2 + 250px);
-    padding: 40px;
-    padding-bottom: 47px;
-    padding-top: 47px;
-    background-color: white;
-    border-radius: 0px;
-    text-align: center;
-}
-
-  .custom-pop-up h1 {
-    padding-bottom: 20px;
-    position: relative;
-  }
-  .custom-pop-up h1:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background-color: #80808038;
-  }
-  .note.form-success {
-    opacity: 0;
-  }
-
-  button.pop-up-btn {
-    margin-top: 15px;
-    position: relative;
-    text-align: center;
-    padding: 16px 24px;
-    background-color: black;
-    color: #ffffff;
-    border: none;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 505;
-}
-
-  button.pop-up-btn:hover {
-    background-color: #383434;
-  }
-
-  .email-title, .message-title {
-    display: inline-block;
-    font-size: 15px;
-  }
-  .email-title ~ span {
-    font-size: 14px;
-  }
-
-    
-   button.pop-up-btn:hover:before {
-    transform: translate(-50%, -50%) scale(.95, .9) !important;
-   }
-
-  .custom-pop-up .close-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-12px, 10px);
-    cursor: pointer;
-}
-  
-
-</style>
-  
-    
 <section class="section-contact-form wrapper-spacing--v wrapper-spacing--h color-scheme--{{ section.settings.section_color_scheme }}" 
   data-wetheme-section-type="section--contact-form" 
   data-wetheme-section-id="{{ section.id }}"
   style="--padding-section-top: {{ section.settings.section_padding_top }}px; --padding-section-bottom: {{ section.settings.section_padding_bottom }}px;"
   >
-
-  {% comment %} Section title and description {% endcomment %}
-  {% render 'dynamic-section-header' with section_title: section.settings.title, section_description: section.settings.description %}
-
-    <div class="show-on-scroll">
-
-      <div{% if section.settings.form_width == 'narrow' %} class="width--narrow"{% endif %}>
-
-      {% unless section.blocks.size == 0 %}
-        <div>
-          {%- comment -%}2024-05-30 Paul N. NOTE: the parameter `,novalidate: 'novalidate'` will cause issues with validation styles and javascript {%- endcomment -%}
-          {% form 'contact', id: 'ContactForm', class: 'section-contact-form--form' %}
-
-            {% if form.errors %}
-              <div class="w-full">
-                {{ form.errors | default_errors }}
-              </div>
-            {% endif %}
-            {% if form.posted_successfully? %}
-              <div class="w-full">
-                <p class="note form-success">
-                  {{ 'contact.form.post_success' | t }} 
-                </p>
-              </div>
-            {% endif %}
-
-            {% for block in section.blocks %}
-              {% liquid
-                assign input_wrapper = 'input-wrapper '
-                case block.settings.input_width
-                  when 'partial'
-                    assign input_width = 'w-partial' | prepend: input_wrapper
-                  when 'full'
-                    assign input_width = 'w-full' | prepend: input_wrapper
-                endcase
-
-                assign nameInputString = 'contact.form.name' | t
-                assign formName = 'contact[' | append: nameInputString | append: ']'
-                assign emailInputString = 'contact.form.email' | t
-                assign emailInputName = 'email'
-                assign formEmailName = 'contact[' | append: emailInputName | downcase | append: ']'
-                assign telInputString = 'contact.form.phone' | t
-                assign formTelName = 'contact[' | append: telInputString | append: ']'
-                assign msgInputString = 'contact.form.message' | t
-                assign formMsgName = 'contact[' | append: msgInputString | append: ']'
-
-                if block.type == 'custom_input'
-                  assign formId = 'form_' | append: block.settings.placeholder | downcase | handleize
-                  assign inputName = 'contact[' | append: block.settings.placeholder | append: ']'
-                  assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="' | append: formId | append: '"'
-                endif
-
-                case block.type
-                  when 'name_input'
-                    assign placeholder = nameInputString
-                  when 'email_input'
-                    assign placeholder = emailInputString
-                  when 'tel_input'
-                    assign placeholder = telInputString
-                  when 'message_input'
-                    assign placeholder = msgInputString
-                  when 'custom_input'
-                    assign placeholder = block.settings.placeholder
-                endcase
-
-                assign labelPlaceholder = placeholder
-                if block.settings.required
-                  assign labelPlaceholder = placeholder | append: ' '
-                endif
-
-                if form.name
-                  assign nameInputVal = form.name
-                elsif customer
-                  assign nameInputVal = customer.name
-                endif
-
-                if form.email
-                  assign emailInputVal = form.email
-                elsif customer
-                  assign emailInputVal = customer.email
-                endif
-
-                if form.phone
-                  assign phoneInputVal = form.phone
-                elsif customer
-                  assign phoneInputVal = customer.phone
-                endif
-              %}
-              
-              {% case block.type %}
-
-                {% when 'name_input' %}
-                  <div class="{{ input_width }}">
-                    {% liquid
-                      assign formId = 'form_' | append: nameInputString | downcase | handleize
-                      assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="name-input"'
-                    %}
-                    {% render 'form-input' with type: 'text', has_label: false, animate_label: false, label_text: nameInputString, id: formId, placeholder: labelPlaceholder, value: nameInputVal, name: formName, required: block.settings.required, attributes: input_attr %}
-                  </div>
-
-                {% when 'email_input' %}
-                  <div class="{{ input_width }}">
-                    {% liquid
-                      assign formId = 'form_' | append: emailInputString | downcase | handleize
-                      assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="email-input"'
-                    %}
-                    {% render 'form-input' with type: 'email', has_label: false, animate_label: false, label_text: emailInputString, id: formId, placeholder: labelPlaceholder, value: emailInputVal, name: formEmailName, required: block.settings.required, attributes: input_attr %}
-                  </div>
-
-                {% when 'tel_input' %}
-                  <div class="{{ input_width }}">
-                    {% liquid
-                      assign formId = 'form_' | append: telInputString | downcase | handleize
-                      assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="tel-input"'
-                    %}
-                    {% render 'form-input' with type: 'tel', has_label: false, animate_label: false, label_text: telInputString, id: formId, placeholder: labelPlaceholder, value: phoneInputVal, name: formTelName, required: block.settings.required, attributes: input_attr %}
-                  </div>
-
-                {% when 'message_input' %}
-                  <div class="{{ input_width }}">
-                    {% liquid
-                      assign formId = 'form_' | append: msgInputString | downcase | handleize
-                      assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="message-input"'
-                    %}
-                    {% render 'form-input--textarea' with id: formId, placeholder: labelPlaceholder, name: formMsgName, has_label: false, animate_label: false, label_text: msgInputString, attributes: input_attr, required: block.settings.required, content: form.body %}
-                  </div>
-
-                {% when 'custom_input' %}
-                  <div class="{{ input_width }}">
-                    {% render 'form-input' with type: 'text', has_label: false, animate_label: false, label_text: inputString, id: formId, placeholder: labelPlaceholder, value: form.body, name: inputName, required: block.settings.required, attributes: input_attr %}
-                  </div>
-
-              {% endcase %}
-
-            {% endfor %}
-            
-            {% if section.blocks.size > 0 %}
-              <div class="section-contact-form--submit-wrapper w-full text-link-animated">
-                {{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
-                <button type="submit" class="btn">{{ 'contact.form.send' | t }}</button>
-              </div>
-            {% endif %}
-          
-          {% endform %}
-        </div>
-      {% else %}
-        <div class="placeholder-noblocks">
-          {{ 'general.onboarding.no_content' | t }}
-        </div>
-      {% endunless %}
-
-      </div>
-
-    </div>
+        {% form 'contact' %}
+                    <div class="row">
+                        {% if form.posted_successfully? %}
+                        <div class="col-md-12">
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong><i class="fa fa-check"></i></strong> {{ 'contact.form.form_posted_success' | t }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if form.errors %}
+                        <div class="col-md-12">
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong><i class="fa fa-times"></i></strong> {{ 'contact.form.form_errors' | t }}
+                            </div>
+                            {% for field in form.errors %}
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong><i class="fa fa-times"></i></strong> {{ 'contact.form.the' | t }} <strong>{{ field }}</strong> {{ form.errors.messages[field] }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="col-md-4">
+                            <input name="form_type" type="hidden" value="contact">
+                            <input name="utf8" type="hidden" value="✓">
+                            <input type="text" class="form-control margin-bottom-20" name="contact[name]" placeholder="Name">
+                        </div>
+                      <div class="col-md-4">
+                        <select id="ContactFormReason" class="form-select" name="contact[reason]">
+                          <option value="General Inquiry">General Inquiry</option>
+                          <option value="Order Status">Order Status</option>
+                          <option value="Returns and Exchanges">Returns &amp; Exchanges</option>
+                          <option value="International Returns">International Returns</option>
+                          <option value="Damages">Damages</option>
+                          <option value="My Account">My Account</option>
+                          <option value="Cancelation Request">Cancelation Request</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                        <div class="col-md-4">
+                            <input type="email" class="form-control margin-bottom-20" name="contact[email]" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea rows="6" name="contact[body]" class="form-control margin-bottom-20" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default pull-left margin-top-10">Send</button>
+                    {% endform %}
  
-      <div class="overlay" style="display: none">
-         <div class="custom-pop-up">
-               <div class="close-btn">
-                 <svg width="16px" height="16px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 21.32L21 3.32001" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 3.32001L21 21.32" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-               </div>
-               <h1>Contact Us</h1>
-              <p class="pop-up-title">{{ 'contact.form.post_success' | t }}</p>
-              <h4 class="email-title">We'll email you at:</h4> <span></span><br>
-              <h4 class="message-title">Message:</h4><br> <span></span><br>
-             <button class="pop-up-btn"> Done </button>
-          </div>
-      </div>
-
-  
-    {%- comment -%}2024-05-29 Paul N add class submit-attempted to form on submission using javascript for invalid CSS styles {%- endcomment -%}
-    {%- comment -%}handle novalidate submit event , since contact form uses a <button> instead of a proper <input type="submit"> for HTML validation{%- endcomment -%}
-    {%- comment -%}see custom.css for contact form styles including .js-input-validation-error{%- endcomment -%}
-    <script>
-      const contactForm = document.getElementById('ContactForm');
-      {%- comment -%}disable browser native validation tooltips{%- endcomment -%}
-      contactForm.querySelectorAll( 'input[required] , textarea[required]').forEach( input => { input.setCustomValidity(" ") } );
-
-      const requiredInputs = contactForm.querySelectorAll('input[required] , textarea[required]');
-        requiredInputs.forEach(input => {
-          input.addEventListener("input", function() {
-            input.validity.valueMissing ? input.setCustomValidity(' ') : input.setCustomValidity('');
-            input.parentElement.classList.toggle('js-input-validation-error',!input.validity.valid);
-            //input.validity.valid ? input.parentElement.classList.remove('js-input-validation-error') : input.parentElement.classList.remove('js-input-validation-error');
-            if( contactForm.classList.contains('submit-attempted') ){
-              contactForm.classList.remove('submit-attempted');
-            }
-          });
-
-          input.addEventListener('invalid', event => {
-            if (!input.validity.valid && input.parentElement.classList.contains('input-wrapper')) {
-              input.parentElement.classList.add('js-input-validation-error');
-            }
-            //input.parentElement.classList.add('js-input-validation-error');
-          }, false );
-          //input.addEventListener("beforeinput", function() { input.checkValidity();});
-      });
-
-      {%- comment -%}`invalid` event will happen in place of a submit event{%- endcomment -%}
-      // contactForm.addEventListener("invalid", (event) => {this.classList.add('invalid')});
-      document.querySelector('#ContactForm .btn').addEventListener("click", function(){
-        contactForm.classList.add('submit-attempted');
-      });
-      contactForm.addEventListener('submit', function(event) {
-        debugger
-        this.classList.add('submit-attempted');
-      });
-    </script>
-
-    <script>
-      let first_name = localStorage.getItem("first_name");
-      let last_name = localStorage.getItem("last_name");
-      let email = localStorage.getItem("email");
-      let message = localStorage.getItem("message");
-      let pop_up_title = document.querySelector('.pop-up-title');
-      let overlay = document.querySelector('.overlay:has(.custom-pop-up)');
-      let form_success = document.querySelector('.note.form-success');
-      if((first_name || last_name) && email && message && pop_up_title && form_success) {
-        overlay.style.display = "block";
-        overlay.style.setProperty("opacity", "1", "important");
-        let text_form_success = pop_up_title.innerHTML.trim();
-        pop_up_title.innerHTML = text_form_success.replace("Thank you.", `Thank you, ${first_name} ${last_name}.<br/>`);
-        document.querySelector('.email-title + span').innerHTML = email;
-        document.querySelector('.message-title ~ span').innerHTML = message;
-        form_success.parentNode.style.display = "none";
-        let close_pop_up = document.querySelectorAll('.pop-up-btn, .custom-pop-up .close-btn');
-        close_pop_up.forEach((item) => {
-          item.addEventListener("click", () => {
-            overlay.style.display = "none";
-            localStorage.setItem("first_name", '');
-            localStorage.setItem("last_name", '');
-            localStorage.setItem("email", '');
-            localStorage.setItem("message", '');
-          })
-        })
-      }
-      let btn_submit = document.querySelector('.btn[type="submit"]');
-      let form_first_name =  document.querySelector('#form_first-name');
-      let form_last_name =  document.querySelector('#form_last-name');
-      let form_email = document.querySelector('#form_email-address');
-      let form_message = document.querySelector('#form_message');
-      btn_submit.addEventListener("click", () => {
-         first_name = localStorage.setItem("first_name", form_first_name.value);
-         last_name = localStorage.setItem("last_name", form_last_name.value);
-         email = localStorage.setItem("email", form_email.value);
-         message = localStorage.setItem("message", form_message.value);
-      })
-    </script>
 </section>
-
+<style>
+  #contact-us .homepage-featured-rich-text{
+    padding-top: 100px !important;
+  }
+  #contact-us .homepage-featured-rich-text, #contact-us .section-contact-form {
+    width: 608px;
+    margin: 0 auto;
+    padding: 0;
+}
+  #contact-us .section-contact-form{
+     padding-bottom: 80px !important;
+  }
+  #contact-us .homepage-featured-rich-text h2 {
+    font-weight: 400;
+    margin: 0 0 15px 0;
+    font-size: 1rem !important;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+    #contact-us .homepage-featured-rich-text p, #contact-us .homepage-featured-rich-text p a,    #contact-us .homepage-featured-rich-text h6 {
+    font-weight: 400;
+    margin: 0;
+    font-size: 11px !important;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    text-decoration: none !important;
+    background: transparent;
+    letter-spacing: 2px;
+}
+  #contact-us .homepage-featured-rich-text h6{
+    margin-bottom: 10px;
+  }
+    #contact-us .homepage-featured-rich-text p{
+    margin-bottom: 3em;
+  }
+  #contact-us .homepage-featured-rich-text p:last-child{
+    margin-bottom: 0;
+  }
+  #contact-us .section-contact-form .form-control {
+    border: 1px solid #ccc;
+    line-height: 2;
+    padding: .7rem;
+    -webkit-transition: border-color .6s ease;
+    transition: border-color .6s ease;
+    width: 100%;
+    height: 46px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+  #contact-us .section-contact-form textarea.form-control{
+     height: 156px;
+  }
+   #contact-us .section-contact-form .form-control:active,   #contact-us .section-contact-form .form-control:focus {
+    border-color: #000;
+    outline: 0;
+}
+  #contact-us .section-contact-form .form-control:not(.btn):focus {
+    border: 0;
+    border: 1px solid #000 !important;
+        font-size: 11px;
+}
+     #contact-us .section-contact-form ::-webkit-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+   #contact-us .section-contact-form ::-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    #contact-us .section-contact-form :-ms-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    #contact-us .section-contact-form :-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+ #contact-us .section-contact-form .btn.btn-default {
+    color: #000;
+    background: #fff !important;
+    border: 1px solid #000;
+    cursor: pointer;
+    display: block;
+    line-height: 1;
+    padding: 1.2em;
+    text-align: center;
+    -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+    width: 100%;
+height: auto;
+    margin-top: 20px;
+   font-size: 11px;
+   letter-spacing: 2px;
+}
+    #contact-us .section-contact-form .btn.btn-default:hover,   #contact-us .section-contact-form .btn.btn-default:focus {
+    color: #fff;
+    background: #000 !important;
+        border: 1px solid #000;
+}
+   #contact-us .section-contact-form.errors {
+    color: #d02e2e;
+    background-color: transparent;
+    border-color: transparent;
+    color: red;
+    margin-bottom: 1rem;
+    padding: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.cancel-btn{
+    background: transparent;
+    border: 0;
+    font-size: 11px;
+    margin-top: 20px;
+}
+  #contact-us .section-contact-form .form-select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent url('https://cdn.shopify.com/s/files/1/0636/2759/1817/files/arrow-down.svg?v=1720161375') right 1rem center no-repeat;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+    padding: .7rem 1rem;
+    position: relative;
+    -webkit-transition: border .3s ease-in-out;
+    transition: border .3s ease-in-out;
+    vertical-align: top;
+    width: 100%;
+     color: #747474;
+     font-size: 11px;
+    text-transform: uppercase;
+        height: 46px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+   #contact-us .section-contact-form .form-select:hover, #contact-us .section-contact-form .form-select:focus{
+     border: 1px solid #000;
+   }
+  #contact-us .section-contact-form .form-select option{
+    background: #fff !important;
+  }
+  @media only screen and (max-width:767px){
+    #contact-us .homepage-featured-rich-text, #contact-us .section-contact-form {
+    width: 100%;
+    }
+ #contact-us .section-contact-form {
+    width: 100%;
+      padding: 0 15px;
+    }
+  }
+</style>
 {% schema %}
 {
   "name": "t:sections.section--contact-form.name",

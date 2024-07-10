@@ -104,9 +104,6 @@ section.settings.show_currency_selector %}
           {% endif %}
         </li>
     {% endcomment %}
-        
-    </a>
-  </li>
   {% style %}
   .search_text_wrapper {
   cursor: pointer;
@@ -146,19 +143,6 @@ section.settings.show_currency_selector %}
   {% endstyle %}
 
 
-
-  {% if shop.customer_accounts_enabled %}
-  <li>
-    <a title="{{ 'layout.customer.account' | t }}" class="account-button standalone-icon--wrapper drawer-toggle"
-      id="drawer-toggle" aria-label="Open Menu">
-      {% if section.settings.show_icons %}
-      {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
-      {% else %}
-      <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
-      {% endif %}
-    </a>
-  </li>
-  {% endif %}
   <li>
     <a href="{{ routes.cart_url }}" class="site-header__cart-toggle{% if settings.cart_type == " drawer" %}
       js-drawer-open-right-link{% endif %}{% if section.settings.cart_count %} cart-count-enabled {{

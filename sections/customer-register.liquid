@@ -1,187 +1,132 @@
-<!-- /sections/customer-register.liquid -->
-
+<!--=================== Registration Template ===================-->
+<main class="register-page {% if section.settings.header_top_check == blank and section.settings.welcome_message_notify_check == blank %}paira-sticky-root{% endif %}">
+    <section class="register-content paira-gap-3 paira-gap-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="login-back">
+                        {% form 'create_customer' %}
+                        {{ form.errors | default_errors }}
+                        <input type="text" value="" name="customer[first_name]" id="first_name" class="form-control margin-bottom-10" placeholder="First Name *" required />
+                        <input type="text" value="" name="customer[last_name]" id="last_name" class="form-control margin-bottom-10" placeholder="Last Name *" required />
+                        <input type="email" value="" name="customer[email]" id="email" class="form-control margin-bottom-10" placeholder="Email *" required />
+                        <input type="password" value="" name="customer[password]" id="password" class="form-control margin-bottom-10" placeholder="Password *" required />
+                        <button type="submit" class="btn btn-default pull-left margin-top-10">Create</button>
+                       <a href="/account/login" class="btn btn-default margin-top-5s">Already registered? Login</a>
+                        {% endform %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 <style>
-  .field {
-    position: relative;
-    padding-top: 4px;
-  }
-  
-  .field .hidden-label {
-    overflow: initial !important;
-    clip: unset !important;
-    width: auto;
-    transform-origin: top left;
-  }
-
-  .field .input-full {
-    padding: 23px 18px 10px 18px !important;
-  }
-  
-  .field:has(input:placeholder-shown) > label
-  {
-    top: 0;
-    left: 0;
-    transform: translate(20px, 22px);
-    -webkit-transform: translate(20px, 22px);
-    margin-bottom: 0;
-    transition: transform .3s, -webkit-transform .3s;
-    color: gray !important;
-  }
-  
- .field input::placeholder {
-   color: transparent !important; 
- }
-  
- .field:has(input:focus) > label,
- .field:has(input:not(:placeholder-shown)) > label
- {
-   top: 0;
-   left: 0;
-   transform: translate(19px, 10px) scale(.85);
-   -webkit-transform: translate(19px, 10px) scale(.85);
- }
-<style>
-/* .field:has(input[type="email"]:focus) > label,
-.field:has(input[type="email"]:not(:placeholder-shown)) > label {
-   top: 0;
-  left: 0;
-  transform: translate(13px, 3px) !important;
-} */
-  @media only screen and (min-width: 768px) {
-  form#create_customer {
-    width: 360px !important;
-  }
-    .form-vertical {
-      display: flex;
-      justify-content: center;
-    }
-  }
-  .grid__item--customer-accounts .errors {
-    background-color: unset !important;
-    border: none !important;
-    padding: unset !important;
-  }
-  .custom-register-error-message {
-    color: rgb(236, 113, 107);
-    font-size: 12px;
+  .register-page .container {
+    width: 608px;
+    margin: 0 auto;
+}
+  .register-page h1 {
     font-weight: 400;
-    line-height: 16px;
-    text-align: left;
+    margin: 0;
+    font-size: 1rem;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+  .register-page .form-control {
+    border: 1px solid #ccc;
+    line-height: 2;
+    padding: .7rem;
+    -webkit-transition: border-color .6s ease;
+    transition: border-color .6s ease;
     width: 100%;
+    height: 46px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+   .register-page .form-control:active,   .register-page .form-control:focus {
+    border-color: #000;
+    outline: 0;
+}
+  .register-page .form-control:not(.btn):focus {
+    border: 0;
+    border: 1px solid #000 !important;
+        font-size: 11px;
+}
+     .register-page ::-webkit-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    .register-page ::-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    .register-page :-ms-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    .register-page :-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+.register-page #create_customer .btn.btn-default {
+    color: #000;
+    background: #fff !important;
+    border: 1px solid #000;
+    cursor: pointer;
     display: block;
-    margin-top: -1rem;
+    line-height: 1;
+    padding: 1.2em;
+    text-align: center;
+    -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+    width: 100%;
+height: auto;
+    margin-top: 20px;
+   font-size: 11px;
+}
+   .register-page #create_customer .btn.btn-default:hover,.register-page #create_customer .btn.btn-default:focus {
+    color: #fff;
+    background: #000 !important;
+        border: 1px solid #000;
+}
+
+.undreline {
+    font-size: 11px;
+    color: #000;
+    margin-top: 15px;
+    display: block;
+          -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+  margin-bottom: 50px;
+}
+
+  .undreline:hover {
+    color: #767676;
+}
+  .login-page .errors {
+    color: #d02e2e;
+    background-color: transparent;
+    border-color: transparent;
+    color: red;
     margin-bottom: 1rem;
+    padding: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.cancel-btn{
+    background: transparent;
+    border: 0;
+    font-size: 11px;
+    margin-top: 20px;
+}
+  .margin-top-5s{
+    margin-top: 50px !important;
   }
 </style>
-<div class="wrapper-spacing--v--template wrapper-spacing--h">
-  <div class="grid page-main--wrapper">
-
-    <div class="grid__item grid__item--customer-accounts large--one-third push--large--one-third text-center">
-
-      <div class="template-title--wrapper">
-        <h1 class="page--title template-title">{{ 'customer.register.title' | t }}</h1>
-      </div>
-
-      <div id="#CustomerRegisterForm" class="form-vertical">
-        {% form 'create_customer' %}
-          {{ form.errors | default_errors }}
-          <div class="field">
-            <label for="FirstName" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
-            <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
-          </div>
-
-          <div class="field">
-            <label for="LastName" class="hidden-label">{{ 'customer.register.last_name' | t }}</label>
-            <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
-          </div>
-          
-          <div class="field">
-            <label for="Email" class="hidden-label">{{ 'customer.register.email' | t }}</label>
-            <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
-          </div>
-
-          <div class="field">
-            <label for="CreatePassword" class="hidden-label">{{ 'customer.register.password' | t }}</label>
-            <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
-          </div>
-          <p>
-            <button id="create" type="submit" class="btn btn--full account-section--btn">{{ 'customer.register.submit' | t }}</button>
-          </p>
-          <span class="register-cancel--wrapper nav-link-animated--custom"><a class="animated-link--item" href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a></span>
-
-        {% endform %}
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
-<script>
-  const emailRegex_customer_create = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  document.addEventListener("DOMContentLoaded", (event) => {
-    let emailField_customer_create = document.querySelector('#Email');
-    let passwordField_customer_create = document.querySelector('#CreatePassword');
-    let registerForm_customer_create = document.querySelector("form#create_customer");
-    let submitButton_customer_create = document.querySelector("button[type='submit']");
-
-    if (!emailField_customer_create || !passwordField_customer_create || !registerForm_customer_create || !submitButton_customer_create) {
-      console.error("One or more form elements not found.");
-      return;
-    }
-
-    function displayError_customer_create(message, element) {
-      let existingError = element.nextElementSibling;
-      if (existingError && existingError.classList.contains('custom-register-error-message')) {
-        existingError.remove();
-      }
-      if (message) {
-        element.insertAdjacentHTML("afterend", `<span class="custom-register-error-message">${message}</span>`);
-        return false;
-      }
-      return true;
-    }
-
-    function checkEmailValidity_customer_create() {
-      let emailValue = emailField_customer_create.value;
-      let errorMessage = emailValue ? (emailRegex_customer_create.test(emailValue) ? '' : 'Please enter a valid email address.') : 'Email is required.';
-      return displayError_customer_create(errorMessage, emailField_customer_create);
-    }
-
-    function checkPasswordValidity_customer_create() {
-      let passwordValue = passwordField_customer_create.value;
-      let errorMessage = passwordValue ? '' : 'Password is required.';
-      return displayError_customer_create(errorMessage, passwordField_customer_create);
-    }
-
-    emailField_customer_create.addEventListener("input", checkEmailValidity_customer_create);
-    passwordField_customer_create.addEventListener("input", checkPasswordValidity_customer_create);
-
-    registerForm_customer_create.addEventListener("submit", (e) => {
-      let isEmailValid = checkEmailValidity_customer_create();
-      let isPasswordValid = checkPasswordValidity_customer_create();
-      if (!isEmailValid || !isPasswordValid) {
-        e.preventDefault();
-      }
-    });
-
-    submitButton_customer_create.addEventListener("click", (e) => {
-      let isEmailValid = checkEmailValidity_customer_create();
-      let isPasswordValid = checkPasswordValidity_customer_create();
-      if (!isEmailValid || !isPasswordValid) {
-        e.preventDefault();
-      }
-    });
-  });
-</script>
-
-
-{% schema %}
-{
-  "name": "t:sections.customer-register.name",
-  "settings": [
-
-  ]
-}
-{% endschema %}

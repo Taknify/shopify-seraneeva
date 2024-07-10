@@ -10,8 +10,8 @@
   endif
 -%}
 
-<section class="shopify-section wrapper-spacing--v--template wrapper-spacing--h">
-  <div class="width--content collection_grid{% if filtering_enabled %} filtering_enabled--{{ section.settings.desktop_position }}{% endif %}">
+<section class="shopify-section wrapper-spacing--v--template wrapper-spacing--h dev-all-collections">
+  <div class="collection_grid{% if filtering_enabled %} filtering_enabled--{{ section.settings.desktop_position }}{% endif %}">
 
     {% unless filtering_enabled == false and header_enabled == false %}
       {% render 'main-collection-filtering-sorting' with 

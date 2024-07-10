@@ -1,68 +1,84 @@
 {% assign footer_item_width = '' %}
 {% case section.blocks.size %}
-{% when 1 %}
-	{% assign footer_item_width = 'large--one-whole medium--one-whole small--one-whole' %}
-{% when 2 %}
-	{% assign footer_item_width = 'large--one-half medium--one-half small--one-whole' %}
-{% when 3 %}
-	{% assign footer_item_width = 'large--one-third medium--one-half small--one-whole' %}
-{% when 4 %}
-	{% assign footer_item_width = 'large--one-quarter medium--one-half small--one-whole' %}
+  {% when 1 %}
+    {% assign footer_item_width = 'large--one-whole medium--one-whole small--one-whole' %}
+  {% when 2 %}
+    {% assign footer_item_width = 'large--one-half medium--one-half small--one-whole' %}
+  {% when 3 %}
+    {% assign footer_item_width = 'large--one-third medium--one-half small--one-whole' %}
+  {% when 4 %}
+    {% assign footer_item_width = 'large--one-quarter medium--one-half small--one-whole' %}
 {% endcase %}
 
 <style>
-  .input-group {
-    position: relative;
+   .input-group {
+     position: relative;
+   }
+
+   .footer-main .hidden-label {
+     overflow: initial !important;
+     clip: unset !important;
+     font-family: Cooper BT, serif;
+     font-size: 14.4px;
+     opacity: .925;
+   }
+
+   .input-group:has(input:placeholder-shown) > label
+   {
+     top: 0;
+     left: 0;
+     transform: translateY(10px);
+     margin-bottom: 0;
+     transition: all .8s cubic-bezier(.5,0,0,1);
+     color: gray !important;
+   }
+
+  .input-group input::placeholder {
+    color: transparent !important;
   }
 
-  .footer-main .hidden-label {
-    overflow: initial !important;
-    clip: unset !important;
-    font-family: Cooper BT, serif;
-    font-size: 14.4px;
-    opacity: .925;
-  }
-  
-  .input-group:has(input:placeholder-shown) > label
+  .input-group:has(input:focus) > label,
+  .input-group:has(input[type="email"]:not(:placeholder-shown)) > label
   {
-    top: 0;
-    left: 0;
-    transform: translateY(10px);
-    margin-bottom: 0;
-    transition: all .8s cubic-bezier(.5,0,0,1);
-    color: gray !important;
+    transform: translateY(1px) scale(.6428571429);
+    color: #ffff !important;
   }
-  
- .input-group input::placeholder {
-   color: transparent !important; 
- }
-  
- .input-group:has(input:focus) > label,
- .input-group:has(input[type="email"]:not(:placeholder-shown)) > label
- {
-   transform: translateY(1px) scale(.6428571429);
-   color: #ffff !important;
- }
-  /* .input-group input {
-    padding-top: 16px !important;
-  } */
+   /* .input-group input {
+     padding-top: 16px !important;
+   } */
 
-  .footer-email-input, .newsletter-footer input.footer-email-input {
-    background: transparent !important;
-  }
-  .custom-error-message {
-    color: rgb(236, 113, 107);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-  }
+   .footer-email-input, .newsletter-footer input.footer-email-input {
+     background: transparent !important;
+   }
+   .custom-error-message {
+     color: rgb(236, 113, 107);
+     font-size: 12px;
+     font-weight: 400;
+     line-height: 16px;
+   }
+   {% if section.settings.disable_animation %}
+     .disable-animation .text-link-animated a::before,
+     .disable-animation .text-link-animated a::after,
+     .disable-animation .nav-link-animated span::before,
+     .disable-animation .nav-link-animated span::after {
+       display: none;
+     }
+     .disable-animation .text-link-animated a:hover,
+     .disable-animation .nav-link-animated a:hover span {
+       opacity: 0.5;
+     }
+     .disable-animation .text-link-animated a {
+       line-height: 1;
+     }
+    {% endif %}
 </style>
 <footer
   class="footer-main color-scheme--{{ section.settings.color_scheme }} site-footer{% if template contains 'product' %}{% if settings.related_products_enable %}{% else %} product-sticker-stop{% endif %}{% endif %} footer-alignment--{{ section.settings.alignment }}"
-  data-wetheme-section-type="footer-main" data-wetheme-section-id="{{ section.id }}"
+  data-wetheme-section-type="footer-main"
+  data-wetheme-section-id="{{ section.id }}"
 >
-	<div class="wrapper-padded">
-		<div class="grid">
+  <div class="wrapper-padded">
+    <div class="grid {% if section.settings.disable_animation %} disable-animation{% endif %}">
       {%- comment -%}2024-05-20 Paul N add collapsible behavior to footer menus using details element{%- endcomment -%}
       {% style %}
         @media only screen and (min-width: 768px) {
@@ -153,146 +169,157 @@
         }
       </script>
 
-			{% for block in section.blocks %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'social' %}
+            <div class="grid__item {{ footer_item_width }} social-media-footer" {{ block.shopify_attributes }}>
+              {% unless block.settings.social_title == '' %}
+                <div class="h3 footer-header">{{ block.settings.social_title | escape }}</div>
+              {% endunless %}
+              {% render 'social-icons' %}
+            </div>
 
-				{% case block.type %}
+          {% when 'menu' %}
+            {% assign menu = linklists[block.settings.footer_linklist] %}
+            <div class="grid__item {{ footer_item_width }} links-footer" {{ block.shopify_attributes }}>
+              {%- comment -%}2024-05-20 Paul N add collapsible behavior to footer menus using details element{%- endcomment -%}
+              <details>
+                {% unless block.settings.menu_title == '' %}
+                  <summary class="footer-summary">
+                    <div class="h3 footer-header">{{ block.settings.menu_title | escape }}</div>
+                  </summary>
+                {% endunless %}
+                {% if menu.links.size > 0 %}
+                  <ul class="footer-content nav-link-animated">
+                    {% for link in menu.links %}
+                      {% if link.links != blank %}
+                        <li>
+                          <a href="{{ link.url }}" class="footer--has-dropdown-title"
+                            ><span class="animated-underline">{{ link.title }}</span></a
+                          >
+                          <ul class="footer--level-2">
+                            {% for sub_link in link.links %}
+                              <li>
+                                <a href="{{ sub_link.url }}"
+                                  ><span class="animated-underline">{{ sub_link.title | escape }}</span></a
+                                >
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </li>
+                      {% else %}
+                        <li>
+                          <a href="{{ link.url }}"
+                            ><span class="animated-underline">{{ link.title }}</span></a
+                          >
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </details>
+            </div>
 
-				{% when 'social' %}
+          {% when 'text' %}
+            <div class="grid__item {{ footer_item_width }} content-footer" {{ block.shopify_attributes }}>
+              {% unless block.settings.title == '' %}
+                <div class="h3 footer-header">{{ block.settings.title | escape }}</div>
+              {% endunless %}
+              {% unless block.settings.title == '' %}
+                <div class="rte footer-article text-link-animated">{{ block.settings.richtext }}</div>
+              {% endunless %}
+            </div>
 
-                    <div class="grid__item {{ footer_item_width }} social-media-footer" {{ block.shopify_attributes }}>
-                        {% unless block.settings.social_title == "" %}
-                            <div class="h3 footer-header">{{ block.settings.social_title | escape }}</div>
-                        {% endunless %}
-                        {% render 'social-icons' %}
-                    </div>
+          {% when 'follow_on_shop' %}
+            <div class="grid__item {{ footer_item_width }} content-footer" {{ block.shopify_attributes }}>
+              {% unless block.settings.title == '' %}
+                <div class="h3 footer-header">{{ block.settings.title | escape }}</div>
+              {% endunless %}
+              {% if shop.features.follow_on_shop? %}
+                {{ shop | login_button: action: 'follow' }}
+              {% endif %}
+            </div>
 
-			    {% when 'menu' %}
+          {% when 'image' %}
+            <div class="grid__item {{ footer_item_width }} image-footer" {{ block.shopify_attributes }}>
+              {% if block.settings.image != blank %}
+                {%- assign img_url = block.settings.image | image_url: width: 600 -%}
+                {% if block.settings.image.alt != empty %}
+                  {% capture footer_alt %}{{ block.settings.image.alt }}{% endcapture %}
+                {% else %}
+                  {% if block.settings.title != empty %}
+                    {% capture footer_alt %}{{ block.settings.title }}{% endcapture %}
+                  {% else %}
+                    {% capture footer_alt %}{{ shop.name }}{% endcapture %}
+                  {% endif %}
+                {% endif %}
+              {% else %}
+                {%- assign img_url = '' -%}
+              {% endif %}
+              {% if block.settings.link != blank and img_url != blank %}
+                <a href="{{ block.settings.link }}">
+              {% elsif img_url != blank %}
+                <div class="image-bar__item">
+              {% else %}
+                <div class="image-bar__item">
+              {% endif %}
+              <div class="image-bar__content">
+                {% if img_url == blank %}
+                  {{ 'image' | placeholder_svg_tag: 'icon icon--placeholder' }}
+                {% else %}
+                  {% render 'responsive-image' with block.settings.image, alt: footer_alt | escape %}
+                {% endif %}
+              </div>
+              {% if block.settings.link != blank and img_url != blank %}
+                </a>
+              {% else %}
+                </div>
+              {% endif %}
 
+              {% unless block.settings.title == '' %}
+                <h3 class="image-bar--title">{{ block.settings.title }}</h3>
+              {% endunless %}
+            </div>
 
-
-                    {% assign menu = linklists[block.settings.footer_linklist] %}
-                    <div class="grid__item {{ footer_item_width }} links-footer" {{ block.shopify_attributes }}>
-                      {%- comment -%}2024-05-20 Paul N add collapsible behavior to footer menus using details element{%- endcomment -%}
-                      <details>
-                        {% unless block.settings.menu_title == "" %}
-                            <summary class="footer-summary"><div class="h3 footer-header">{{ block.settings.menu_title | escape }}</div></summary>
-                        {% endunless %}
-                        {% if menu.links.size > 0 %}
-                            <ul class="footer-content nav-link-animated">
-                                {% for link in menu.links %}
-                                    {% if link.links != blank %}
-                                        <li>
-                                            <a href="{{ link.url }}" class="footer--has-dropdown-title"><span class="animated-underline">{{ link.title }}</span></a>
-                                            <ul class="footer--level-2">
-                                                {% for sub_link in link.links %}
-                                                        <li><a href="{{ sub_link.url }}"><span class="animated-underline">{{ sub_link.title | escape }}</span></a></li>
-                                                {% endfor %}
-                                            </ul>
-                                        </li>
-                                    {% else %}
-                                        <li>
-                                            <a href="{{ link.url }}"><span class="animated-underline">{{ link.title }}</span></a>
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                      </details>
-                    </div>
-
-				{% when 'text' %}
-
-                    <div class="grid__item {{ footer_item_width }} content-footer" {{ block.shopify_attributes }}>
-                        {% unless block.settings.title == "" %}
-                            <div class="h3 footer-header">{{ block.settings.title | escape }}</div>
-                        {% endunless %}
-                        {% unless block.settings.title == "" %}
-                            <div class="rte footer-article text-link-animated">{{ block.settings.richtext }}</div>
-                        {% endunless %}
-                    </div>
-
-                {% when 'follow_on_shop' %}
-
-                    <div class="grid__item {{ footer_item_width }} content-footer" {{ block.shopify_attributes }}>
-                        {% unless block.settings.title == "" %}
-                            <div class="h3 footer-header">{{ block.settings.title | escape }}</div>
-                        {% endunless %}
-                        {% if shop.features.follow_on_shop? %}
-                            {{ shop | login_button: action: 'follow' }}
-                        {% endif %}
-                    </div>
-
-				{% when 'image' %}
-
-					<div class="grid__item {{ footer_item_width }} image-footer" {{ block.shopify_attributes }}>
-                    {% if block.settings.image != blank %}
-				      {%- assign img_url = block.settings.image | image_url: width: 600 -%}
-                        {% if block.settings.image.alt != empty %}
-                            {% capture footer_alt %}{{ block.settings.image.alt }}{% endcapture %}
-                        {% else %}
-                            {% if block.settings.title != empty %}
-                                {% capture footer_alt %}{{ block.settings.title }}{% endcapture %}
-                            {% else %}
-                                {% capture footer_alt %}{{ shop.name }}{% endcapture %}
-                            {% endif %}
-                        {% endif %}
-				    {% else %}
-				      {%- assign img_url = '' -%}
-				    {% endif %}
-				    {% if block.settings.link != blank and img_url != blank %}
-				      <a href="{{ block.settings.link }}">
-				    {% elsif img_url != blank %}
-				      <div class="image-bar__item">
-				    {% else %}
-				      <div class="image-bar__item">
-				    {% endif %}
-				    <div class="image-bar__content">
-				      {% if img_url == blank %}
-				          {{ 'image' | placeholder_svg_tag: 'icon icon--placeholder' }}
-				      {% else %}
-						{% render 'responsive-image' with block.settings.image, alt: footer_alt | escape %}
-				      {% endif %}
-				    </div>
-				    {% if block.settings.link != blank and img_url != blank %}
-				      </a>
-				    {% else %}
-				      </div>
-				    {% endif %}
-
-				    {% unless block.settings.title == "" %}
-				      <h3 class="image-bar--title">{{ block.settings.title }}</h3>
-                    {% endunless %}
-					</div>
-
-				{% when 'newsletter' %}
-
-					<div class="grid__item {{ footer_item_width }} newsletter-footer" {{ block.shopify_attributes }}>
-						{% unless block.settings.newsletter_title == "" %}
-							<div class="h3 footer-header">{{ block.settings.newsletter_title | escape }}</div>
-                        {% endunless %}
-						{% if block.settings.footer_newsletter_description != empty %}
-                            <div class="rte footer-article text-link-animated">{{ block.settings.footer_newsletter_description }}</div>
-						{% endif %}
-						{% form 'customer', id: 'newsletter-footer_form' %}
-							{% if form.posted_successfully? %}
-								<p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
-							{% else %}
-								<div class="input-group">
-                                    <label for="Email"  class="hidden-label">Email</label>
-                                    <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field footer-email-input" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" >
-                                    <input type="hidden" name="contact[tags]" value="newsletter">
-                                    <span>
-                                        <button type="submit" class="btn footer-email-submit" name="subscribe" id="subscribe">{{ 'general.newsletter_form.submit' | t }}</button>
-                                    </span>
-								</div>
-							{% endif %}
-						{% endform %}
-					</div>
-			{% endcase %}
-            {% endfor %}
-
-        </div>
+          {% when 'newsletter' %}
+            <div class="grid__item {{ footer_item_width }} newsletter-footer" {{ block.shopify_attributes }}>
+              {% unless block.settings.newsletter_title == '' %}
+                <div class="h3 footer-header">{{ block.settings.newsletter_title | escape }}</div>
+              {% endunless %}
+              {% if block.settings.footer_newsletter_description != empty %}
+                <div class="rte footer-article text-link-animated">
+                  {{ block.settings.footer_newsletter_description }}
+                </div>
+              {% endif %}
+              {% form 'customer', id: 'newsletter-footer_form' %}
+                {% if form.posted_successfully? %}
+                  <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                {% else %}
+                  <div class="input-group">
+                    <label for="Email" class="hidden-label">Email</label>
+                    <input
+                      type="email"
+                      value="{% if customer %}{{ customer.email }}{% endif %}"
+                      placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
+                      name="contact[email]"
+                      id="Email"
+                      class="input-group-field footer-email-input"
+                      aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}"
+                    >
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+                    <span>
+                      <button type="submit" class="btn footer-email-submit" name="subscribe" id="subscribe">
+                        {{ 'general.newsletter_form.submit' | t }}
+                      </button>
+                    </span>
+                  </div>
+                {% endif %}
+              {% endform %}
+            </div>
+        {% endcase %}
+      {% endfor %}
     </div>
+  </div>
   <script>
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
@@ -340,9 +367,7 @@
       });
     });
   </script>
-
 </footer>
-
 {% schema %}
 {
   "name": "t:sections.footer-main.name",
@@ -363,6 +388,12 @@
         }
       ],
       "default": "left"
+    },
+     {
+      "type": "checkbox",
+      "id": "disable_animation",
+      "label": "Disable animate underline",
+      "default": false
     },
     {
       "type": "header",

@@ -2,7 +2,6 @@
 <html class="no-js" lang="{{ request.locale.iso_code }}">
 
 <head>
-
   <!-- Code for Adding "MENU" to the header -->
   {% comment %}
   <style>
@@ -21,7 +20,24 @@
     }
   </style>
   {% endcomment %}
-
+  <!--
+    /**
+    * @license
+    * MyFonts Webfont Build ID 845395
+    *
+    * The fonts listed in this notice are subject to the End User License
+    * Agreement(s) entered into by the website owner. All other parties are
+    * explicitly restricted from using the Licensed Webfonts(s).
+    *
+    * You may obtain a valid license from one of MyFonts official sites.
+    * http://www.fonts.com
+    * http://www.myfonts.com
+    * http://www.linotype.com
+    *
+    */
+    -->
+  <link rel="stylesheet" type="text/css" href="{{ 'MyWebfontsKit.css' | asset_url }}">
+  
   <!-- iOS Home Screen Status Bar Color -->
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
   <!-- Browser Theme Color -->
@@ -41,7 +57,8 @@
   {{ 'photoswipe.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'theme.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'custom.css' | asset_url | stylesheet_tag: preload: true }}
-  {{ 'sstStyle.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'styleSST.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'style.css' | asset_url | stylesheet_tag: preload: true }}
 
   {% if settings.animations_enabled %}
   {{ 'animate.min.css' | asset_url | stylesheet_tag: preload: true }}
@@ -276,6 +293,16 @@
       background-color: transparent !important;
       transform: translate(-55%, -30%) !important;
     }
+        width: 8px;
+        color: black !important;
+        top: 50%;
+        left: 50%;
+        font-size: 9px;
+        height: 8px;
+        background-color: transparent !important;
+        letter-spacing: 0.5px;
+        transform: translate(-53%, -6.5%) !important;
+     }
   </style>
 
   <style>
@@ -301,29 +328,38 @@
       margin-bottom: 25px !important;
     }
   </style>
-
   <style>
-    #CustomerLoginForm input:focus {
-      border: 1px solid var(--border-color) !important;
-    }
+  #CustomerLoginForm input:focus {
+   border: 1px solid #000 !important;
+  }
   </style>
 
   <style>
-    #create_customer input:focus {
-      border: 1px solid var(--border-color) !important;
-    }
+  #create_customer input:focus {
+   border: 1px solid #000 !important;
+  }
   </style>
 
   <style>
-    #RecoverPasswordForm input:focus {
-      border: 1px solid var(--border-color) !important;
-    }
+  #RecoverPasswordForm input:focus {
+   border: 1px solid #000 !important;
+  }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css"
     integrity="sha512-AyOHI/tIMgoG+32apAs3OdqFowPSDqiz5vLcD2wdhBJ4J/xF1PI6UITcyhS5HCmsiioapRaONqYBvimxzFfnoA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* Custom CSS to remove underline from footer links */
+.footer a {
+    text-decoration: none;
+}
+</style>
+
+<link rel="stylesheet" href="{{ 'custom-styles.css' | asset_url }}">
+  
 </head>
 
 {% comment %} Add the page template as a class for easy page or template specific styling. {% endcomment %}
@@ -346,6 +382,10 @@
   {% endcomment %}
   {% render 'right-drawer' %}
 
+  {% comment %}
+  <!-- Code By SST : Rendering Account Drawer -->
+  {% render 'account-drawer' %}
+  {% endcomment %}
 
   <div id="DrawerOverlay" class="drawer-overlay"></div>
 
@@ -381,13 +421,14 @@
         </div>
       </div>
 
-      <div class="footer-wrapper">
-        {% sections 'footer-group' %}
-      </div>
-
-      <script defer type="module" src="{{ 'theme.min.js' | asset_url }}"></script>
-      <script defer src="{{ 'SafeLoadScripts.js' | asset_url }}"></script>
-      <script defer nomodule src="{{ 'theme.legacy.min.js' | asset_url }}"></script>
+  <div class="footer-wrapper">
+    {% sections 'footer-group' %}
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script defer type="module" src="{{ 'theme.min.js' | asset_url }}"></script>
+  <script defer src="{{ 'SafeLoadScripts.js' | asset_url }}"></script>
+  <script defer nomodule src="{{ 'theme.legacy.min.js' | asset_url }}"></script> 
+  <script src="{{ 'custom.js' | asset_url }}"></script> 
 
       {% if settings.popup--enable %}
       {% render 'popup' %}
@@ -484,76 +525,6 @@
       {% endif %}
 
       {% comment %} Reconfigure footer layout {% endcomment %}
-
-      <style>
-        @media screen and (min-width: 768px) {
-          .footer-main .grid__item:nth-child(3) {
-            width: 25% !important;
-          }
-
-          .footer-main .grid__item:nth-child(4) {
-            width: 25% !important;
-          }
-
-          .footer-main .grid__item:nth-child(5) {
-            width: 50% !important;
-          }
-        }
-
-        .no-scroll {
-          overflow: hidden;
-        }
-      </style>
-
-
-      <script>
-
-        document.addEventListener('DOMContentLoaded', (event) => {
-          // Function to show all list_items_drawer elements
-          function showDrawers() {
-            document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
-              drawer.style.display = 'block';
-            });
-          }
-
-          // Function to hide all list_items_drawer elements
-          function hideDrawers() {
-            document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
-              drawer.style.display = 'none';
-            });
-          }
-
-          // Function to toggle list_items_drawer elements
-          function toggleDrawers() {
-            document.querySelectorAll('.list_items_drawer').forEach((drawer) => {
-              if (drawer.style.display === 'block') {
-                drawer.style.display = 'none';
-              } else {
-                drawer.style.display = 'block';
-              }
-            });
-          }
-
-          // Add click event listener to all drawer-toggle elements
-          document.querySelectorAll('.drawer-toggle').forEach((toggle) => {
-            toggle.addEventListener('click', (event) => {
-              event.stopPropagation(); // Prevent click from propagating to document
-              toggleDrawers();
-            });
-          });
-
-          // Add click event listener to the document to hide drawers when clicking outside
-          document.addEventListener('click', (event) => {
-            const isDrawerClick = event.target.closest('.list_items_drawer') || event.target.closest('.drawer-toggle');
-            if (!isDrawerClick) {
-              hideDrawers();
-            }
-          });
-        });
-
-
-      </script>
-
 </body>
 
 </html>

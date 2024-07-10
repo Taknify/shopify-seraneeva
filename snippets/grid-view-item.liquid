@@ -111,7 +111,7 @@
           {% endif %}
 
           {% if settings.hover-effect and product.media.size > 1 %}
-            <div class="hidden">
+            <div class="hidden-img">
               {% assign image = product.media[1].preview_image %}
               {% render 'responsive-image' with image, alt: image.alt, allow_stretch: image_stretch, blur: false %}
             </div>
@@ -167,7 +167,10 @@
   </div>
 
   {% if settings.show_product_card_vendor %}
-    <div class="product-grid--vendor {{ vendor_font }}">{{ product.vendor }}</div>
+    <!-- <div class="product-grid--vendor {{ vendor_font }}">{{ product.vendor }}</div> -->
+    <div class="product-grid--vendor {{ vendor_font }}">
+      <a{% unless settings.product_card_text_alignment == 'right' %} class="text-truncate--line"{% endunless %} href="{{ product.url | within: collection }}" data-product-card-link>{% if settings.product_card_max_lines > 0 and settings.product_card_text_alignment == 'right' %}{{ product.title | truncate: truncate_value }}{% else %}{{ product.vendor }}{% endif %}</a>
+    </div>
   {% endif %}
 
   {% if settings.show_product_card_title %}

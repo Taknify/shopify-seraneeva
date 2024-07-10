@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'Optima,Optima,sans-serif';
+    src: url('https://cdn.shopify.com/s/files/1/0636/2759/1817/files/OPTIMA.woff?v=1720299840') format('woff');
+}
+
+@font-face {
+  font-family: 'HelveticaNeueLTPro-Cn';
+  src: url('https://cdn.shopify.com/s/files/1/0636/2759/1817/files/HelveticaNeueLTPro-Cn.woff?v=1720300533');
+}
+
+
+
+.grid__item product-card .money {
+  font-family: "HelveticaNeueLTPro-Cn" !important;
+  font-size: 12px !important;
+  color: #757575 !important;
+}
+
+.grid__item product-card a, .grid__item product-card  .product-grid--vendor-font-heading {
+    font-family: "Optima,Optima,sans-serif" !important;
+    text-transform: uppercase;
+    font-size: .78125vw !important;
+    line-height: 1.33333em !important;
+    letter-spacing: .03em !important;
+   
+  
+}
+
+.product-grid--vendor-font-heading {
+  margin-top: 5px !important;
+}
+
+.footer-container {
+  max-width: 1600px !important;
+  padding: 0 !important
+}
+
+footer {
+  padding: 8px 60px !important;
+}
+
+.collection_grid, .collection-grid {
+  max-width: 1600px !important;
+  margin: 0 auto;
+}
+
+.dev-all-collections {
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+
+product-card:hover a {
+    color: #767676 !important;
+}
+
+.grid-view-item .grid-view-item-image:not(:last-child) {
+    padding-bottom: 0.2em !important;
+}
+
+/* @media (max-width: 1376px) {
+  .grid__item product-card a, .grid__item product-card  .product-grid--vendor-font-heading {
+    font-size: 11px !important;
+  }
+} */
+
+@media (min-width: 768px) {
+    .footer-menu ul {
+        gap: 25px;
+    }
+
+  .footer-menu li {
+    margin-right: 0px !important;
+  }
+}

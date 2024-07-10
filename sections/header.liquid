@@ -67,8 +67,45 @@ section.settings.show_currency_selector %}
         </div>
 
       </div>
-      {% else %}
-      <span class="header--supporting-text">{{ 'layout.header.search' | t }}</span>
+      {% else %}     
+        <li>
+          <a href="{{ routes.account_login_url }}" aria-label="{{ 'layout.customer.log_in' | t }}" class="log-in-button standalone-icon--wrapper">
+            {% if section.settings.show_icons %}
+              {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
+            {% else %}
+              <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
+            {% endif %}
+          </a>
+        </li>
+    {% endif %}
+    {% endcomment %}
+
+     <li class="li-acount-btn">
+          <a href="/account/login" title="{{ 'layout.customer.account' | t }}" class="account-button standalone-icon--wrapper" id="drawer-toggle"  aria-label="Open Menu">
+            {% if section.settings.show_icons %}
+              {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
+            {% else %}
+              <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
+            {% endif %}
+          </a>
+        
+          <!-- Code By SST : Rendering Account Drawer -->
+          {% render 'account-drawer' %}
+        
+        </li>
+      
+{% comment %}
+    <li>
+         {% if section.settings.show_icons %}
+           <button class="account_button drawer-toggle" id="drawer-toggle" aria-label="Open Menu">
+              {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
+            {% else %}
+              <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
+           </button>
+          {% endif %}
+        </li>
+    {% endcomment %}
+        
       {% endif %}
     </a>
   </li>
@@ -175,23 +212,40 @@ section.settings.show_currency_selector %}
 color: var(--menu-drawer-text-color);
 }
 
-{% if section.settings.show_locale_selector or section.settings.show_currency_selector %}
-.locale--mobile {
-padding: 15px;
-}
-{% endif %}
-#NavDrawer .close-btn {
-position: absolute;
-top: 0;
-z-index: 99;
-cursor: pointer;
-transform: translate(301px, 21px);
-}
-.drawer--left {
-box-shadow: 0 0 150px rgba(0,0,0,.1);
-left: 100%;
-transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
-}
+  {% if section.settings.show_locale_selector or section.settings.show_currency_selector %}
+    .locale--mobile {
+      padding: 15px;
+    }
+  {% endif %}
+  #NavDrawer .close-btn {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    cursor: pointer;
+    transform: translate(301px, 21px);
+   }
+  .drawer--left {
+    box-shadow: 0 0 150px rgba(0,0,0,.1);
+    left: 100%;
+    transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
+  }
+  .custom_header svg,
+  .custom_header .hamburger-nav-button svg,
+  .custom_header .site-header__logo-overlay-link,
+  .custom_header span.cart-item-count-bubble{
+    color: white !important;
+  }
+  .custom_header:hover svg,
+  .custom_header:hover .hamburger-nav-button svg,
+  .custom_header:hover .site-header__logo-overlay-link,
+  .custom_header:hover span.cart-item-count-bubble{
+    color: black !important;
+  }
+  .sticked.header-section .custom_header svg,
+  .sticked.header-section .custom_header .hamburger-nav-button svg,
+  .sticked.header-section .custom_header span.cart-item-count-bubble{
+    color: black !important;
+  }
 {% endstyle %}
 
 <div class="header-section--wrapper
@@ -293,9 +347,213 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
                 {% endfor %}
               </ul>
             </li>
-            {% else %}
-            <li class="mobile-nav__item{% if sub_link.active %} mobile-nav__item--active{% endif %}">
-              <a href="{{ sub_link.url }}" class="mobile-nav__link">{{ sub_link.title | escape }}</a>
+          {% else %}
+            <li class="mobile-nav__item top-level{% if link.active %} mobile-nav__item--active{% endif %}{% if is-mega-menu %} mega-menu--mobile no-links{% endif %}">
+              {% if is-mega-menu %}
+                <div class="mobile-nav__has-sublist">
+                  <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+                  <div class="mobile-nav__toggle">
+                    <button type="button" class="icon-fallback-text mobile-nav__toggle-open standalone-icon--wrapper touch-target icon-no-padding" aria-label="{{ 'cart.general.see_more' | t }}">
+                      {% render 'theme-icon', icon: 'chevron_down', iconSize: 16, iconAttributes: 'aria-hidden="true"' %}
+                    </button>
+                    <button type="button" class="icon-fallback-text mobile-nav__toggle-close standalone-icon--wrapper touch-target icon-no-padding" aria-label="{{ 'layout.drawers.close_menu' | t }}">
+                      {% render 'theme-icon', icon: 'chevron_up', iconSize: 16, iconAttributes: 'aria-hidden="true"' %}
+                    </button>
+                  </div>
+                </div>
+
+                <ul class="mobile-nav__sublist">
+                  <ul class="mobile-promo--block">
+                    {% for block in section.blocks %}
+
+                      {% liquid
+                        assign link-title = link.title | strip | downcase
+                        assign block-title = block.settings.mega-menu | strip | downcase
+
+                        assign image_1_stretch = false
+                        assign crop_setting_1 = block.settings.image_1_aspect_ratio
+                        if crop_setting_1 == "square"
+                          assign image_1_crop = "aspect-ratio--square"
+                          assign image_1_stretch = true
+                        elsif crop_setting_1 == "tall"
+                          assign image_1_crop = "aspect-ratio--tall"
+                          assign image_1_stretch = true
+                        elsif crop_setting_1 == "wide"
+                          assign image_1_crop = "aspect-ratio--wide"
+                          assign image_1_stretch = true
+                        else
+                          assign image_1_crop = false
+                          assign image_1_stretch = false
+                        endif
+
+                        assign image_2_stretch = false
+                        assign crop_setting_2 = block.settings.image_2_aspect_ratio
+                        if crop_setting_2 == "square"
+                          assign image_2_crop = "aspect-ratio--square"
+                          assign image_2_stretch = true
+                        elsif crop_setting_2 == "tall"
+                          assign image_2_crop = "aspect-ratio--tall"
+                          assign image_2_stretch = true
+                        elsif crop_setting_2 == "wide"
+                          assign image_2_crop = "aspect-ratio--wide"
+                          assign image_2_stretch = true
+                        else
+                          assign image_2_crop = false
+                          assign image_2_stretch = false
+                        endif
+
+                        assign first_promo_has_text = false
+                        if block.settings.mega_image_header_1 != blank or block.settings.mega_image_subheader_1 != blank
+                          assign first_promo_has_text = true
+                        endif
+
+                        assign second_promo_has_text = false
+                        if block.settings.mega_image_header_2 != blank or block.settings.mega_image_subheader_2 != blank
+                          assign second_promo_has_text = true
+                        endif
+                      %}
+
+                      {% style %}
+                        .block-id-{{ block.id }} .overlay-text-on-image-promo-1 {
+                          color: {{ block.settings.overlay_text_color_promo_1 }};
+                        }
+
+                        .block-id-{{ block.id }} .overlay-text-on-image-promo-2 {
+                          color: {{ block.settings.overlay_text_color_promo_2 }};
+                        }
+                      {% endstyle %}
+
+                      {% if link-title == block-title %}
+                        {% if block.settings.mega_image_1 == blank and block.settings.mega_image_2 == blank %}
+                          <li class="mobile-nav__item {% if sub_link.active %} mobile-nav__item--active{% endif %}">
+                            <p class="mega-menu--empty" {% unless request.design_mode %}style="visibility:hidden;"{% endunless %}>
+                              This megamenu doesn't currently have any content. Add content to the megamenu in the Shopify admin at: Online store > Menu.
+                            </p>
+                          </li>
+                        {% else %}
+                          {% if block.settings.mega_image_1 and block.settings.show_promo_1_in_mobile_drawer %}
+                            <li class="mobile-nav__item block-id-{{ block.id }}">
+                              <div class="inner mega-menu--image-wrapper">
+                                <div class="mega-menu--image{% if block.settings.overlay_text_on_image_promo_1 %} overlay--enabled{% endif %}{% if first_promo_has_text %} has-promo-text{% endif %}">
+                                  {% if block.settings.mega_image_link_1 %}
+                                    <a class="mega-menu-promo--image{% if image_1_crop %} mega-menu-aspect-ratio {{ image_1_crop }}{% endif %}" href="{{ block.settings.mega_image_link_1 }}">
+                                  {% else %}
+                                    <div class="mega-menu-promo--image{% if image_1_crop %} mega-menu-aspect-ratio {{ image_1_crop }}{% endif %}">
+                                  {% endif %}
+                                  {% capture img_props %}style="max-width: {{ block.settings.mega_image_1.width }}px"{% endcapture %}
+                        
+                                  {% if block.settings.mega_image_1.alt != empty %}
+                                      {% capture img_alt %}{{ block.settings.mega_image_1.alt }}{% endcapture %}
+                                  {% else %} 
+                                      {% if block.settings.mega_image_header_1 != empty %}
+                                          {% capture img_alt %}{{ block.settings.mega_image_header_1 }}{% endcapture %}
+                                      {% else %}
+                                          {% capture img_alt %}{{ shop.name }}{% endcapture %}
+                                      {% endif %}
+                                  {% endif %}
+                        
+                                  {% render 'responsive-image' with block.settings.mega_image_1, allow_stretch: image_1_stretch, alt: img_alt | escape, props: img_props %}
+                                  {% if block.settings.mega_image_link_1 %}
+                                    </a>
+                                  {% else %}
+                                    </div>
+                                  {% endif %}
+                        
+                                  <div class="mega-menu--text">
+                                    {% if block.settings.mega_image_header_1 %}
+                                      <p class="h4 mega-menu--image-title{% if block.settings.mega_image_subheader_1 != blank %} has-padding{% endif %}{% if block.settings.overlay_text_on_image_promo_1 %} overlay-text-on-image-promo-1{% else %} default-menu-drawer-text-color{% endif %}">
+                                        {% if block.settings.mega_image_link_1 %}
+                                          <a href="{{ block.settings.mega_image_link_1 }}" class="{% if block.settings.overlay_text_on_image_promo_1 %} overlay-text-on-image-promo-1{% else %} default-menu-drawer-text-color{% endif %}">
+                                        {% endif %}
+                                        {{ block.settings.mega_image_header_1 }}
+                                        {% if block.settings.mega_image_link_1 %}
+                                          </a>
+                                        {% endif %}
+                                      </p>
+                                    {% endif %}
+                                    {% if block.settings.mega_image_subheader_1 %}
+                                      <p class="h5 mega-menu--image-subtitle{% if block.settings.overlay_text_on_image_promo_1 %} overlay-text-on-image-promo-1{% else %} default-menu-drawer-text-color{% endif %}">
+                                        {% if block.settings.mega_image_link_1 %}
+                                          <a href="{{ block.settings.mega_image_link_1 }}" class="{% if block.settings.overlay_text_on_image_promo_1 %} overlay-text-on-image-promo-1{% else %} default-menu-drawer-text-color{% endif %}">
+                                        {% endif %}
+                                        {{ block.settings.mega_image_subheader_1 }}
+                                        {% if block.settings.mega_image_link_1 %}
+                                          </a>
+                                        {% endif %}
+                                      </p>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          {% endif %}
+                          
+                          {% if block.settings.mega_image_2 and block.settings.show_promo_2_in_mobile_drawer %}
+                            <li class="mobile-nav__item block-id-{{ block.id }}">
+                              <div class="inner mega-menu--image-wrapper">
+                                <div class="mega-menu--image{% if block.settings.overlay_text_on_image_promo_2 %} overlay--enabled{% endif %}{% if second_promo_has_text %} has-promo-text{% endif %}">
+                                  {% if block.settings.mega_image_link_2 %}
+                                    <a class="mega-menu-promo--image{% if image_2_crop %} mega-menu-aspect-ratio {{ image_2_crop }}{% endif %}" href="{{ block.settings.mega_image_link_2 }}">
+                                  {% else %}
+                                    <div class="mega-menu-promo--image{% if image_2_crop %} mega-menu-aspect-ratio {{ image_2_crop }}{% endif %}">
+                                  {% endif %}
+                                  {% capture img_props %}style="max-width: {{ block.settings.mega_image_2.width }}px"{% endcapture %}
+                        
+                                  {% if block.settings.mega_image_2.alt != empty %}
+                                      {% capture img_alt %}{{ block.settings.mega_image_2.alt }}{% endcapture %}
+                                  {% else %} 
+                                      {% if block.settings.mega_image_header_2 != empty %}
+                                          {% capture img_alt %}{{ block.settings.mega_image_header_2 }}{% endcapture %}
+                                      {% else %}
+                                          {% capture img_alt %}{{ shop.name }}{% endcapture %}
+                                      {% endif %}
+                                  {% endif %}
+                        
+                                  {% render 'responsive-image' with block.settings.mega_image_2, allow_stretch: image_2_stretch, alt: img_alt | escape, props: img_props %}
+                                  {% if block.settings.mega_image_link_2 %}
+                                    </a>
+                                  {% else %}
+                                    </div>
+                                  {% endif %}
+                        
+                                  <div class="mega-menu--text">
+                                    {% if block.settings.mega_image_header_2 %}
+                                      <p class="h4 mega-menu--image-title{% if block.settings.mega_image_subheader_2 != blank %} has-padding{% endif %}{% if block.settings.overlay_text_on_image_promo_2 %} overlay-text-on-image-promo-2{% else %} default-menu-drawer-text-color{% endif %}">
+                                        {% if block.settings.mega_image_link_2 %}
+                                          <a href="{{ block.settings.mega_image_link_2 }}" class="{% if block.settings.overlay_text_on_image_promo_2 %} overlay-text-on-image-promo-2{% else %} default-menu-drawer-text-color{% endif %}">
+                                        {% endif %}
+                                        {{ block.settings.mega_image_header_2 }}
+                                        {% if block.settings.mega_image_link_2 %}
+                                          </a>
+                                        {% endif %}
+                                      </p>
+                                    {% endif %}
+                                    {% if block.settings.mega_image_subheader_2 %}
+                                      <p class="h5 mega-menu--image-subtitle{% if block.settings.overlay_text_on_image_promo_2 %} overlay-text-on-image-promo-2{% else %} default-menu-drawer-text-color{% endif %}">
+                                        {% if block.settings.mega_image_link_2 %}
+                                          <a href="{{ block.settings.mega_image_link_2 }}" class="{% if block.settings.overlay_text_on_image_promo_2 %} overlay-text-on-image-promo-2{% else %} default-menu-drawer-text-color{% endif %}">
+                                        {% endif %}
+                                        {{ block.settings.mega_image_subheader_2 }}
+                                        {% if block.settings.mega_image_link_2 %}
+                                          </a>
+                                        {% endif %}
+                                      </p>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          {% endif %}
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </ul>
+              {% else %}
+                 <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}
+                 <!-- <div class="uk_icon"> <img src="https://cdn.shopify.com/s/files/1/0647/8630/1086/files/next.png?v=1717569634" ></div> -->
+                </a>
+              {% endif %}
             </li>
             {% endif %}
             {% endfor %}
@@ -565,6 +823,20 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
           </a>
           {% else %}
         </div>
+      {% endif %}
+
+    </div>
+  {% endcapture %}
+
+  <header class="{% if template.name == "index" %}custom_header {% endif %}site-header {% if section.settings.sticky_header %} {% endif %}{% if section.settings.logo-placement == 'above' %} logo_above{% endif %}{% if collection-overlay or homepage-overlay or list-collection-overlay or contact-overlay %} overlay-header{% endif %}{% if section.settings.dropdown_alignment == 'center' %} dropdown-alignment--center{% endif %}{% if section.settings.overlay_logo %} overlay-logo{% endif %}">
+    <div class="site-header__wrapper site-header__wrapper--logo-{{ section.settings.logo-placement }} site-header__wrapper--{% if top_links != blank %}with{% else %}without{% endif %}-menu">
+      <div class="site-header__wrapper__left">
+        {% if section.settings.logo-placement == 'left' %}
+          {{ header_logos }}
+        {% elsif section.settings.logo-placement == 'center' and site_nav != blank %}
+          {{ site_nav }}
+        {% else %}
+          {{ locale }}
         {% endif %}
 
         <div class="mega-menu--text">
@@ -651,6 +923,14 @@ transition: transform .6s cubic-bezier(.165,.84,.44,1) .1s;
     .mobile-nav.nav--meta .mobile-nav__item.sm-icons--wrapper #sm-icons {
     width: 100%;
     }
+{% endstyle %}
+  <script>
+    let close_btn_menu = document.querySelector("#NavDrawer .close-btn");
+    close_btn_menu.addEventListener("click", () => {
+      document.querySelector('.js-drawer-open-left-link').click()
+    })
+  </script>
+</div>
 
     {% if shop.customer_accounts_enabled and social_icons %}
     .mobile-nav.nav--meta .mobile-nav__social-icons {

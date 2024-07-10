@@ -92,18 +92,7 @@ section.settings.show_currency_selector %}
           {% render 'account-drawer' %}
         
         </li>
-      
-{% comment %}
-    <li>
-         {% if section.settings.show_icons %}
-           <button class="account_button drawer-toggle" id="drawer-toggle" aria-label="Open Menu">
-              {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
-            {% else %}
-              <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
-           </button>
-          {% endif %}
-        </li>
-    {% endcomment %}
+
   {% style %}
   .search_text_wrapper {
   cursor: pointer;

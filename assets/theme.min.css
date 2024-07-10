@@ -25079,7 +25079,7 @@ a.mobile-nav__link {
     align-items: center;
     gap: 3px;
 }
-.uk_icon {
+/* .uk_icon {
     width: 15px;
     height: 15px;
     opacity: 0;
@@ -25093,13 +25093,13 @@ a.mobile-nav__link {
     height: 100%;
     object-fit: cover;
     
-}
+} */
 
-.mobile-nav__link:is(:hover,:focus) .uk_icon {
+/* .mobile-nav__link:is(:hover,:focus) .uk_icon {
     opacity: 1;
     transform: translate(0.25rem);
     margin-bottom: 0.2px;
-}
+} */
 
 .drawer#NavDrawer a:focus:not(.mobile-menu--close-btn), .drawer#NavDrawer a:hover:not(.mobile-menu--close-btn) {
     color: BLACK;

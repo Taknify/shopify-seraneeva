@@ -19,12 +19,10 @@
     */
     -->
   <link rel="stylesheet" type="text/css" href="{{ 'MyWebfontsKit.css' | asset_url }}">
-  
   <!-- iOS Home Screen Status Bar Color -->
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
   <!-- Browser Theme Color -->
   <meta name="theme-color" content="#FFFFFF">
-  
   <!-- Basic page needs ================================================== -->
   <meta charset="utf-8">
   {%- comment -%}DemoStoreRequirements{%- endcomment -%}
@@ -39,7 +37,7 @@
   {{ 'photoswipe.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'theme.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'custom.css' | asset_url | stylesheet_tag: preload: true }}
-   {{ 'styleSST.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'styleSST.css' | asset_url | stylesheet_tag: preload: true }}
 
   {% if settings.animations_enabled %}
     {{ 'animate.min.css' | asset_url | stylesheet_tag: preload: true }}
@@ -221,9 +219,7 @@
         width: 21.5px !important;
         min-width: 21.5px !important;
         margin-left: 9.31px !important;
-    
         margin-right: 9.31px !important;
-       
     }
     
     .site-header .site-header__wrapper .site-header__wrapper__right > ul > li:nth-child(4) .site-nav--mobile svg{
@@ -268,6 +264,7 @@
     .product-details-wrapper .btn:before {
       background-color: transparent !important;
     }
+
     #customer_login .btn, #create_customer .btn, form[action='/account/recover'] .btn {
       background-color: black !important;
     }
@@ -310,6 +307,7 @@
 </head>
 
 {% comment %} Add the page template as a class for easy page or template specific styling. {% endcomment %}
-  
+
 <body>{{ content_for_layout }}</body>
 </html>
+

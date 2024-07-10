@@ -1,0 +1,143 @@
+<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+
+<predictive-search>
+    <div class="search-wrapper">
+        <form action="/search" method="get" role="search" id="newsletter-footer_form" accept-charset="UTF-8"
+            class="search-form">
+            <div class="input-group">
+                <p class="pholder">ENTER KEYWORD</p>
+                <input style="border:none" type="text" placeholder="ENTER KEYWORD" name="q"
+                    class="input-search-field search">
+                <div id="arrow-sign">
+                    <button type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18.589" height="7.744" viewBox="0 0 18.589 7.744"
+                            id="search-icon">
+                            <g id="Group_23729" data-name="Group 23729" transform="translate(-1239.5 -3584.066)">
+                                <line id="Line_1234" data-name="Line 1234" x2="17.881"
+                                    transform="translate(1239.5 3587.943)" fill="none" stroke="#000" stroke-width="1" />
+                                <path id="Path_24" data-name="Path 24" d="M-13667.453-19280.42l3.52,3.52-3.52,3.518"
+                                    transform="translate(14921.315 22864.84)" fill="none" stroke="#000"
+                                    stroke-width="1" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</predictive-search>
+
+<script>
+
+
+    document.querySelector('#search-icon').addEventListener('click', function () {
+        var searchInput = document.querySelector('.search').value;
+        var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
+        window.location.href = searchUrl;
+    });
+
+    document.querySelector('.search').addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            var searchInput = document.querySelector('.search').value;
+            var searchUrl = '/search?q=' + encodeURIComponent(searchInput);
+            window.location.href = searchUrl;
+        }
+    });
+    document.querySelector('.search').addEventListener('input', function () {
+        var searchInput = document.querySelector('.search').value;
+        if (searchInput.length > 0) {
+            document.querySelector('.pholder').style.display = 'none';
+        } else {
+            document.querySelector('.pholder').style.display = 'block';
+        }
+    });
+
+    document.querySelector('.search').addEventListener('focus', function () {
+        var searchInput = document.querySelector('.search').value;
+        if (searchInput.length > 0) {
+            document.querySelector('.pholder').style.display = 'none';
+        }
+    });
+
+    document.querySelector('.search').addEventListener('focus', function () {
+        var searchInput = document.querySelector('.search').value;
+        console.log(searchInput)
+        if (searchInput.length > 0) {
+            document.querySelector('.pholder').style.display = 'none';
+        }
+    });
+</script>
+
+<style>
+    #arrow-sign {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        font-size: 16px;
+    }
+
+    #arrow-sign button {
+        background: none;
+        border: none;
+    }
+
+    .pholder {
+        position: absolute;
+        top: 14px;
+        font-size: 12px;
+        font-family: HelveticaNeueLTPro-Cn, arial, sans-serif;
+        color: #000;
+        left: 2px;
+        pointer-events: none;
+    }
+
+    .search-wrapper {
+        position: relative;
+        width: 100%;
+        padding: 0 16px;
+    }
+
+
+    .search-wrapper::after {
+        position: absolute;
+        width: 80%;
+        content: "";
+        height: 1px;
+        background: black;
+        bottom: 0;
+        left: 16px;
+        z-index: 99999;
+    }
+
+    .search-wrapper .input-search-field {
+        color: rgb(7, 7, 7);
+        opacity: 0.7;
+        font-size: 12px;
+        font-family: HelveticaNeueLTPro-Cn, arial, sans-serif;
+        color: #000;
+        top: 12px;
+        line-height: 15px;
+        padding-bottom: 8px;
+        padding-left: 0px;
+        padding-right: 16px;
+        padding-top: 16px;
+        border-bottom: none;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .search-wrapper #newsletter-footer_form .input-search-field {
+        border-bottom: none;
+        text-transform: uppercase;
+    }
+
+    .search-wrapper .custom-error-message {
+        display: none;
+    }
+
+    .search-wrapper .search::placeholder {
+        color: black;
+        opacity: 1;
+    }
+</style>

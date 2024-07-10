@@ -78,7 +78,7 @@ section.settings.show_currency_selector %}
           </a>
         </li>
     {% endif %}
-
+         
      <li class="li-acount-btn">
           <a href="/account/login" title="{{ 'layout.customer.account' | t }}" class="account-button standalone-icon--wrapper" id="drawer-toggle"  aria-label="Open Menu">
             {% if section.settings.show_icons %}
@@ -1219,17 +1219,6 @@ color: var(--menu-drawer-text-color);
         <div
           class="grid__item three-twelfths right-side{% unless section.settings.enable_search %} text-right{% else %} has-search-icon{% endunless %}">
           <div class="site-nav--mobile">
-            {% comment %}
-            {% if section.settings.enable_search %}
-            <a href="{{ routes.search_url }}" class="search-button standalone-icon--wrapper"
-              aria-label="{{ 'layout.header.search' | t }}" aria-controls="SearchDrawer" aria-expanded="false">
-              <span class="icon-fallback-text">
-                {% render 'theme-icon' with icon: 'search', iconSize: 20 %}
-                <span class="fallback-text">{{ 'layout.header.search' | t }}</span>
-              </span>
-            </a>
-            {% endif %}
-            {% endcomment %}
 
             <a id="search_modal_btn_mobile" class="standalone-icon--wrapper"
               aria-label="{{ 'layout.header.search' | t }}">

@@ -1,0 +1,507 @@
+<section class="section-contact-form wrapper-spacing--v wrapper-spacing--h color-scheme--{{ section.settings.section_color_scheme }}" 
+  data-wetheme-section-type="section--contact-form" 
+  data-wetheme-section-id="{{ section.id }}"
+  style="--padding-section-top: {{ section.settings.section_padding_top }}px; --padding-section-bottom: {{ section.settings.section_padding_bottom }}px;"
+  >
+        {% form 'contact' %}
+                    <div class="row">
+                        {% if form.posted_successfully? %}
+                        <div class="col-md-12">
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong><i class="fa fa-check"></i></strong> {{ 'contact.form.form_posted_success' | t }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if form.errors %}
+                        <div class="col-md-12">
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong><i class="fa fa-times"></i></strong> {{ 'contact.form.form_errors' | t }}
+                            </div>
+                            {% for field in form.errors %}
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong><i class="fa fa-times"></i></strong> {{ 'contact.form.the' | t }} <strong>{{ field }}</strong> {{ form.errors.messages[field] }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="col-md-4">
+                            <input name="form_type" type="hidden" value="contact">
+                            <input name="utf8" type="hidden" value="✓">
+                            <input type="text" class="form-control margin-bottom-20" name="contact[name]" placeholder="Name">
+                        </div>
+                      <div class="col-md-4">
+                        <select id="ContactFormReason" class="form-select" name="contact[reason]">
+                          <option value="General Inquiry">General Inquiry</option>
+                          <option value="Order Status">Order Status</option>
+                          <option value="Returns and Exchanges">Returns &amp; Exchanges</option>
+                          <option value="International Returns">International Returns</option>
+                          <option value="Damages">Damages</option>
+                          <option value="My Account">My Account</option>
+                          <option value="Cancelation Request">Cancelation Request</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                        <div class="col-md-4">
+                            <input type="email" class="form-control margin-bottom-20" name="contact[email]" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea rows="6" name="contact[body]" class="form-control margin-bottom-20" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default pull-left margin-top-10">Send</button>
+                    {% endform %}
+ 
+</section>
+<style>
+  #contact-us .homepage-featured-rich-text{
+    padding-top: 100px !important;
+  }
+  #contact-us .homepage-featured-rich-text, #contact-us .section-contact-form {
+    width: 608px;
+    margin: 0 auto;
+    padding: 0;
+}
+  #contact-us .section-contact-form{
+     padding-bottom: 80px !important;
+  }
+  #contact-us .homepage-featured-rich-text h2 {
+    font-weight: 400;
+    margin: 0 0 15px 0;
+    font-size: 1rem !important;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+    #contact-us .homepage-featured-rich-text p, #contact-us .homepage-featured-rich-text p a,    #contact-us .homepage-featured-rich-text h6 {
+    font-weight: 400;
+    margin: 0;
+    font-size: 11px !important;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    text-decoration: none !important;
+    background: transparent;
+    letter-spacing: 2px;
+}
+  #contact-us .homepage-featured-rich-text h6{
+    margin-bottom: 10px;
+  }
+    #contact-us .homepage-featured-rich-text p{
+    margin-bottom: 3em;
+  }
+  #contact-us .homepage-featured-rich-text p:last-child{
+    margin-bottom: 0;
+  }
+  #contact-us .section-contact-form .form-control {
+    border: 1px solid #ccc;
+    line-height: 2;
+    padding: .7rem;
+    -webkit-transition: border-color .6s ease;
+    transition: border-color .6s ease;
+    width: 100%;
+    height: 46px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+  #contact-us .section-contact-form textarea.form-control{
+     height: 156px;
+  }
+   #contact-us .section-contact-form .form-control:active,   #contact-us .section-contact-form .form-control:focus {
+    border-color: #000;
+    outline: 0;
+}
+  #contact-us .section-contact-form .form-control:not(.btn):focus {
+    border: 0;
+    border: 1px solid #000 !important;
+        font-size: 11px;
+}
+     #contact-us .section-contact-form ::-webkit-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+   #contact-us .section-contact-form ::-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    #contact-us .section-contact-form :-ms-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    #contact-us .section-contact-form :-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+ #contact-us .section-contact-form .btn.btn-default {
+    color: #000;
+    background: #fff !important;
+    border: 1px solid #000;
+    cursor: pointer;
+    display: block;
+    line-height: 1;
+    padding: 1.2em;
+    text-align: center;
+    -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+    width: 100%;
+height: auto;
+    margin-top: 20px;
+   font-size: 11px;
+   letter-spacing: 2px;
+}
+    #contact-us .section-contact-form .btn.btn-default:hover,   #contact-us .section-contact-form .btn.btn-default:focus {
+    color: #fff;
+    background: #000 !important;
+        border: 1px solid #000;
+}
+   #contact-us .section-contact-form.errors {
+    color: #d02e2e;
+    background-color: transparent;
+    border-color: transparent;
+    color: red;
+    margin-bottom: 1rem;
+    padding: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.cancel-btn{
+    background: transparent;
+    border: 0;
+    font-size: 11px;
+    margin-top: 20px;
+}
+  #contact-us .section-contact-form .form-select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent url('https://cdn.shopify.com/s/files/1/0636/2759/1817/files/arrow-down.svg?v=1720161375') right 1rem center no-repeat;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+    padding: .7rem 1rem;
+    position: relative;
+    -webkit-transition: border .3s ease-in-out;
+    transition: border .3s ease-in-out;
+    vertical-align: top;
+    width: 100%;
+     color: #747474;
+     font-size: 11px;
+    text-transform: uppercase;
+        height: 46px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+   #contact-us .section-contact-form .form-select:hover, #contact-us .section-contact-form .form-select:focus{
+     border: 1px solid #000;
+   }
+  #contact-us .section-contact-form .form-select option{
+    background: #fff !important;
+  }
+  @media only screen and (max-width:767px){
+    #contact-us .homepage-featured-rich-text, #contact-us .section-contact-form {
+    width: 100%;
+    }
+ #contact-us .section-contact-form {
+    width: 100%;
+      padding: 0 15px;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "t:sections.section--contact-form.name",
+  "class": "shopify-section contact-form",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.section--contact-form.settings.paragraph-0.content"
+    },
+    {
+      "type": "select",
+      "id": "form_width",
+      "label": "t:all.Width",
+      "options": [
+        {
+          "value": "full-width",
+          "label": "t:all.Full_width"
+        },
+        {
+          "value": "narrow",
+          "label": "t:all.Narrow"
+        }
+      ],
+      "default": "narrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:all.Heading",
+      "default": "Contact us"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:all.Description",
+      "default": "<p>Have a question, or want a product recommendation? Get in touch.</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:all.Layout"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "t:all.Spacing_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "t:all.px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "t:all.Spacing_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "t:all.px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "t:all.Color"
+    },
+    {
+      "type": "select",
+      "id": "section_color_scheme",
+      "label": "t:all.Color_scheme",
+      "default": "white",
+      "options": [
+        {
+          "value": "white",
+          "label": "t:all.Minimal"
+        },
+        {
+          "value": "light",
+          "label": "t:all.Light"
+        },
+        {
+          "value": "accent",
+          "label": "t:all.Feature"
+        },
+        {
+          "value": "dark",
+          "label": "t:all.Dark"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "t:sections.section--contact-form.blocks.name_input.name",
+      "type": "name_input",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "t:all.Required",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "t:all.Input_width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "t:all.Partial"
+            },
+            {
+              "value": "full",
+              "label": "t:all.Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    },
+    {
+      "name": "t:sections.section--contact-form.blocks.email_input.name",
+      "type": "email_input",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "t:all.Required",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "t:all.Input_width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "t:all.Partial"
+            },
+            {
+              "value": "full",
+              "label": "t:all.Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    },
+    {
+      "name": "t:sections.section--contact-form.blocks.tel_input.name",
+      "type": "tel_input",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "t:all.Required",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "t:all.Input_width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "t:all.Partial"
+            },
+            {
+              "value": "full",
+              "label": "t:all.Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    },
+    {
+      "name": "t:sections.section--contact-form.blocks.message_input.name",
+      "type": "message_input",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "t:all.Required",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "t:all.Input_width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "t:all.Partial"
+            },
+            {
+              "value": "full",
+              "label": "t:all.Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    },
+    {
+      "name": "t:sections.section--contact-form.blocks.custom_input.name",
+      "type": "custom_input",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "t:sections.section--contact-form.blocks.custom_input.settings.placeholder.label",
+          "default": "Order number"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "t:all.Required",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "t:all.Input_width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "t:all.Partial"
+            },
+            {
+              "value": "full",
+              "label": "t:all.Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.section--contact-form.presets.name",
+      "settings": {
+      },
+      "blocks": [
+        {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        {
+          "type": "tel_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header"
+    ]
+  }
+}
+{% endschema %}

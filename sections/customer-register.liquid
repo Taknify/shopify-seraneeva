@@ -1,0 +1,132 @@
+<!--=================== Registration Template ===================-->
+<main class="register-page {% if section.settings.header_top_check == blank and section.settings.welcome_message_notify_check == blank %}paira-sticky-root{% endif %}">
+    <section class="register-content paira-gap-3 paira-gap-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="login-back">
+                        {% form 'create_customer' %}
+                        {{ form.errors | default_errors }}
+                        <input type="text" value="" name="customer[first_name]" id="first_name" class="form-control margin-bottom-10" placeholder="First Name *" required />
+                        <input type="text" value="" name="customer[last_name]" id="last_name" class="form-control margin-bottom-10" placeholder="Last Name *" required />
+                        <input type="email" value="" name="customer[email]" id="email" class="form-control margin-bottom-10" placeholder="Email *" required />
+                        <input type="password" value="" name="customer[password]" id="password" class="form-control margin-bottom-10" placeholder="Password *" required />
+                        <button type="submit" class="btn btn-default pull-left margin-top-10">Create</button>
+                       <a href="/account/login" class="btn btn-default margin-top-5s">Already registered? Login</a>
+                        {% endform %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<style>
+  .register-page .container {
+    width: 608px;
+    margin: 0 auto;
+}
+  .register-page h1 {
+    font-weight: 400;
+    margin: 0;
+    font-size: 1rem;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+  .register-page .form-control {
+    border: 1px solid #ccc;
+    line-height: 2;
+    padding: .7rem;
+    -webkit-transition: border-color .6s ease;
+    transition: border-color .6s ease;
+    width: 100%;
+    height: 46px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+   .register-page .form-control:active,   .register-page .form-control:focus {
+    border-color: #000;
+    outline: 0;
+}
+  .register-page .form-control:not(.btn):focus {
+    border: 0;
+    border: 1px solid #000 !important;
+        font-size: 11px;
+}
+     .register-page ::-webkit-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    .register-page ::-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    .register-page :-ms-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    .register-page :-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+.register-page #create_customer .btn.btn-default {
+    color: #000;
+    background: #fff !important;
+    border: 1px solid #000;
+    cursor: pointer;
+    display: block;
+    line-height: 1;
+    padding: 1.2em;
+    text-align: center;
+    -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+    width: 100%;
+height: auto;
+    margin-top: 20px;
+   font-size: 11px;
+}
+   .register-page #create_customer .btn.btn-default:hover,.register-page #create_customer .btn.btn-default:focus {
+    color: #fff;
+    background: #000 !important;
+        border: 1px solid #000;
+}
+
+.undreline {
+    font-size: 11px;
+    color: #000;
+    margin-top: 15px;
+    display: block;
+          -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+  margin-bottom: 50px;
+}
+
+  .undreline:hover {
+    color: #767676;
+}
+  .login-page .errors {
+    color: #d02e2e;
+    background-color: transparent;
+    border-color: transparent;
+    color: red;
+    margin-bottom: 1rem;
+    padding: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.cancel-btn{
+    background: transparent;
+    border: 0;
+    font-size: 11px;
+    margin-top: 20px;
+}
+  .margin-top-5s{
+    margin-top: 50px !important;
+  }
+</style>

@@ -1,0 +1,11 @@
+{% if label != blank %}
+  <div class="homepage-section-btn-container">
+    <ul class="mobile-nav nav--meta">
+      <li class="cutom-link mobile-nav__item">
+        <a href="{% if link != blank %}{{ link }}{% else %}#{% endif %}" tabindex="-1">
+          {{- label -}}
+        </a>
+      </li>
+    </ul>
+  </div>
+{% endif %}

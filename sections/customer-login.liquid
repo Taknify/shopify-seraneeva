@@ -1,0 +1,184 @@
+<!--=================== Login Template ===================-->
+<div class="login-page">
+    <section class="login-content paira-gap-3 paira-gap-2">
+        <div class="container">
+            <div class="row">
+                <div id="login">
+                    <div class="col-md-12 text-center">
+                        <div class="heading pull-left full-width">
+                            <h1 class="margin-bottom-30 text-left pull-left"><span>Login</span></h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="login-back">
+                                    {% form 'customer_login' %}
+                                    {{ form.errors | default_errors }}
+                                    <input type="email" value="" name="customer[email]" class="form-control margin-bottom-10" id="customer_email" placeholder="Email"/>
+                                    {% if form.password_needed %}
+                                    <input type="password" value="" name="customer[password]" class="form-control margin-bottom-10" id="customer_password" size="16" placeholder="Password" />
+                                    <button type="submit" class="btn btn-default pull-left margin-top-10">Sign In</button>
+                                    <a href="#" class="pull-right margin-top-20 undreline" onclick="showRecoverPasswordForm();return false;">FORGOT YOUR PASSWORD?</a>
+                                      <a href="/account/register" class="btn btn-default margin-top-5">Register an account</a>
+                                    {% endif %}
+                                    {% endform %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="recover-password" style="display:none">
+                    <div class="col-md-12 text-center">
+                        <div class="heading pull-left full-width">
+                            <h1 class="page-header margin-bottom-30 text-left pull-left"><span>RESET YOUR PASSWORD</span></h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="login-back">
+                                    {{ form.errors | default_errors }}
+                                    {% form 'recover_customer_password' %}
+                                    <input type="email" placeholder="Email" value="" size="30" name="email" id="recover-email" class="form-control margin-bottom-10" />
+                                    <button type="submit" class="btn btn-default pull-left margin-top-10">Submit</button>
+                                    <button onclick="hideRecoverPasswordForm();return false;" class="pull-right cancel-btn margin-top-20"><span>CANCEL</span></button>
+                                    {% endform %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if shop.checkout.guest_login %}
+                <div id="guest" class="col-md-12 paira-gap-2">
+                    <div class="row">
+                        <div class="col-md-5">
+                            {% form 'guest_login' %}
+                            <input class="btn btn-primary pull-left margin-top-10 btn-lg btn-block" type="submit" value="{{ 'customer.login.guest_continue' | t }}" />
+                            {% endform %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+<script type="text/javascript">
+    function showRecoverPasswordForm() {
+        document.getElementById('recover-password').style.display = 'block';
+        document.getElementById('login').style.display='none';
+    }
+    function hideRecoverPasswordForm() {
+        document.getElementById('recover-password').style.display = 'none';
+        document.getElementById('login').style.display = 'block';
+    }
+    if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+</script>
+<style>
+  .login-page .container {
+    width: 608px;
+    margin: 0 auto;
+}
+  .login-page h1 {
+    font-weight: 400;
+    margin: 0;
+    font-size: 1rem;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+  .login-page .form-control {
+    border: 1px solid #ccc;
+    line-height: 2;
+    padding: .7rem;
+    -webkit-transition: border-color .6s ease;
+    transition: border-color .6s ease;
+    width: 100%;
+    height: 46px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+   .login-page .form-control:active,   .login-page .form-control:focus {
+    border-color: #000;
+    outline: 0;
+}
+  .login-page .form-control:not(.btn):focus {
+    border: 0;
+    border: 1px solid #000 !important;
+        font-size: 11px;
+}
+     .login-page ::-webkit-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    .login-page ::-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    .login-page :-ms-input-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+    .login-page :-moz-placeholder {
+    color: #ccc;
+        font-size: 11px;
+           text-transform: uppercase;
+    }
+ .login-page #customer_login .btn.btn-default,.login-page .login-back .btn.btn-default {
+    color: #000;
+    background: #fff !important;
+    border: 1px solid #000;
+    cursor: pointer;
+    display: block;
+    line-height: 1;
+    padding: 1.2em;
+    text-align: center;
+    -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+    width: 100%;
+height: auto;
+    margin-top: 20px;
+   font-size: 11px;
+}
+   .login-page #customer_login .btn.btn-default:hover,  .login-page #customer_login .btn.btn-default:focus,.login-page .login-back .btn.btn-default:hover,.login-page .login-back .btn.btn-default:focus {
+    color: #fff;
+    background: #000 !important;
+        border: 1px solid #000;
+}
+
+.undreline {
+    font-size: 11px;
+    color: #000;
+    margin-top: 15px;
+    display: block;
+          -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+  margin-bottom: 50px;
+}
+
+  .undreline:hover {
+    color: #767676;
+}
+  .login-page .errors {
+    color: #d02e2e;
+    background-color: transparent;
+    border-color: transparent;
+    color: red;
+    margin-bottom: 1rem;
+    padding: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.cancel-btn{
+    background: transparent;
+    border: 0;
+    font-size: 11px;
+    margin-top: 20px;
+}
+</style>

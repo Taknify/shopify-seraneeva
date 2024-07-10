@@ -1,0 +1,2407 @@
+/* 2024-05-27 Paul N. add class submit-attempted to contact form on submission using javascript for invalid CSS styles */
+
+#ContactForm.submit-attempted [required]:valid , #ContactForm.submit-attempted [required]:user-valid {
+   color: revert !important;
+   background-color: revert !important;
+   border-color: revert !important;
+}
+#ContactForm.submit-attempted [required]:invalid, #ContactForm [required]:user-invalid ,
+#ContactForm .js-input-validation-error [required], #ContactForm .js-input-validation-error [required] {
+   color: #d02e2e;
+   background-color: #fff6f6;
+   border-color: #d02e2e;
+}
+/* input:invalid {
+   background-color: red;
+}*/
+/* input:invalid {
+   background-color: red;
+}*/
+#ContactForm .input-wrapper:after, #ContactForm .input-wrapper:valid:after {
+   content: none;
+}
+#ContactForm .input-wrapper.js-input-validation-error:after {
+   display: block;
+   width: 100%;
+   color: #d02e2e;
+   font-size: smaller;
+}
+#ContactForm .input-wrapper.js-input-validation-error:nth-of-type(1):after {
+   content:'Please enter a valid first name.';
+}
+#ContactForm .input-wrapper.js-input-validation-error:nth-of-type(2):after {
+   content:'Please enter a valid last name.';
+}
+#ContactForm .input-wrapper.js-input-validation-error:nth-of-type(3):after {
+   content:'Please enter a valid email address.';
+}
+#ContactForm .input-wrapper.js-input-validation-error:nth-of-type(5):after {
+   content:'Please enter a valid message.';
+}
+
+/* 2024-05-27 Paul N. disable shiny button linear-gradient animation on buttons */
+
+.btn-hover-default:after, .btn:not(:disabled):not(.standalone-icon--wrapper):not(.swiper-button-disabled):not(.disabled):not(.btn--secondary):after, .shopify-payment-button__button.shopify-payment-button__button--unbranded:not(.disabled):not(:disabled):after, button.pswp__button:after
+{
+   content: none;
+}
+
+/* Scaling effect to buttons */
+/*
+.btn { background-color: unset !important; }
+.btn:before {  }
+.btn:before {
+  border-radius: 2px;
+  content: "";
+  background-color: var(--primary-btn-bg-color);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+
+  transform: translate(-50%, -50%);
+  transition-duration: 0.8s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.5, 0, 0, 1);
+}
+
+.btn:focus:before, .btn:hover:before {
+   transform: translate(-50%, -50%) scale(.95, .9);
+}
+*/
+
+
+
+/* Logo bottom middle of image banners */
+
+@media (min-width:768px) {
+  .main-content section:first-child + div:before {
+    content: "";
+    display: block;
+    background-image: var(--seperator-logo);
+    background-position: center;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    top: -32px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #collections .main-content section:first-child + div:before, #products .main-content section:first-child + div:before, .template-product .main-content section:first-child + div:before{
+    display:none !important;
+  }
+} 
+
+@media (min-width: 989px) {
+   header.site-header .site-header__wrapper .site-header__wrapper__left { display: none; }
+} 
+
+/* 2024-05-20 Paul N. add menu icon to desktop rightside header icons (mobile menu icon) */
+/* disable media query making nav drawer show on rightside only: @media only screen and (max-width: 767px) */
+
+.mobile-nav-bar-wrapper .mobile-grid--table {
+   display: flex !important;
+   align-items: center !important;
+}
+.grid__item.six-twelfths {
+   margin-right: auto !important;
+}
+.mobile-nav-bar-wrapper .mobile-grid--table .grid__item {
+   width: auto !important;
+   margin-top: 0 !important;
+}
+.grid__item.three-twelfths:has(.hamburger-nav-button) {
+   order: 3;
+   margin-left: 15px !important;
+}
+.js-drawer-open-left .drawer--left {
+    transform: translateX(-350px) !important;
+    left: 100% !important;
+ }
+
+/* Move icons in header left */
+
+@media screen and (min-width: 768px){
+.site-header__wrapper__right.top-links {
+    margin-right: 65px;
+}
+}
+
+/* Creates a non-clickable gap between header icons */
+
+ .top-links--icon-links {
+    gap: 9.23px;
+}
+.standalone-icon--wrapper:not(.icon-no-padding) {
+    min-width: 35px;
+    min-height: 35px;
+    padding: 9.23px !important;
+} 
+
+/* Change button characteristics */
+
+.btn {
+    padding: 13.2px;
+    font-size: 11px;
+    font-weight: 700;
+    align-items: center;
+    column-gap: 0px;
+    display: inline-block;
+    height: 39.375px;
+    justify-content: center;
+    line-height: 11px;
+    letter-spacing: 1.1px;
+    vertical-align: baseline;
+    transition: all .6s ease;
+    max-height: 39.375px;
+    padding: 0px;
+}
+
+/* Change characteristics of links in the footer */
+
+footer a span {
+  font-size: 12px;
+  font-weight: 505;
+  height: 16px;
+  line-height: 16px;
+  display: inline-block;
+}
+
+/* Padding underneath links in the footer */
+
+.footer-content.nav-link-animated li {
+    padding-bottom: 24px;
+}
+
+/* Change characteristics of headings in the footer */
+
+.h3.footer-header {
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 1rem;
+    margin: 0 0 1.5rem;
+    opacity: .5;
+    display: block;
+    line-height: 16px;
+}
+
+/* Change characteristics of icons in the header */
+
+.standalone-icon--wrapper .pswp__icn, .standalone-icon--wrapper svg {
+    height: 21.5px;
+    width: 21.5px;
+    fill: none;
+    font-size: 12px;
+    display: flex;
+    word-spacing: 0px;
+}
+
+.site-nav--mobile .fa-2x {
+  height: 21.5px;
+  width: 21.5px;
+  font-weight: 500;
+  display: flex;
+  cursor: auto;
+  font-family: "Cooper BT", serif;
+  text-align: left;
+  margin-top: -1px;
+}
+
+.site-nav--mobile {
+  height: 35px;
+}
+
+.top-links ul li {
+  height: 35px;
+}
+
+/* Change footer padding */
+
+.footer-main {
+  padding-top: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.footer-bottom {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Change newsletter signup characteristics */
+
+.input-group-field {
+  color: rgb(255, 255, 255);
+  opacity: 0.7;
+  font-size: 16px;
+  top: 12px;
+  line-height: 15px;
+  padding-bottom: 8px;
+  padding-left: 0px;
+  padding-right: 16px;
+  padding-top: 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Newsletter underline animation */
+
+#newsletter-footer_form .footer-email-input:focus {
+	outline: none;
+}
+#newsletter-footer_form .footer-email-input {
+	border-bottom: 2px solid var(--color-scheme-border-color);
+}
+#newsletter-footer_form .input-group:before {
+	display: none;
+}
+#newsletter-footer_form .input-group:after{
+	position: absolute;
+    bottom: 1px;
+    border-bottom: 1px solid #fff;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    transition: width .8s cubic-bezier(.5,0,0,1);
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#newsletter-footer_form .input-group:focus-within:after {
+    width: calc(100% + 2px);
+}
+#newsletter-footer_form #subscribe{
+	position: absolute;
+	color: #fff;
+    margin: 0;
+    bottom: 2px;
+    right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+#newsletter-footer_form .input-group {
+	width: 60%;
+}
+
+/* Custom padding on header */
+
+.site-header {
+    padding-top: 4px;  
+    padding-bottom: 4px;
+}
+
+/* Change size of line in newsletter signup */
+
+#newsletter-footer_form .input-group {
+    width: 100% !important;
+}
+
+/* Remove blue border on search bar */
+
+#SearchContainer #search-input {
+  outline: none !important;
+}
+
+/* Remove borders on menu pop out */
+
+.mobile-nav__item:after, .mobile-nav.locale--mobile:after, .mobile-nav__logo-title--inner {
+    border: none !important;
+}
+#NavDrawer .mobile-nav-grid-container .mobile-nav--footer {
+    -webkit-box-shadow: unset !important;
+}
+
+/* Search underline animation */
+
+.search-drawer #search-input:focus {
+  outline: none;
+}
+.search-drawer .search-input-group:before {
+  display: none;
+}
+.search-drawer .search-input-group {
+  position: relative;
+}
+.search-drawer .search-input-group:after{
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid #000;
+    content: ""!important;
+    display: block!important;
+    margin: 0 auto;
+    transition: width .8s cubic-bezier(.5,0,0,1);
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.search-drawer .search-input-group:focus-within:after {
+    width: 100%;
+}
+
+/* Change characteristics of text in newletter section */
+
+.rte.footer-article.text-link-animated {
+    font-size: 12px;
+    font-weight: 505;
+}
+
+/* Move button in slideshow up */
+
+.homepage-section-btn-container {
+  margin-bottom: 40px;
+}
+
+/* Change cart drawer size */
+
+.drawer.drawer--right.drawer--cart {
+    width: 550px; 
+    height: auto; 
+}
+
+/* Change padding on collection page */
+
+.collection-wrapper .shopify-section:first-child, .homepage-wrapper .shopify-section:first-child {
+  padding-top: 0px;
+}
+
+/* Remove gray rectangle from menu */
+
+.product--add-to-cart-button:before {
+   background-color: unset !important;
+}
+
+/* Make entries rectangles on customer account pages */
+
+#FirstName.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#LastName.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#Email.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#CreatePassword.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#CustomerEmail.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#CustomerPassword.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#RecoverEmail.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+/* Keep rectangles on customer account pages when clicked into */
+
+#FirstName.input-full: focus {
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#LastName.input-full: focus {
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#Email.input-full: focus {
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#CreatePassword.input-full: focus{
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#CustomerEmail.input-full: focus{
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#CustomerPassword.input-full: focus{
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#RecoverEmail.input-full: focus{
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+/* Move text advert section right */
+
+.text-advert-section {
+  margin-left: 27px;
+}
+
+/* Put space between text advert sections */
+
+.grid__item.large--one-third.medium--one-third {
+  padding-right: 70px;
+}
+
+/* Change size of user entry on pop up */
+
+.email-title ~ span {
+    font-size: 5px;
+}
+
+/* Change line width of description of newsletter in footer */
+
+.rte.footer-article.text-link-animated {
+    max-width: 610px;
+}
+
+/* Change line width and font size of FAQs */
+
+.metafield-rich_text_field {
+  font-size: 14px;
+  max-width: 650px;
+}
+
+/* Move title of FAQs down */
+
+.section-title.text-link-animated {
+  padding-top: 15px;
+}
+
+/* Underline effect on customer account links and "Privacy Policy" */
+
+.footer-article a{
+  display: inline-block!important;
+  vertical-align: bottom;
+}
+.grid__item--customer-accounts .form-vertical a {
+   line-height: 1.39;
+}
+.footer-article a,
+.grid__item--customer-accounts .form-vertical a{
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  animation: none!important;
+  background: none!important;
+}
+.grid__item--customer-accounts .form-vertical .errors a{
+  margin-bottom: -4.5px;
+}
+.footer-article a:before,
+.footer-article a:after,
+.grid__item--customer-accounts .form-vertical a:before,
+.grid__item--customer-accounts .form-vertical a:after{
+    background-color: #000;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.footer-article a:focus:after,
+.footer-article a:hover:after,
+.grid__item--customer-accounts .form-vertical a:focus:after, 
+.grid__item--customer-accounts .form-vertical a:hover:after {
+    animation-name: _link-slide-out_1t4bw_1!important;
+}
+.footer-article a:focus:before,
+.footer-article a:hover:before,
+.grid__item--customer-accounts .form-vertical a:focus:before, 
+.grid__item--customer-accounts .form-vertical a:hover:before {
+    animation-name: _link-slide-in_1t4bw_1!important;
+}
+.footer-article a:focus:before,
+.footer-article a:focus:after,
+.footer-article a:hover:before,
+.footer-article a:hover:after,
+.grid__item--customer-accounts .form-vertical a:focus:before, 
+.grid__item--customer-accounts .form-vertical a:hover:before,
+.grid__item--customer-accounts .form-vertical a:focus:after, 
+.grid__item--customer-accounts .form-vertical a:hover:after {
+    animation-direction: normal!important;
+    animation-duration: .8s!important;
+    animation-fill-mode: forwards!important;
+    animation-timing-function: cubic-bezier(.5,0,0,1)!important;
+}
+.footer-article a:before,
+.grid__item--customer-accounts .form-vertical a:before {
+    transform: translate(-100%);
+}
+.footer-article a:before,
+.footer-article a:after{
+  background-color: #fff!important;
+}
+
+/* Underline effect on "Log in" in the menu */
+
+.mobile-nav #customer_login_link{
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  animation: none!important;
+  background: none!important;
+}
+
+.mobile-nav #customer_login_link:before,
+.mobile-nav #customer_login_link:after{
+    background-color: #000;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.mobile-nav #customer_login_link:focus:after, 
+.mobile-nav #customer_login_link:hover:after {
+    animation-name: _link-slide-out_1t4bw_1!important;
+}
+
+.mobile-nav #customer_login_link:focus:before, 
+.mobile-nav #customer_login_link:hover:before {
+    animation-name: _link-slide-in_1t4bw_1!important;
+}
+.mobile-nav #customer_login_link:focus:before, 
+.mobile-nav #customer_login_link:hover:before,
+.mobile-nav #customer_login_link:focus:after, 
+.mobile-nav #customer_login_link:hover:after {
+    animation-direction: normal!important;
+    animation-duration: .8s!important;
+    animation-fill-mode: forwards!important;
+    animation-timing-function: cubic-bezier(.5,0,0,1)!important;
+}
+.mobile-nav #customer_login_link:before {
+    transform: translate(-100%);
+}
+
+/* Move underline up under "Privacy Policy" */
+
+.footer-article a {
+  line-height: 16px;
+  vertical-align: text-bottom;
+}
+
+/* Remove gray background when menu items are clicked */
+
+.mobile-nav__item a:active, .mobile-nav__item a:focus {
+  background: none !important;
+}
+
+/* Change color of button on homepage */
+
+a.btn.homepage-section-btn {
+    color: black !important;
+}
+a.btn.homepage-section-btn::before {
+    background-color: white !important;
+}
+
+/* Add margin under customer log in page entries */
+
+input.input-full, select.input-full, textarea.input-full {
+  margin-bottom: 30px;
+}
+
+/* Remove message at bottom of contact us page */
+
+.section-contact-form--submit-wrapper [data-spam-detection-disclaimer] {
+  display: none;
+}
+
+/* Change charateristics of company name in footer */
+
+li.nav-link-animated {
+    color: #fff;
+    font-family: "Cooper BT", serif;
+    opacity: .6 !important;
+}
+
+/* .......... login page style didideveloper404 ............ */
+/* #customer_login .field .hidden-label,
+#create_customer .field .hidden-label{
+    position: unset;
+    height: auto;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 8px;
+    line-height: 1;
+    text-align: left;
+    width: 100%;
+}
+#customer_login .field .input-full,
+#create_customer .field .input-full{
+    font-size: 12px;
+    padding: .375rem .875rem;
+    margin-bottom: .875rem;
+}
+#customer_login button.account-section--btn,
+#create_customer button.account-section--btn{
+      margin-top: 2.2rem;
+    height: 38px;
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+}
+#CustomerLoginForm input:not(.btn):focus,
+#RecoverPasswordForm input:not(.btn):focus,
+#create_customer input:not(.btn):focus{
+    border-color: #2563eb;
+    border-width: 1px;
+    border-style: solid;
+} */
+form#customer_login,
+form[action="/account/recover"]{
+  width:100%;
+}
+
+.grid.page-main--wrapper.custom_account_page{
+    width: 100%;
+    max-width: 360px;
+  margin:0 auto;
+}
+
+.custom_account_page .grid__item {
+  /* padding-left:0px; */
+}
+
+.account__btns{
+  display:flex;
+  justify-content:space-between;
+  /* margin-bottom:25px; */
+  padding-left:30px;
+}
+#RecoverPasswordForm{
+  margin-top:25px;
+}
+.account__btns .account__btn {
+    width: 50%;
+    text-align: center;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color-transparent8);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: var(--navigation-font-stack);
+}
+.account__btns .account__btn.active{
+      color: var(--text-color);
+    border-color: var(--text-color);
+}
+.forgot-password--wrapper a {
+    color: var(--text-color-transparent8);
+}
+.forgot-password--wrapper {
+    /* display: block;*/
+    font-size: 12px; 
+    text-align: left;
+  margin-bottom:1.5rem;
+}
+#customer_login #CustomerPassword{
+  margin-bottom:25px;
+}
+.forgot-password--wrapper a {
+    color: var(--text-color-transparent8);
+}
+/* .custom-login-error-message{
+    color: rgb(236, 113, 107);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    position: relative;
+    left: 0;
+    top: -12px;
+    display: block;
+    text-align: left;
+} */
+.custom_account_page .register-link--wrapper{
+  display:none;
+}
+.custom_account_page .field input {
+    color: #a2a2a2;
+}
+@media(min-width:750px){
+  .field__group {
+    /* display: grid; */
+    grid-template-columns: repeat(1,1fr);
+    /* column-gap: 10px; */
+}
+}
+/* .......... login page style didideveloper404 ............ */
+
+
+/* Adding new font */
+
+body, 
+h1, h2, h3, h4, h5, h6, 
+p, 
+a, 
+span, 
+li, 
+ul, 
+ol, 
+div, 
+input, 
+button, 
+textarea {
+  font-family: 'HelveticaNeueLTPro-Cn', arial, sans-serif;
+}
+
+
+
+
+
+
+
+  #account .footer-wrapper.fix-to-bottom,#create-account .footer-wrapper.fix-to-bottom{
+    position: relative !important;
+  }
+  #account,#create-account {
+display: block !important;
+    overflow: inherit !important;
+  }
+.register-page,.login-page {
+    padding: 10% 0 150px 0;
+}
+    @media only screen and (max-width:767px)  {
+    .register-page .container,.login-page .container {
+    width: 100%!important;
+    padding: 0 15px!important;
+}
+    }
+.continue-shop {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 15px 30px;
+    border: 2px solid grey;
+    cursor: pointer;
+    text-decoration: none;
+   max-width: 300px;
+  width: 100%;     
+  border-radius:4px;
+}
+.cart-btn .btn{
+    display: block;
+    color: black;
+    border: 2px solid;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+.cart-btn{max-width: 280px;margin-left: auto;}
+.cart-btn .btn-checkout{background: black !important; color: #fff; border: 2px solid #000; } 
+
+
+/* dev  */
+/* dev  */
+/* dev  */
+
+@font-face {
+  font-family: zap;
+  src: url(https://cdn.shopify.com/s/files/1/0636/2759/1817/files/ZapfHumanist601BT-Roman_1.otf?v=1719955407);
+}
+
+.dev-all-collections {
+  padding: 50px;
+  padding-bottom:100px;
+}
+
+.featured-collections-wrapper .wrapper-spacing--v {
+  padding: 20px;
+}
+.homepage-wrapper .wrapper-spacing--v .collection-grid  {
+  gap: 20px!important;
+  justify-content: space-between;
+}
+
+.homepage-wrapper .wrapper-spacing--v .collection-grid  .homepage-collection-grid-item  {
+          width: calc((100% - 20px* 2) / 3);
+}
+
+.homepage-collection-grid-inner .grid-image {
+  height: 100vh;
+}
+
+
+.homepage-collection-grid-inner .grid-item__title{
+  font-size: 60px;
+  font-family: zap, sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.homepage-collection-grid-inner .grid-image svg,
+.homepage-collection-grid-inner .grid-image img{
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(100vh - 70px)
+}
+.grid-area--collection .collection-main-body-inner .grid-view-item .grid-view-item-image  {
+  height: 100%;
+}
+.grid-area--collection .collection-main-body-inner .grid-view-item .grid-view-item-image .product-card-image--bottom-wrapper  {
+  position: relative;
+  z-index: -1;
+}
+
+.grid-area--collection .collection-main-body-inner .grid-view-item .grid-view-item-image *  {
+  height: 100%;
+}
+
+.grid-area--collection .collection-main-body-inner .product-grid--vendor {
+     font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+   }
+.grid-area--collection .collection-main-body-inner .product-grid--price {
+     font-size: 12px;
+   }
+
+@media only screen and (max-width: 1550px) {
+  .homepage-collection-grid-inner .grid-image {
+  height: calc(100vh - 125px);
+}
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(70vh)
+}
+  .grid-area--collection .collection-main-body-inner {
+        column-gap: 20px;
+    }
+  .grid-area--collection .collection-main-body-inner .grid__item.large--one-third {
+        width: calc(33.3333333333% - 2 * 20px / 3);
+    }
+}
+
+@media only screen and (max-width: 1359px) {
+  .homepage-collection-grid-inner .grid-image {
+  height: calc(100vh - 200px);
+}
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(60vh)
+}
+  .homepage-collection-grid-inner .grid-item__title{
+  font-size: 33px;
+}
+  .dev-all-collections {
+  padding: 20px;
+  padding-bottom:100px;
+}
+}
+
+@media only screen and (max-width: 1199px) {
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(50vh)
+}
+}
+
+@media only screen and (max-width: 1023px) {
+  .homepage-collection-grid-inner .grid-image {
+  height: calc(100vh - 320px);
+}
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(45vh)
+}
+}
+
+@media only screen and (max-width: 860px) {
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(40vh)
+}
+  .homepage-collections-background .collection-grid .homepage-collection-grid-item:not(:last-of-type) {
+            width: calc((100% - 20px) / 2);
+  }
+  .homepage-collections-background .collection-grid .homepage-collection-grid-item:last-of-type {
+            width: 100%;
+  }
+  .homepage-collections-background .collection-grid {
+    flex-direction: row!important;
+    flex-wrap: wrap;
+    justify-content: space-between!important;
+  }
+  .homepage-collection-grid-inner .grid-item__title{
+  font-size: 20px;
+}
+  .homepage-collections-background .homepage-collection-grid-item:last-of-type .grid-item__title {
+   font-size: 30px;
+}
+  .homepage-collections-background .homepage-collection-grid-item .grid-image {
+  height: calc(120vh);
+}
+  .homepage-collections-background .homepage-collection-grid-item:not(:last-of-type) .grid-image {
+  height: calc(70vh);
+}
+  .grid-area--collection .collection-main-body-inner .grid__item.large--one-third {
+        width: calc(49% - 20px / 2);
+        padding-bottom: 80px;
+    }
+  .footer-interior {
+    flex-direction: column
+  }
+  
+}
+
+@media only screen and (max-width: 475px) {
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(40vh);
+    max-height: 200px;
+}
+  .homepage-collections-background .homepage-collection-grid-item .grid-image {
+  height: calc(80vh);
+    min-height: 580px;
+}
+  .homepage-collections-background .homepage-collection-grid-item:not(:last-of-type) .grid-image {
+  height: calc(35vh);
+    min-height: 280px;
+}
+  .featured-collections-wrapper .wrapper-spacing--v {
+  padding: 10px;
+}
+.homepage-wrapper .wrapper-spacing--v .collection-grid  {
+  gap: 10px!important;
+  justify-content: space-between;
+}
+.homepage-collections-background .collection-grid .homepage-collection-grid-item:not(:last-of-type) {
+            width: calc((100% - 10px) / 2);
+  }
+.dev-all-collections {
+  padding: 40px 20px;
+  padding-bottom:100px;
+}
+      
+   .grid-area--collection .collection-main-body-inner .text-truncate--line {
+     font-size: 13px;
+   }
+  .footer-interior .nav-interior {
+    flex-direction: column
+  }
+}
+
+.ajaxcart__footer{
+  position: absolute;
+  bottom: 10px;width:100%;
+  left: 0;
+  padding: 20px 40px 40px 40px;
+  right: 0;
+}
+ 
+.cart-mini.empty{position: absolute;
+    bottom: 20px;
+    left: 0;
+padding: 0 40px;
+    right: 0;}
+.cart-mini a.btn-continue{padding:16px 0;}
+.cart-mini .btn{
+    display: flex;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+    border-color: transparent;
+  margin-bottom:0px;
+}
+
+.btn.cart__checkout:hover,
+.cart-mini .btn-continue:hover{
+    color: #000!important;
+    background: #fff;
+    border-color: inherit;
+}
+.ajaxcart__footer .grid--full{display:flex;}
+
+/* font css */
+@font-face {
+  font-family: "NeueHelveticaPro57Condensed";
+  src: url('https://cdn.shopify.com/s/files/1/0636/2759/1817/files/font.woff2?v=1719986306') format('woff2');
+}
+a,
+p,
+span,
+body
+{
+   font-family: 'NeueHelveticaPro57Condensed', arial, sans-serif!important; 
+   letter-spacing: 2px;
+} 
+.h1, 
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+  font-family: var(--header-font-stack);
+}
+.drawer__title span:not(.sr-only) {
+    margin: 0px;
+    padding: 40px 40px 15px 40px;
+    font-size: 11px;
+}
+.ajaxcart__subtotal_header p {
+      font-size: 11px;
+    text-align: left;
+    font-weight: 600;
+    margin: 0px;
+}
+.ajaxcart__subtotal {
+      font-size: 11px;
+    text-align: right;
+    font-weight: 600;
+}
+.ajaxcart__footer .cart__shipping{
+  font-size:11px;
+}
+.empty-cart {
+    margin-top: 100px;
+    font-size: 11px;
+}
+.ajaxcart__footer:before {
+    background: linear-gradient(0deg,#000,#d9d9d900 73.78%);
+    content: "";
+    display: block;
+    height: 10px;
+    left: -40px;
+    opacity: .03;
+    position: absolute;
+    top: -10px;
+    width: calc(100% + 80px);
+}
+/* input:invalid {
+   background-color: red;
+}*/
+/* input:invalid {
+   background-color: red;
+}*/
+#ContactForm .input-wrapper:after, #ContactForm .input-wrapper:valid:after {
+   content: none;
+}
+#ContactForm .input-wrapper.js-input-validation-error:after {
+   display: block;
+   width: 100%;
+   color: #d02e2e;
+   font-size: smaller;
+}
+#ContactForm .input-wrapper.js-input-validation-error:nth-of-type(1):after {
+   content:'Please enter a valid first name.';
+}
+#ContactForm .input-wrapper.js-input-validation-error:nth-of-type(2):after {
+   content:'Please enter a valid last name.';
+}
+#ContactForm .input-wrapper.js-input-validation-error:nth-of-type(3):after {
+   content:'Please enter a valid email address.';
+}
+#ContactForm .input-wrapper.js-input-validation-error:nth-of-type(5):after {
+   content:'Please enter a valid message.';
+}
+
+/* 2024-05-27 Paul N. disable shiny button linear-gradient animation on buttons */
+
+.btn-hover-default:after, .btn:not(:disabled):not(.standalone-icon--wrapper):not(.swiper-button-disabled):not(.disabled):not(.btn--secondary):after, .shopify-payment-button__button.shopify-payment-button__button--unbranded:not(.disabled):not(:disabled):after, button.pswp__button:after
+{
+   content: none;
+}
+
+/* Scaling effect to buttons */
+/*
+.btn { background-color: unset !important; }
+.btn:before {  }
+.btn:before {
+  border-radius: 2px;
+  content: "";
+  background-color: var(--primary-btn-bg-color);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+
+  transform: translate(-50%, -50%);
+  transition-duration: 0.8s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.5, 0, 0, 1);
+}
+
+.btn:focus:before, .btn:hover:before {
+   transform: translate(-50%, -50%) scale(.95, .9);
+}
+*/
+
+
+
+/* Logo bottom middle of image banners */
+
+@media (min-width:768px) {
+  .main-content section:first-child + div:before {
+    content: "";
+    display: block;
+    background-image: var(--seperator-logo);
+    background-position: center;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    top: -32px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #collections .main-content section:first-child + div:before, #products .main-content section:first-child + div:before, .template-product .main-content section:first-child + div:before{
+    display:none !important;
+  }
+} 
+
+@media (min-width: 989px) {
+   header.site-header .site-header__wrapper .site-header__wrapper__left { display: none; }
+} 
+
+/* 2024-05-20 Paul N. add menu icon to desktop rightside header icons (mobile menu icon) */
+/* disable media query making nav drawer show on rightside only: @media only screen and (max-width: 767px) */
+
+.mobile-nav-bar-wrapper .mobile-grid--table {
+   display: flex !important;
+   align-items: center !important;
+}
+.grid__item.six-twelfths {
+   margin-right: auto !important;
+}
+.mobile-nav-bar-wrapper .mobile-grid--table .grid__item {
+   width: auto !important;
+   margin-top: 0 !important;
+}
+.grid__item.three-twelfths:has(.hamburger-nav-button) {
+   order: 3;
+   margin-left: 15px !important;
+}
+.js-drawer-open-left .drawer--left {
+    transform: translateX(-350px) !important;
+    left: 100% !important;
+ }
+
+/* Change maximum line length */
+
+.text-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Move icons in header left */
+
+@media screen and (min-width: 768px){
+.site-header__wrapper__right.top-links {
+    margin-right: 65px;
+}
+}
+
+/* Creates a non-clickable gap between header icons */
+
+ .top-links--icon-links {
+    gap: 9.23px;
+}
+.standalone-icon--wrapper:not(.icon-no-padding) {
+    min-width: 35px;
+    min-height: 35px;
+    padding: 9.23px !important;
+} 
+
+/* Change button characteristics */
+
+.btn {
+    padding: 13.2px;
+    font-size: 11px;
+    font-weight: 700;
+    align-items: center;
+    column-gap: 0px;
+    display: inline-block;
+    height: 39.375px;
+    justify-content: center;
+    line-height: 11px;
+    letter-spacing: 1.1px;
+    vertical-align: baseline;
+    transition: all .6s ease;
+    max-height: 39.375px;
+    padding: 0px;
+}
+
+/* Change characteristics of links in the footer */
+
+footer a span {
+  font-size: 12px;
+  font-weight: 505;
+  height: 16px;
+  line-height: 16px;
+  display: inline-block;
+}
+
+/* Padding underneath links in the footer */
+
+.footer-content.nav-link-animated li {
+    padding-bottom: 24px;
+}
+
+/* Change characteristics of headings in the footer */
+
+.h3.footer-header {
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 1rem;
+    margin: 0 0 1.5rem;
+    opacity: .5;
+    display: block;
+    line-height: 16px;
+}
+
+/* Change characteristics of icons in the header */
+
+.standalone-icon--wrapper .pswp__icn, .standalone-icon--wrapper svg {
+    height: 21.5px;
+    width: 21.5px;
+    fill: none;
+    font-size: 12px;
+    display: flex;
+    word-spacing: 0px;
+}
+
+.site-nav--mobile .fa-2x {
+  height: 21.5px;
+  width: 21.5px;
+  font-weight: 500;
+  display: flex;
+  cursor: auto;
+  font-family: "Cooper BT", serif;
+  text-align: left;
+  margin-top: -1px;
+}
+
+.site-nav--mobile {
+  height: 35px;
+}
+
+.top-links ul li {
+  height: 35px;
+}
+
+/* Change footer padding */
+
+.footer-main {
+  padding-top: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.footer-bottom {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Change newsletter signup characteristics */
+
+.input-group-field {
+  color: rgb(255, 255, 255);
+  opacity: 0.7;
+  font-size: 16px;
+  top: 12px;
+  line-height: 15px;
+  padding-bottom: 8px;
+  padding-left: 0px;
+  padding-right: 16px;
+  padding-top: 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Newsletter underline animation */
+
+#newsletter-footer_form .footer-email-input:focus {
+	outline: none;
+}
+#newsletter-footer_form .footer-email-input {
+	border-bottom: 2px solid var(--color-scheme-border-color);
+}
+#newsletter-footer_form .input-group:before {
+	display: none;
+}
+#newsletter-footer_form .input-group:after{
+	position: absolute;
+    bottom: 1px;
+    border-bottom: 1px solid #fff;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    transition: width .8s cubic-bezier(.5,0,0,1);
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#newsletter-footer_form .input-group:focus-within:after {
+    width: calc(100% + 2px);
+}
+#newsletter-footer_form #subscribe{
+	position: absolute;
+	color: #fff;
+    margin: 0;
+    bottom: 2px;
+    right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+#newsletter-footer_form .input-group {
+	width: 60%;
+}
+
+/* Custom padding on header */
+
+.site-header {
+    padding-top: 4px;  
+    padding-bottom: 4px;
+}
+
+/* Change size of line in newsletter signup */
+
+#newsletter-footer_form .input-group {
+    width: 100% !important;
+}
+
+/* Remove blue border on search bar */
+
+#SearchContainer #search-input {
+  outline: none !important;
+}
+
+/* Remove borders on menu pop out */
+
+.mobile-nav__item:after, .mobile-nav.locale--mobile:after, .mobile-nav__logo-title--inner {
+    border: none !important;
+}
+#NavDrawer .mobile-nav-grid-container .mobile-nav--footer {
+    -webkit-box-shadow: unset !important;
+}
+
+/* Search underline animation */
+
+.search-drawer #search-input:focus {
+  outline: none;
+}
+.search-drawer .search-input-group:before {
+  display: none;
+}
+.search-drawer .search-input-group {
+  position: relative;
+}
+.search-drawer .search-input-group:after{
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid #000;
+    content: ""!important;
+    display: block!important;
+    margin: 0 auto;
+    transition: width .8s cubic-bezier(.5,0,0,1);
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.search-drawer .search-input-group:focus-within:after {
+    width: 100%;
+}
+
+/* Change characteristics of text in newletter section */
+
+.rte.footer-article.text-link-animated {
+    font-size: 12px;
+    font-weight: 505;
+}
+
+/* Move button in slideshow up */
+
+.homepage-section-btn-container {
+  margin-bottom: 40px;
+}
+
+/* Change cart drawer size */
+
+.drawer.drawer--right.drawer--cart {
+    width: 550px; 
+    height: auto; 
+}
+
+/* Change padding on collection page */
+
+.collection-wrapper .shopify-section:first-child, .homepage-wrapper .shopify-section:first-child {
+  padding-top: 0px;
+}
+
+/* Remove gray rectangle from menu */
+
+.product--add-to-cart-button:before {
+   background-color: unset !important;
+}
+
+/* Make entries rectangles on customer account pages */
+
+#FirstName.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#LastName.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#Email.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#CreatePassword.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#CustomerEmail.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#CustomerPassword.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+#RecoverEmail.input-full {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+/* Keep rectangles on customer account pages when clicked into */
+
+#FirstName.input-full: focus {
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#LastName.input-full: focus {
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#Email.input-full: focus {
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#CreatePassword.input-full: focus{
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#CustomerEmail.input-full: focus{
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#CustomerPassword.input-full: focus{
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+#RecoverEmail.input-full: focus{
+  border: 1px solid #000000;
+  padding: 10px;
+  outline: none;
+}
+
+/* Move text advert section right */
+
+.text-advert-section {
+  margin-left: 27px;
+}
+
+/* Put space between text advert sections */
+
+.grid__item.large--one-third.medium--one-third {
+  padding-right: 70px;
+}
+
+/* Change size of user entry on pop up */
+
+.email-title ~ span {
+    font-size: 5px;
+}
+
+/* Change line width of description of newsletter in footer */
+
+.rte.footer-article.text-link-animated {
+    max-width: 610px;
+}
+
+/* Change line width and font size of FAQs */
+
+.metafield-rich_text_field {
+  font-size: 14px;
+  max-width: 650px;
+}
+
+/* Move title of FAQs down */
+
+.section-title.text-link-animated {
+  padding-top: 15px;
+}
+
+/* Underline effect on customer account links and "Privacy Policy" */
+
+.footer-article a{
+  display: inline-block!important;
+  vertical-align: bottom;
+}
+.grid__item--customer-accounts .form-vertical a {
+   line-height: 1.39;
+}
+.footer-article a,
+.grid__item--customer-accounts .form-vertical a{
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  animation: none!important;
+  background: none!important;
+}
+.grid__item--customer-accounts .form-vertical .errors a{
+  margin-bottom: -4.5px;
+}
+.footer-article a:before,
+.footer-article a:after,
+.grid__item--customer-accounts .form-vertical a:before,
+.grid__item--customer-accounts .form-vertical a:after{
+    background-color: #000;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.footer-article a:focus:after,
+.footer-article a:hover:after,
+.grid__item--customer-accounts .form-vertical a:focus:after, 
+.grid__item--customer-accounts .form-vertical a:hover:after {
+    animation-name: _link-slide-out_1t4bw_1!important;
+}
+.footer-article a:focus:before,
+.footer-article a:hover:before,
+.grid__item--customer-accounts .form-vertical a:focus:before, 
+.grid__item--customer-accounts .form-vertical a:hover:before {
+    animation-name: _link-slide-in_1t4bw_1!important;
+}
+.footer-article a:focus:before,
+.footer-article a:focus:after,
+.footer-article a:hover:before,
+.footer-article a:hover:after,
+.grid__item--customer-accounts .form-vertical a:focus:before, 
+.grid__item--customer-accounts .form-vertical a:hover:before,
+.grid__item--customer-accounts .form-vertical a:focus:after, 
+.grid__item--customer-accounts .form-vertical a:hover:after {
+    animation-direction: normal!important;
+    animation-duration: .8s!important;
+    animation-fill-mode: forwards!important;
+    animation-timing-function: cubic-bezier(.5,0,0,1)!important;
+}
+.footer-article a:before,
+.grid__item--customer-accounts .form-vertical a:before {
+    transform: translate(-100%);
+}
+.footer-article a:before,
+.footer-article a:after{
+  background-color: #fff!important;
+}
+
+/* Underline effect on "Log in" in the menu */
+
+.mobile-nav #customer_login_link{
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  animation: none!important;
+  background: none!important;
+}
+
+.mobile-nav #customer_login_link:before,
+.mobile-nav #customer_login_link:after{
+    background-color: #000;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.mobile-nav #customer_login_link:focus:after, 
+.mobile-nav #customer_login_link:hover:after {
+    animation-name: _link-slide-out_1t4bw_1!important;
+}
+
+.mobile-nav #customer_login_link:focus:before, 
+.mobile-nav #customer_login_link:hover:before {
+    animation-name: _link-slide-in_1t4bw_1!important;
+}
+.mobile-nav #customer_login_link:focus:before, 
+.mobile-nav #customer_login_link:hover:before,
+.mobile-nav #customer_login_link:focus:after, 
+.mobile-nav #customer_login_link:hover:after {
+    animation-direction: normal!important;
+    animation-duration: .8s!important;
+    animation-fill-mode: forwards!important;
+    animation-timing-function: cubic-bezier(.5,0,0,1)!important;
+}
+.mobile-nav #customer_login_link:before {
+    transform: translate(-100%);
+}
+
+/* Move underline up under "Privacy Policy" */
+
+.footer-article a {
+  line-height: 16px;
+  vertical-align: text-bottom;
+}
+
+/* Remove gray background when menu items are clicked */
+
+.mobile-nav__item a:active, .mobile-nav__item a:focus {
+  background: none !important;
+}
+
+/* Change color of button on homepage */
+
+a.btn.homepage-section-btn {
+    color: black !important;
+}
+a.btn.homepage-section-btn::before {
+    background-color: white !important;
+}
+
+/* Add margin under customer log in page entries */
+
+input.input-full, select.input-full, textarea.input-full {
+  margin-bottom: 30px;
+}
+
+/* Remove message at bottom of contact us page */
+
+.section-contact-form--submit-wrapper [data-spam-detection-disclaimer] {
+  display: none;
+}
+
+/* Change charateristics of company name in footer */
+
+li.nav-link-animated {
+    color: #fff;
+    font-family: "Cooper BT", serif;
+    opacity: .6 !important;
+}
+
+/* .......... login page style didideveloper404 ............ */
+/* #customer_login .field .hidden-label,
+#create_customer .field .hidden-label{
+    position: unset;
+    height: auto;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 8px;
+    line-height: 1;
+    text-align: left;
+    width: 100%;
+}
+#customer_login .field .input-full,
+#create_customer .field .input-full{
+    font-size: 12px;
+    padding: .375rem .875rem;
+    margin-bottom: .875rem;
+}
+#customer_login button.account-section--btn,
+#create_customer button.account-section--btn{
+      margin-top: 2.2rem;
+    height: 38px;
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+}
+#CustomerLoginForm input:not(.btn):focus,
+#RecoverPasswordForm input:not(.btn):focus,
+#create_customer input:not(.btn):focus{
+    border-color: #2563eb;
+    border-width: 1px;
+    border-style: solid;
+} */
+form#customer_login,
+form[action="/account/recover"]{
+  width:100%;
+}
+
+.grid.page-main--wrapper.custom_account_page{
+    width: 100%;
+    max-width: 360px;
+  margin:0 auto;
+}
+
+.custom_account_page .grid__item {
+  /* padding-left:0px; */
+}
+
+.account__btns{
+  display:flex;
+  justify-content:space-between;
+  /* margin-bottom:25px; */
+  padding-left:30px;
+}
+#RecoverPasswordForm{
+  margin-top:25px;
+}
+.account__btns .account__btn {
+    width: 50%;
+    text-align: center;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color-transparent8);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: var(--navigation-font-stack);
+}
+.account__btns .account__btn.active{
+      color: var(--text-color);
+    border-color: var(--text-color);
+}
+.forgot-password--wrapper a {
+    color: var(--text-color-transparent8);
+}
+.forgot-password--wrapper {
+    /* display: block;*/
+    font-size: 12px; 
+    text-align: left;
+  margin-bottom:1.5rem;
+}
+#customer_login #CustomerPassword{
+  margin-bottom:25px;
+}
+.forgot-password--wrapper a {
+    color: var(--text-color-transparent8);
+}
+/* .custom-login-error-message{
+    color: rgb(236, 113, 107);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    position: relative;
+    left: 0;
+    top: -12px;
+    display: block;
+    text-align: left;
+} */
+.custom_account_page .register-link--wrapper{
+  display:none;
+}
+.custom_account_page .field input {
+    color: #a2a2a2;
+}
+@media(min-width:750px){
+  .field__group {
+    /* display: grid; */
+    grid-template-columns: repeat(1,1fr);
+    /* column-gap: 10px; */
+}
+}
+/* .......... login page style didideveloper404 ............ */
+
+
+/* Adding new font */
+
+body, 
+h1, h2, h3, h4, h5, h6, 
+p, 
+a, 
+span, 
+li, 
+ul, 
+ol, 
+div, 
+input, 
+button, 
+textarea {
+  font-family: 'HelveticaNeueLTPro-Cn', arial, sans-serif;
+}
+
+
+
+
+
+
+
+  #account .footer-wrapper.fix-to-bottom,#create-account .footer-wrapper.fix-to-bottom{
+    position: relative !important;
+  }
+  #account,#create-account {
+display: block !important;
+    overflow: inherit !important;
+  }
+.register-page,.login-page {
+    padding: 10% 0 150px 0;
+}
+    @media only screen and (max-width:767px)  {
+    .register-page .container,.login-page .container {
+    width: 100%!important;
+    padding: 0 15px!important;
+}
+    }
+.continue-shop {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 15px 30px;
+    border: 2px solid grey;
+    cursor: pointer;
+    text-decoration: none;
+   max-width: 300px;
+  width: 100%;     
+  border-radius:4px;
+}
+.cart-btn .btn{
+    display: block;
+    color: black;
+    border: 2px solid;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+.cart-btn{max-width: 280px;margin-left: auto;}
+.cart-btn .btn-checkout{background: black !important; color: #fff; border: 2px solid #000; } 
+
+
+/* dev  */
+/* dev  */
+/* dev  */
+
+@font-face {
+  font-family: zap;
+  src: url(https://cdn.shopify.com/s/files/1/0636/2759/1817/files/ZapfHumanist601BT-Roman_1.otf?v=1719955407);
+}
+
+.dev-all-collections {
+  padding: 50px;
+  padding-bottom:100px;
+}
+
+.featured-collections-wrapper .wrapper-spacing--v {
+  padding: 20px;
+}
+.homepage-wrapper .wrapper-spacing--v .collection-grid  {
+  gap: 20px!important;
+  justify-content: space-between;
+}
+
+.homepage-wrapper .wrapper-spacing--v .collection-grid  .homepage-collection-grid-item  {
+          width: calc((100% - 20px* 2) / 3);
+}
+
+.homepage-collection-grid-inner .grid-image {
+  height: 100vh;
+}
+
+
+.homepage-collection-grid-inner .grid-item__title{
+  font-size: 60px;
+  font-family: zap, sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.homepage-collection-grid-inner .grid-image svg,
+.homepage-collection-grid-inner .grid-image img{
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(100vh - 70px)
+}
+.grid-area--collection .collection-main-body-inner .grid-view-item .grid-view-item-image  {
+  height: 100%;
+}
+.grid-area--collection .collection-main-body-inner .grid-view-item .grid-view-item-image .product-card-image--bottom-wrapper  {
+  position: relative;
+  z-index: -1;
+}
+
+.grid-area--collection .collection-main-body-inner .grid-view-item .grid-view-item-image *  {
+  height: 100%;
+}
+
+.grid-area--collection .collection-main-body-inner .product-grid--vendor {
+     font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+   }
+.grid-area--collection .collection-main-body-inner .product-grid--price {
+     font-size: 12px;
+   }
+
+@media only screen and (max-width: 1550px) {
+  .homepage-collection-grid-inner .grid-image {
+  height: calc(100vh - 125px);
+}
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(70vh)
+}
+  .grid-area--collection .collection-main-body-inner {
+        column-gap: 20px;
+    }
+  .grid-area--collection .collection-main-body-inner .grid__item.large--one-third {
+        width: calc(33.3333333333% - 2 * 20px / 3);
+    }
+}
+
+@media only screen and (max-width: 1359px) {
+  .homepage-collection-grid-inner .grid-image {
+  height: calc(100vh - 200px);
+}
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(60vh)
+}
+  .homepage-collection-grid-inner .grid-item__title{
+  font-size: 33px;
+}
+  .dev-all-collections {
+  padding: 20px;
+  padding-bottom:100px;
+}
+}
+
+@media only screen and (max-width: 1199px) {
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(50vh)
+}
+}
+
+@media only screen and (max-width: 1023px) {
+  .homepage-collection-grid-inner .grid-image {
+  height: calc(100vh - 320px);
+}
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(45vh)
+}
+}
+
+@media only screen and (max-width: 860px) {
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(40vh)
+}
+  .homepage-collections-background .collection-grid .homepage-collection-grid-item:not(:last-of-type) {
+            width: calc((100% - 20px) / 2);
+  }
+  .homepage-collections-background .collection-grid .homepage-collection-grid-item:last-of-type {
+            width: 100%;
+  }
+  .homepage-collections-background .collection-grid {
+    flex-direction: row!important;
+    flex-wrap: wrap;
+    justify-content: space-between!important;
+  }
+  .homepage-collection-grid-inner .grid-item__title{
+  font-size: 20px;
+}
+  .homepage-collections-background .homepage-collection-grid-item:last-of-type .grid-item__title {
+   font-size: 30px;
+}
+  .homepage-collections-background .homepage-collection-grid-item .grid-image {
+  height: calc(120vh);
+}
+  .homepage-collections-background .homepage-collection-grid-item:not(:last-of-type) .grid-image {
+  height: calc(70vh);
+}
+  .grid-area--collection .collection-main-body-inner .grid__item.large--one-third {
+        width: calc(49% - 20px / 2);
+        padding-bottom: 80px;
+    }
+  .footer-interior {
+    flex-direction: column
+  }
+  
+}
+
+@media only screen and (max-width: 475px) {
+  .grid-area--collection .collection-main-body-inner .grid-view-item  {
+  height: calc(40vh);
+    max-height: 200px;
+}
+  .homepage-collections-background .homepage-collection-grid-item .grid-image {
+  height: calc(80vh);
+    min-height: 580px;
+}
+  .homepage-collections-background .homepage-collection-grid-item:not(:last-of-type) .grid-image {
+  height: calc(35vh);
+    min-height: 280px;
+}
+  .featured-collections-wrapper .wrapper-spacing--v {
+  padding: 10px;
+}
+.homepage-wrapper .wrapper-spacing--v .collection-grid  {
+  gap: 10px!important;
+  justify-content: space-between;
+}
+.homepage-collections-background .collection-grid .homepage-collection-grid-item:not(:last-of-type) {
+            width: calc((100% - 10px) / 2);
+  }
+.dev-all-collections {
+  padding: 40px 20px;
+  padding-bottom:100px;
+}
+      
+   .grid-area--collection .collection-main-body-inner .text-truncate--line {
+     font-size: 13px;
+   }
+  .footer-interior .nav-interior {
+    flex-direction: column
+  }
+}
+ 
+.cart-mini.empty{position: absolute;
+    bottom: 20px;
+    left: 0;
+padding: 0 40px;
+    right: 0;}
+.cart-mini a.btn-continue{padding:16px 0;}
+.cart-mini .btn{
+    display: flex;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+    border-color: transparent;
+}
+
+.btn.cart__checkout:hover,
+.cart-mini .btn-continue:hover{
+    color: #000!important;
+    background: #fff;
+    border-color: inherit;
+}
+.ajaxcart__footer .grid--full{display:flex;}
+
+/* font css */
+@font-face {
+  font-family: "NeueHelveticaPro57Condensed";
+  src: url('https://cdn.shopify.com/s/files/1/0636/2759/1817/files/font.woff2?v=1719986306') format('woff2');
+}
+a,
+p,
+span,
+body
+{
+   font-family: 'NeueHelveticaPro57Condensed', arial, sans-serif!important;
+   letter-spacing: 2px;
+} 
+.h1, 
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+  font-family: var(--header-font-stack);
+}
+.footer-menu a{
+  background: unset !important;
+  background-size: unset !important;
+  text-decoration: unset !important;
+  font-weight: 400;
+}
+.footer-menu a:hover {
+  text-decoration: unset;
+  opacity: 0.7;
+}
+@media (min-width: 768px) {
+    .footer-menu ul {
+       column-gap: 15px;
+    }
+    .footer-menu li {
+      margin-right: 5px;
+    }
+    .footer-container .email-container input {
+      font-weight: 400;
+    }
+}  
+.drawer__title span:not(.sr-only) {
+    margin: 0px;
+    padding: 40px 40px 15px 40px;
+    font-size: 11px;
+}
+
+.email-signup p {
+  /* font-family: "Optima nova", "sans-serif" !important; */
+}
+
+.email-signup .email-container input {
+      font-family: "NeueHelveticaPro57Condensed", "arial", "sans-serif" !important;
+}
+
+
+
+
+
+
+
+#return-policy .width--narrow,#legal .width--narrow  {
+    max-width: 960px !important;
+}
+#return-policy p,#legal p{
+    letter-spacing: 2px;
+    font-size: 11px;
+    line-height: 2.5;
+    color: #4c4c4c;
+}
+#return-policy p strong,#legal p strong {
+    color: #000;
+    font-size: 11px;
+}
+
+  @media only screen and (max-width:767px){
+    #return-policy .width--narrow,#legal .width--narrow  {
+    max-width: 100% !important;
+      padding: 0 15px;
+}
+   #return-policy footer,#legal footer{
+    background-color: #ffffff;
+    padding: 8.2px 0;
+    overflow: hidden;
+}
+  }
+/* ..........digidevelopers404@gmail.com start........... */
+.ajaxcart__product .grid__item.grid__item_image {
+    width: 100%;
+    max-width: 130px;
+}
+.ajaxcart__product .grid__item.grid__item_content {
+    width: 100%;
+    max-width: calc(100% - 130px);
+    text-align: left;
+    padding-left: 10px;
+}
+.ajaxcart__product .grid__item.grid__item_image a {
+    margin: 0px;
+}
+.ajaxcart__product .title_price_element {
+    display: flex;
+    justify-content: space-between;
+}
+
+.grid__item_content .ajaxcart__product-name {
+    font-size: 12px;
+    padding: 0;
+    text-align: left;
+    font-weight: 700;
+    font-family:"Optima nova", "sans-serif"!important;
+}
+
+.title_price_element p {
+    margin: 0px 0px 0px 0;
+}
+
+.price_-remove span.ajaxcart-item__price {
+    font-size: 12px;
+    line-height: initial;
+  font-family:"Optima nova", "sans-serif"!important;
+}
+.ajax__price{
+  display:flex;
+}
+#CartContainer .ajaxcart__product .price_-remove button.ajaxcart__qty-remove {
+    font-size: 12px;
+    margin: 0px;
+    min-height: unset;
+    line-height: initial;
+    text-transform: capitalize;
+  font-family:"Optima nova", "sans-serif"!important;
+}
+.item_quantity {
+    display: flex;
+    align-items: center;
+    line-height: initial;
+    font-size: 12px;
+  font-family:"Optima nova", "sans-serif"!important;
+}
+.ajaxcart__product:not(:first-of-type):before{
+display:none;
+}
+.ajaxcart__product .ajaxcart__row {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+/* ..........digidevelopers404@gmail.com end........... */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ul.menus {
+    list-style: none;
+    position: absolute;
+    top: 14%;
+    right: 7%;
+        text-align: right;
+}
+ul.menus li{
+  margin-bottom: 0 !important;
+}
+   ul.menus a {
+    font-size: 10px;
+    font-weight: 400;
+    opacity: .8;
+    letter-spacing: .1em;
+    color: #000;
+    text-decoration: none !important;
+    border: 0;
+     background: transparent !important
+}
+@media (min-width: 1400px) and (max-width: 1599px){
+  #return-policy .width--narrow, #legal .width--narrow {
+    max-width: 700px !important;
+}
+  ul.menus {
+    top: 17%;
+    right: 5%;
+}
+}
+  @media (min-width: 1200px) and (max-width: 1399px){
+      #return-policy .width--narrow, #legal .width--narrow {
+    max-width: 700px !important;
+}
+  ul.menus {
+    top: 17%;
+    right: 5%;
+}
+  }
+  @media (min-width: 992px) and (max-width: 1199px){
+          #return-policy .width--narrow, #legal .width--narrow {
+    max-width: 650px !important;
+}
+  ul.menus {
+    top: 17%;
+    right: 5%;
+}
+  }
+  @media (min-width: 768px) and (max-width: 991px){
+      ul.menus {
+    list-style: none;
+    position: relative;
+    top: inherit;
+    right: inherit;
+        text-align: center;
+}
+          ul.menus li{
+display: inline-block;
+            padding: 0 7px;
+                    margin-left: 0;
+}
+  }
+      @media only screen and (max-width:767px){
+              ul.menus {
+    list-style: none;
+    position: relative;
+    top: inherit;
+    right: inherit;
+        text-align: center;
+}
+          ul.menus li{
+display: inline-block;
+            padding: 0 7px;
+                    margin-left: 0;
+}
+      }
+.footer-container .footer-menu ul{
+  margin-bottom:0px;
+}
+.footer-container .footer-menu ul li{
+  margin-bottom:0px;
+  line-height:initial;
+}
+footer .footer-container{
+  align-items:flex-end;
+}
+a.site-header__logo-link,
+a.site-header__logo-overlay-link{
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    font-family: "Optima nova", sans-serif!important;
+}
+.hidden-img {
+  opacity:0;
+}
+.hidden-img:hover {
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out 0s;
+}
+
+product-recommendations .section-title--wrapper {
+   margin-bottom: 15px !important;
+}

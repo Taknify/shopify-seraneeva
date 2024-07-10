@@ -1,0 +1,4 @@
+/* Custom CSS to remove underline from footer links */
+.footer a {
+    text-decoration: none;
+}

@@ -59,26 +59,15 @@ section.settings.show_currency_selector %}
 <ul class="site-header__links top-links--icon-links">
   <li>
     <a id="search_modal_btn" class="standalone-icon--wrapper" aria-label="{{ 'layout.header.search' | t }}">
-      {% if section.settings.show_icons %}
-
+     
       <div class="search_box_wrapper">
         <div id="search-button" class="search_text_wrapper">
           {% render 'theme-icon' with icon: 'search', iconSize: 20 %}
         </div>
 
       </div>
-      {% else %}     
-        <li>
-          <a href="{{ routes.account_login_url }}" aria-label="{{ 'layout.customer.log_in' | t }}" class="log-in-button standalone-icon--wrapper">
-            {% if section.settings.show_icons %}
-              {% render 'theme-icon' with icon: 'user', iconSize: 20 %}
-            {% else %}
-              <span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>
-            {% endif %}
-          </a>
-        </li>
-    {% endif %}
-         
+
+  </li>      
      <li class="li-acount-btn">
           <a href="/account/login" title="{{ 'layout.customer.account' | t }}" class="account-button standalone-icon--wrapper" id="drawer-toggle"  aria-label="Open Menu">
             {% if section.settings.show_icons %}
